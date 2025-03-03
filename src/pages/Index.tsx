@@ -57,8 +57,8 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cookme-600">Our Featured Recipes</h2>
-              <p className="text-lg text-foreground/70 max-w-2xl">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cookme-600 font-display tracking-tight">Our Featured Recipes</h2>
+              <p className="text-lg text-foreground/70 max-w-2xl font-light">
                 Discover our most popular authentic Sri Lankan dishes, each with pre-measured ingredients and step-by-step instructions.
               </p>
             </div>
@@ -77,8 +77,8 @@ const Index = () => {
       <section className="py-20 bg-gradient-to-r from-cookme-50 to-white relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cookme-600">From Farm to Your Doorstep</h2>
-            <p className="text-lg text-foreground/70 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cookme-600 font-display tracking-tight">From Farm to Your Doorstep</h2>
+            <p className="text-lg text-foreground/70 mb-6 font-light">
               We partner directly with local Sri Lankan farmers to bring you the freshest, most authentic ingredients while supporting sustainable farming practices.
             </p>
             <Link to="/sustainability">
@@ -102,8 +102,8 @@ const Index = () => {
       
       <section className="py-16 bg-gradient-to-r from-cookme-600 to-cookme-700 text-white text-center">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display tracking-tight">Ready to Get Started?</h2>
+          <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8 font-light">
             Join thousands of Sri Lankan food enthusiasts who are already enjoying our authentic meal kits delivered to their doorstep.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
