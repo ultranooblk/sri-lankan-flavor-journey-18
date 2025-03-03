@@ -54,10 +54,10 @@ const SubscriptionPlans = () => {
   const price = calculatePrice();
 
   return (
-    <section className="py-20 bg-gradient-to-br from-white via-white to-cookme-50">
+    <section className="py-20 bg-gradient-to-br from-white via-white to-hellofresh-50">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cookme-600">Customize Your Plan</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-hellofresh-700">Customize Your Plan</h2>
           <p className="text-lg text-foreground/70">
             Build your perfect meal plan by selecting portions, frequency, and number of recipes.
           </p>
@@ -68,7 +68,7 @@ const SubscriptionPlans = () => {
             {/* Portion Selection */}
             <div>
               <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <Users className="mr-2 h-5 w-5 text-cookme-500" />
+                <Users className="mr-2 h-5 w-5 text-hellofresh-500" />
                 How many people are you cooking for?
               </h3>
               <div className="grid grid-cols-3 gap-4">
@@ -78,8 +78,8 @@ const SubscriptionPlans = () => {
                     className={cn(
                       "flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all",
                       selections.portions === option
-                        ? "border-cookme-500 bg-cookme-50 text-cookme-700"
-                        : "border-border hover:border-cookme-300"
+                        ? "border-hellofresh-500 bg-hellofresh-50 text-hellofresh-700"
+                        : "border-border hover:border-hellofresh-300"
                     )}
                     onClick={() => handlePortionChange(option)}
                   >
@@ -93,7 +93,7 @@ const SubscriptionPlans = () => {
             {/* Delivery Frequency */}
             <div>
               <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <Calendar className="mr-2 h-5 w-5 text-cookme-500" />
+                <Calendar className="mr-2 h-5 w-5 text-hellofresh-500" />
                 How often would you like deliveries?
               </h3>
               <div className="grid grid-cols-3 gap-4">
@@ -107,8 +107,8 @@ const SubscriptionPlans = () => {
                     className={cn(
                       "flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all",
                       selections.frequency === option.value
-                        ? "border-cookme-500 bg-cookme-50 text-cookme-700"
-                        : "border-border hover:border-cookme-300"
+                        ? "border-hellofresh-500 bg-hellofresh-50 text-hellofresh-700"
+                        : "border-border hover:border-hellofresh-300"
                     )}
                     onClick={() => handleFrequencyChange(option.value as any)}
                   >
@@ -124,7 +124,7 @@ const SubscriptionPlans = () => {
             {/* Recipes per Delivery */}
             <div>
               <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <Package className="mr-2 h-5 w-5 text-cookme-500" />
+                <Package className="mr-2 h-5 w-5 text-hellofresh-500" />
                 How many recipes per delivery?
               </h3>
               <div className="grid grid-cols-3 gap-4">
@@ -134,8 +134,8 @@ const SubscriptionPlans = () => {
                     className={cn(
                       "flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all",
                       selections.recipes === option
-                        ? "border-cookme-500 bg-cookme-50 text-cookme-700"
-                        : "border-border hover:border-cookme-300"
+                        ? "border-hellofresh-500 bg-hellofresh-50 text-hellofresh-700"
+                        : "border-border hover:border-hellofresh-300"
                     )}
                     onClick={() => handleRecipesChange(option)}
                   >
@@ -147,43 +147,43 @@ const SubscriptionPlans = () => {
             </div>
             
             {/* Summary and Pricing */}
-            <div className="bg-gradient-to-r from-cookme-50 to-white p-6 rounded-xl border border-cookme-100">
+            <div className="bg-gradient-to-r from-hellofresh-50 to-white p-6 rounded-xl border border-hellofresh-100">
               <div className="flex flex-col md:flex-row justify-between items-center">
                 <div>
-                  <h3 className="text-xl font-bold text-cookme-700 mb-2">Your Customized Plan</h3>
+                  <h3 className="text-xl font-bold text-hellofresh-700 mb-2">Your Customized Plan</h3>
                   <ul className="space-y-1 mb-4 md:mb-0">
                     <li className="flex items-center">
-                      <Check className="h-4 w-4 text-cookme-500 mr-2" />
+                      <Check className="h-4 w-4 text-hellofresh-500 mr-2" />
                       <span>{selections.portions} portions per meal</span>
                     </li>
                     <li className="flex items-center">
-                      <Check className="h-4 w-4 text-cookme-500 mr-2" />
+                      <Check className="h-4 w-4 text-hellofresh-500 mr-2" />
                       <span>{selections.recipes} recipes per delivery</span>
                     </li>
                     <li className="flex items-center">
-                      <Check className="h-4 w-4 text-cookme-500 mr-2" />
+                      <Check className="h-4 w-4 text-hellofresh-500 mr-2" />
                       <span>{selections.frequency === 'weekly' ? 'Weekly' : selections.frequency === 'bi-weekly' ? 'Bi-weekly' : 'Monthly'} delivery</span>
                     </li>
                     <li className="flex items-center">
-                      <Check className="h-4 w-4 text-cookme-500 mr-2" />
+                      <Check className="h-4 w-4 text-hellofresh-500 mr-2" />
                       <span>Free delivery</span>
                     </li>
                   </ul>
                 </div>
                 
                 <div className="text-center md:text-right">
-                  <div className="text-spice-500 mb-1">
-                    {selections.frequency === 'bi-weekly' && <span className="text-xs font-semibold px-2 py-1 bg-spice-50 rounded-full">5% OFF</span>}
-                    {selections.frequency === 'monthly' && <span className="text-xs font-semibold px-2 py-1 bg-spice-50 rounded-full">10% OFF</span>}
+                  <div className="text-hforange-500 mb-1">
+                    {selections.frequency === 'bi-weekly' && <span className="text-xs font-semibold px-2 py-1 bg-hellofresh-50 rounded-full">5% OFF</span>}
+                    {selections.frequency === 'monthly' && <span className="text-xs font-semibold px-2 py-1 bg-hellofresh-50 rounded-full">10% OFF</span>}
                   </div>
                   <div className="flex items-baseline justify-center md:justify-end">
-                    <span className="text-3xl font-bold text-cookme-700">LKR {price}</span>
+                    <span className="text-3xl font-bold text-hellofresh-700">LKR {price}</span>
                     <span className="text-sm text-foreground/70 ml-1">
                       /delivery
                     </span>
                   </div>
                   <div className="mt-4">
-                    <Button className="bg-cookme-500 hover:bg-cookme-600 text-white w-full md:w-auto">
+                    <Button className="bg-hellofresh-500 hover:bg-hellofresh-600 text-white w-full md:w-auto">
                       Subscribe Now
                     </Button>
                   </div>
@@ -195,7 +195,7 @@ const SubscriptionPlans = () => {
 
         <div className="mt-12 text-center">
           <p className="flex items-center justify-center text-sm text-foreground/70">
-            <Info className="h-4 w-4 mr-2 text-cookme-500" />
+            <Info className="h-4 w-4 mr-2 text-hellofresh-500" />
             All plans include the option to customize your meal preferences and dietary restrictions.
           </p>
         </div>

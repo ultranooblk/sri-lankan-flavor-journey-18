@@ -67,7 +67,7 @@ const RecipeCard = ({
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
           <h3 className="font-display text-lg font-medium line-clamp-1">
-            <Link to={`/recipes/${id}`} className="hover:text-cookme-500 transition-colors">
+            <Link to={`/recipes/${id}`} className="hover:text-hellofresh-500 transition-colors">
               {title}
             </Link>
           </h3>
@@ -100,7 +100,7 @@ const RecipeCard = ({
           <Button 
             variant="ghost" 
             size="sm" 
-            className="text-cookme-500 hover:text-cookme-600 hover:bg-cookme-50"
+            className="text-hellofresh-500 hover:text-hellofresh-600 hover:bg-hellofresh-50"
           >
             Add to Cart
           </Button>

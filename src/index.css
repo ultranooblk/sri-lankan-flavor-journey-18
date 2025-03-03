@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -138,28 +139,28 @@
 }
 
 .spice-indicator span {
-  @apply w-2 h-2 rounded-full bg-spice-200;
+  @apply w-2 h-2 rounded-full bg-hellofresh-200;
   transition: background-color 0.3s ease;
 }
 
 .spice-indicator.level-1 span:nth-child(1) {
-  @apply bg-spice-500;
+  @apply bg-hellofresh-500;
 }
 
 .spice-indicator.level-2 span:nth-child(-n+2) {
-  @apply bg-spice-500;
+  @apply bg-hellofresh-500;
 }
 
 .spice-indicator.level-3 span:nth-child(-n+3) {
-  @apply bg-spice-500;
+  @apply bg-hellofresh-500;
 }
 
 .spice-indicator.level-4 span:nth-child(-n+4) {
-  @apply bg-spice-500;
+  @apply bg-hellofresh-500;
 }
 
 .spice-indicator.level-5 span {
-  @apply bg-spice-500;
+  @apply bg-hellofresh-500;
 }
 
 /* Center-aligned layout utilities */
