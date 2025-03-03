@@ -139,28 +139,28 @@
 }
 
 .spice-indicator span {
-  @apply w-2 h-2 rounded-full bg-hellofresh-200;
+  @apply w-2 h-2 rounded-full bg-hellofresh-200 dark:bg-hellofresh-200/50;
   transition: background-color 0.3s ease;
 }
 
 .spice-indicator.level-1 span:nth-child(1) {
-  @apply bg-hellofresh-500;
+  @apply bg-hellofresh-500 dark:bg-hellofresh-400;
 }
 
 .spice-indicator.level-2 span:nth-child(-n+2) {
-  @apply bg-hellofresh-500;
+  @apply bg-hellofresh-500 dark:bg-hellofresh-400;
 }
 
 .spice-indicator.level-3 span:nth-child(-n+3) {
-  @apply bg-hellofresh-500;
+  @apply bg-hellofresh-500 dark:bg-hellofresh-400;
 }
 
 .spice-indicator.level-4 span:nth-child(-n+4) {
-  @apply bg-hellofresh-500;
+  @apply bg-hellofresh-500 dark:bg-hellofresh-400;
 }
 
 .spice-indicator.level-5 span {
-  @apply bg-hellofresh-500;
+  @apply bg-hellofresh-500 dark:bg-hellofresh-400;
 }
 
 /* Center-aligned layout utilities */

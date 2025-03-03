@@ -15,7 +15,7 @@ const Footer = () => {
               <div className="relative flex h-10 w-10 overflow-hidden rounded-full bg-cookme-500 items-center justify-center">
                 <span className="text-white font-display text-lg">CM</span>
               </div>
-              <span className="font-display text-xl font-semibold tracking-tight dark:text-white">Cook Me</span>
+              <span className="font-display text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Cook Me</span>
             </div>
             <p className="text-gray-600 dark:text-gray-300 text-sm">
               Bringing authentic Sri Lankan flavors to your kitchen with fresh, pre-portioned ingredients and easy-to-follow recipes.
@@ -38,7 +38,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-display text-lg font-medium dark:text-white">Quick Links</h3>
+            <h3 className="font-display text-lg font-medium text-gray-900 dark:text-white">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-600 dark:text-gray-300 hover:text-cookme-500 dark:hover:text-cookme-400 transition-colors text-sm">
@@ -70,7 +70,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="font-display text-lg font-medium dark:text-white">Contact Us</h3>
+            <h3 className="font-display text-lg font-medium text-gray-900 dark:text-white">Contact Us</h3>
             <ul className="space-y-2">
               <li className="flex items-center text-sm text-gray-600 dark:text-gray-300">
                 <Mail className="h-4 w-4 mr-2 text-cookme-500 dark:text-cookme-400" />
@@ -90,7 +90,7 @@ const Footer = () => {
               </li>
             </ul>
             <div className="pt-2">
-              <Button variant="outline" className="border-gray-200 dark:border-gray-700 hover:border-cookme-500 hover:text-cookme-500 dark:hover:border-cookme-400 dark:hover:text-cookme-400 dark:text-gray-300">
+              <Button variant="outline" className="border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-cookme-500 hover:text-cookme-500 dark:hover:border-cookme-400 dark:hover:text-cookme-400">
                 Contact Support
               </Button>
             </div>
@@ -98,7 +98,7 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div className="space-y-4">
-            <h3 className="font-display text-lg font-medium dark:text-white">Stay Updated</h3>
+            <h3 className="font-display text-lg font-medium text-gray-900 dark:text-white">Stay Updated</h3>
             <p className="text-gray-600 dark:text-gray-300 text-sm">
               Subscribe to our newsletter for exclusive recipes, offers, and updates.
             </p>
@@ -106,9 +106,9 @@ const Footer = () => {
               <Input 
                 type="email" 
                 placeholder="Your email" 
-                className="rounded-r-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300" 
+                className="rounded-r-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-cookme-500" 
               />
-              <Button className="rounded-l-none bg-cookme-500 hover:bg-cookme-600 dark:bg-cookme-600 dark:hover:bg-cookme-700">
+              <Button className="rounded-l-none bg-cookme-500 hover:bg-cookme-600 dark:bg-cookme-600 dark:hover:bg-cookme-700 text-white">
                 Subscribe
               </Button>
             </div>

@@ -57,7 +57,7 @@ const Index = () => {
         <div className="section-container">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12">
             <div className="text-center md:text-left mb-6 md:mb-0">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Our Featured Recipes</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Our Featured Recipes</h2>
               <p className="text-lg text-foreground/70 max-w-2xl font-light">
                 Discover our most popular authentic Sri Lankan dishes, each with pre-measured ingredients and step-by-step instructions.
               </p>
@@ -74,19 +74,19 @@ const Index = () => {
         </div>
       </section>
       
-      <section className="section bg-muted/50 relative overflow-hidden">
+      <section className="section bg-muted/50 dark:bg-background/30 relative overflow-hidden">
         <div className="section-container relative z-10">
           <div className="md:max-w-lg lg:max-w-2xl">
             <div className="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-primary/10 text-primary">
               <Leaf className="h-3 w-3 mr-1" />
               <span>Sustainable Sourcing</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">From Farm to Your Doorstep</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">From Farm to Your Doorstep</h2>
             <p className="text-lg text-foreground/70 mb-6 font-light">
               We partner directly with local Sri Lankan farmers to bring you the freshest, most authentic ingredients while supporting sustainable farming practices.
             </p>
             <Link to="/sustainability">
-              <Button className="bg-primary hover:bg-primary/90 text-white">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 Learn About Our Impact
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
@@ -104,17 +104,17 @@ const Index = () => {
       
       <SubscriptionPlans />
       
-      <section className="py-16 bg-hellofresh-500 text-white text-center">
+      <section className="py-16 bg-hellofresh-500 dark:bg-hellofresh-700 text-white text-center">
         <div className="section-container">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display tracking-tight">Ready to Get Started?</h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8 font-light">
             Join thousands of Sri Lankan food enthusiasts who are already enjoying our authentic meal kits delivered to their doorstep.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="bg-white text-hellofresh-500 hover:bg-hellofresh-50" size="lg">
+            <Button className="bg-white text-hellofresh-500 hover:bg-hellofresh-50 dark:hover:bg-white/90" size="lg">
               Browse Recipes
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-hellofresh-600" size="lg">
+            <Button variant="outline" className="border-white text-white hover:bg-hellofresh-600 dark:hover:bg-hellofresh-600/80" size="lg">
               View Subscription Plans
             </Button>
           </div>

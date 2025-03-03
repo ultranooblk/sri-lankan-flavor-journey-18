@@ -8,11 +8,11 @@ const About = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-hellofresh-50">
+      <section className="py-16 md:py-24 bg-muted/50 dark:bg-background/30">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Story</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Our Story</h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
             At Cook Me, we're passionate about bringing the authentic flavors of Sri Lanka
             to your kitchen, making it easy to prepare delicious meals at home.
@@ -21,11 +21,11 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-background">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-hellofresh-500">Our Mission</h2>
+              <h2 className="text-3xl font-bold mb-6 text-primary">Our Mission</h2>
               <p className="text-lg text-foreground/70 mb-6">
                 We believe everyone should be able to enjoy authentic Sri Lankan cuisine, 
                 regardless of their cooking experience. Our mission is to provide 
@@ -50,36 +50,36 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-hellofresh-50">
+      <section className="py-16 bg-muted/50 dark:bg-background/30">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Values</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-foreground">Our Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="h-12 w-12 rounded-lg bg-hellofresh-100 flex items-center justify-center text-hellofresh-500 mb-4">
+            <div className="bg-card p-8 rounded-xl shadow-sm border border-border">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <Leaf className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Sustainability</h3>
-              <p className="text-foreground/70">
+              <h3 className="text-xl font-semibold mb-4 text-card-foreground">Sustainability</h3>
+              <p className="text-card-foreground/70">
                 We work directly with local farmers to reduce our carbon footprint and 
                 use eco-friendly packaging to minimize waste.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="h-12 w-12 rounded-lg bg-hellofresh-100 flex items-center justify-center text-hellofresh-500 mb-4">
+            <div className="bg-card p-8 rounded-xl shadow-sm border border-border">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <Heart className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Authenticity</h3>
-              <p className="text-foreground/70">
+              <h3 className="text-xl font-semibold mb-4 text-card-foreground">Authenticity</h3>
+              <p className="text-card-foreground/70">
                 Every recipe stays true to traditional Sri Lankan flavors while making 
                 adaptations that work for modern home kitchens.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <div className="h-12 w-12 rounded-lg bg-hellofresh-100 flex items-center justify-center text-hellofresh-500 mb-4">
+            <div className="bg-card p-8 rounded-xl shadow-sm border border-border">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <Users className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Community</h3>
-              <p className="text-foreground/70">
+              <h3 className="text-xl font-semibold mb-4 text-card-foreground">Community</h3>
+              <p className="text-card-foreground/70">
                 We support the livelihoods of Sri Lankan farmers and create a community 
                 of food lovers who share our passion for authentic cuisine.
               </p>
@@ -89,9 +89,9 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-background">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Meet Our Team</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-foreground">Meet Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map((member) => (
               <div key={member} className="text-center">
@@ -102,8 +102,8 @@ const About = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold mb-1">Team Member {member}</h3>
-                <p className="text-hellofresh-500 mb-3">Co-Founder</p>
+                <h3 className="text-xl font-semibold mb-1 text-foreground">Team Member {member}</h3>
+                <p className="text-primary mb-3">Co-Founder</p>
                 <p className="text-foreground/70 max-w-md mx-auto">
                   Passionate about sharing the authentic flavors of Sri Lanka with the world.
                 </p>
