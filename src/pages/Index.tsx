@@ -28,7 +28,7 @@ const featuredRecipes = [
     servings: '2',
     spiceLevel: 2,
     tags: ['Vegetarian', 'Breakfast'],
-    description: 'Delicious coconut flatbread served with a spicy coconut relish that's bursting with flavor.',
+    description: "Delicious coconut flatbread served with a spicy coconut relish that's bursting with flavor.",
   },
   {
     id: '3',
