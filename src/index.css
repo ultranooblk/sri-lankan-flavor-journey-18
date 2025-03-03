@@ -49,32 +49,32 @@
 
   .dark {
     --background: 126 30% 10%;
-    --foreground: 126 10% 90%;
+    --foreground: 126 10% 95%; /* Improved foreground contrast for dark mode */
 
     --card: 126 25% 12%;
-    --card-foreground: 126 10% 90%;
+    --card-foreground: 126 10% 95%; /* Improved card text contrast */
 
     --popover: 126 25% 12%;
-    --popover-foreground: 126 10% 90%;
+    --popover-foreground: 126 10% 95%; /* Improved popover text contrast */
 
-    --primary: 97 67% 44%;
+    --primary: 97 50% 55%; /* Brighter primary color for dark mode */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 39 90% 50%;
-    --secondary-foreground: 126 10% 90%;
+    --secondary: 39 95% 60%; /* Brighter secondary color for dark mode */
+    --secondary-foreground: 126 10% 95%;
 
     --muted: 126 20% 20%;
-    --muted-foreground: 126 10% 70%;
+    --muted-foreground: 126 10% 80%; /* Improved muted text contrast */
 
-    --accent: 39 90% 50%;
-    --accent-foreground: 126 10% 90%;
+    --accent: 39 95% 60%; /* Brighter accent color for dark mode */
+    --accent-foreground: 126 10% 95%;
 
     --destructive: 0 70% 50%;
-    --destructive-foreground: 126 10% 90%;
+    --destructive-foreground: 126 10% 95%;
 
-    --border: 126 20% 25%;
-    --input: 126 20% 25%;
-    --ring: 97 67% 44%;
+    --border: 126 20% 30%; /* Improved border visibility */
+    --input: 126 20% 30%;
+    --ring: 97 50% 55%;
   }
 }
 

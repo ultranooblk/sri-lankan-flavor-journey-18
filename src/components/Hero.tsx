@@ -65,34 +65,35 @@ const Hero = () => {
             </Button>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="flex items-center justify-center flex-col p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
-              <div className="h-14 w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
-                <Leaf className="h-6 w-6" />
+          {/* Feature boxes - fixed to ensure visibility */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto px-2">
+            <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
+              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
+                <Leaf className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
               <div>
-                <h3 className="font-medium text-lg mb-1">Fresh Ingredients</h3>
-                <p className="text-foreground/70">Locally sourced, perfectly portioned</p>
+                <h3 className="font-medium text-base sm:text-lg mb-1">Fresh Ingredients</h3>
+                <p className="text-sm sm:text-base text-foreground/70">Locally sourced, portioned</p>
               </div>
             </div>
             
-            <div className="flex items-center justify-center flex-col p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
-              <div className="h-14 w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
-                <Clock className="h-6 w-6" />
+            <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
+              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
+                <Clock className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
               <div>
-                <h3 className="font-medium text-lg mb-1">Ready in 30 Minutes</h3>
-                <p className="text-foreground/70">Quick, easy-to-follow recipes</p>
+                <h3 className="font-medium text-base sm:text-lg mb-1">Ready in 30 Minutes</h3>
+                <p className="text-sm sm:text-base text-foreground/70">Easy-to-follow recipes</p>
               </div>
             </div>
             
-            <div className="flex items-center justify-center flex-col p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
-              <div className="h-14 w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
-                <ShoppingBag className="h-6 w-6" />
+            <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
+              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
+                <ShoppingBag className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
               <div>
-                <h3 className="font-medium text-lg mb-1">Flexible Plans</h3>
-                <p className="text-foreground/70">Subscribe or order as needed</p>
+                <h3 className="font-medium text-base sm:text-lg mb-1">Flexible Plans</h3>
+                <p className="text-sm sm:text-base text-foreground/70">Subscribe or order</p>
               </div>
             </div>
           </div>
