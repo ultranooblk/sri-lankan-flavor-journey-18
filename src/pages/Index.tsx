@@ -13,7 +13,7 @@ const featuredRecipes = [
   {
     id: '1',
     title: 'Authentic Sri Lankan Rice and Curry',
-    image: '/assets/recipe-1.jpg',
+    image: 'https://images.unsplash.com/photo-1596797038530-2c107dc43d15?auto=format&fit=crop&w=600&h=400',
     time: 45,
     servings: '2-4',
     spiceLevel: 3,
@@ -23,7 +23,7 @@ const featuredRecipes = [
   {
     id: '2',
     title: 'Coconut Roti with Pol Sambol',
-    image: '/assets/recipe-2.jpg',
+    image: 'https://images.unsplash.com/photo-1667489022797-ab608913feeb?auto=format&fit=crop&w=600&h=400',
     time: 30,
     servings: '2',
     spiceLevel: 2,
@@ -33,7 +33,7 @@ const featuredRecipes = [
   {
     id: '3',
     title: 'Lamprais (Dutch-Burgher Influenced)',
-    image: '/assets/recipe-3.jpg',
+    image: 'https://images.unsplash.com/photo-1593854823322-5a737e0c5dd3?auto=format&fit=crop&w=600&h=400',
     time: 60,
     servings: '2',
     spiceLevel: 3,
@@ -63,7 +63,7 @@ const Index = () => {
               </p>
             </div>
             <Link to="/recipes">
-              <Button variant="outline" className="mt-4 md:mt-0 border-spice-500 text-spice-500 hover:bg-spice-50">
+              <Button variant="outline" className="mt-4 md:mt-0 border-cookme-500 text-cookme-500 hover:bg-cookme-50">
                 View All Recipes
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
@@ -82,7 +82,7 @@ const Index = () => {
               We partner directly with local Sri Lankan farmers to bring you the freshest, most authentic ingredients while supporting sustainable farming practices.
             </p>
             <Link to="/sustainability">
-              <Button className="bg-spice-500 hover:bg-spice-600 text-white">
+              <Button className="bg-cookme-500 hover:bg-cookme-600 text-white">
                 Learn About Our Impact
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
@@ -92,7 +92,7 @@ const Index = () => {
         <div 
           className="absolute top-0 right-0 w-1/2 h-full bg-cover bg-center opacity-25 md:opacity-50"
           style={{ 
-            backgroundImage: `url(https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=800&h=600)`,
+            backgroundImage: `url(https://images.unsplash.com/photo-1596797038530-2c107dc43d15?auto=format&fit=crop&w=800&h=600)`,
             clipPath: 'polygon(100px 0, 100% 0, 100% 100%, 0 100%)' 
           }}
         ></div>
@@ -100,17 +100,17 @@ const Index = () => {
       
       <SubscriptionPlans />
       
-      <section className="py-16 bg-gradient-to-r from-spice-500 to-spice-600 text-white text-center">
+      <section className="py-16 bg-gradient-to-r from-cookme-600 to-cookme-700 text-white text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get Started?</h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
             Join thousands of Sri Lankan food enthusiasts who are already enjoying our authentic meal kits delivered to their doorstep.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="bg-white text-spice-600 hover:bg-cookme-100" size="lg">
+            <Button className="bg-white text-cookme-600 hover:bg-cookme-50" size="lg">
               Browse Recipes
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-spice-600/80" size="lg">
+            <Button variant="outline" className="border-white text-white hover:bg-cookme-600/80" size="lg">
               View Subscription Plans
             </Button>
           </div>

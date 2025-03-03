@@ -1,15 +1,14 @@
-
 import { useState, useEffect } from 'react';
 import FilterBar from '@/components/FilterBar';
 import RecipeGrid from '@/components/RecipeGrid';
 import { Button } from '@/components/ui/button';
 
-// Sample data for recipes
+// Sample data for all recipes
 const allRecipes = [
   {
     id: '1',
     title: 'Authentic Sri Lankan Rice and Curry',
-    image: '/assets/recipe-1.jpg',
+    image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&h=400',
     time: 45,
     servings: '2-4',
     spiceLevel: 3,
@@ -19,12 +18,12 @@ const allRecipes = [
   {
     id: '2',
     title: 'Coconut Roti with Pol Sambol',
-    image: '/assets/recipe-2.jpg',
+    image: 'https://images.unsplash.com/photo-1619057883606-0faad403da2a?auto=format&fit=crop&w=600&h=400',
     time: 30,
     servings: '2',
     spiceLevel: 2,
     tags: ['Vegetarian', 'Breakfast'],
-    description: 'Delicious coconut flatbread served with a spicy coconut relish that's bursting with flavor.',
+    description: "Delicious coconut flatbread served with a spicy coconut relish that's bursting with flavor.",
   },
   {
     id: '3',
@@ -110,14 +109,10 @@ const Recipes = () => {
   const handleFilterChange = (filters: Record<string, string[]>) => {
     setSelectedFilters(filters);
     
-    // In a real app, you would filter based on the selected filters
-    // This is just a simple implementation for demonstration
     if (Object.values(filters).flat().length === 0) {
       setRecipes(allRecipes);
     } else {
-      // Simple filtering logic (would be more complex in a real app)
       const filtered = allRecipes.filter(recipe => {
-        // Check if any of the recipe's tags match any of the selected filters
         return Object.values(filters).flat().some(filter => 
           recipe.tags.includes(filter)
         );
@@ -125,7 +120,6 @@ const Recipes = () => {
       setRecipes(filtered);
     }
     
-    // Reset visible recipes count when filters change
     setVisibleRecipes(6);
   };
 

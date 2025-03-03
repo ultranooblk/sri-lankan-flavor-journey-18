@@ -4,10 +4,11 @@ import { Button } from '@/components/ui/button';
 import { ChevronRight, Leaf, Clock, ShoppingBag, PlayCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// High-res Sri Lankan food images
 const heroImages = [
-  '/assets/hero-1.jpg', 
-  '/assets/hero-2.jpg',
-  '/assets/hero-3.jpg'
+  'https://images.unsplash.com/photo-1596797038530-2c107dc43d15?auto=format&fit=crop&q=90&w=2000&h=1200', // Rice and curry
+  'https://images.unsplash.com/photo-1667489022797-ab608913feeb?auto=format&fit=crop&q=90&w=2000&h=1200', // Sri Lankan spices
+  'https://images.unsplash.com/photo-1593854823322-5a737e0c5dd3?auto=format&fit=crop&q=90&w=2000&h=1200'  // Hoppers/string hoppers
 ];
 
 const Hero = () => {
@@ -21,9 +22,6 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Placeholder for actual images
-  const placeholderImage = 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=1200&h=800';
-
   return (
     <section className="relative min-h-screen pt-20 overflow-hidden">
       {/* Background Images Carousel with fade transition */}
@@ -35,7 +33,7 @@ const Hero = () => {
               "absolute inset-0 bg-cover bg-center transition-opacity duration-1000",
               index === currentImageIndex ? "opacity-100" : "opacity-0"
             )}
-            style={{ backgroundImage: `url(${placeholderImage})` }}
+            style={{ backgroundImage: `url(${image})` }}
           />
         ))}
         <div className="absolute inset-0 hero-gradient" />
@@ -44,7 +42,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-32">
         <div className="max-w-3xl animate-fade-up">
-          <div className="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-cookme-100 text-cookme-600">
+          <div className="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-cookme-100 text-cookme-700">
             <Leaf className="h-3 w-3 mr-1" />
             <span>Locally Sourced Sri Lankan Ingredients</span>
           </div>
@@ -56,7 +54,7 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <Button className="bg-spice-500 hover:bg-spice-600 text-white shadow-lg" size="lg">
+            <Button className="bg-cookme-500 hover:bg-cookme-600 text-white shadow-lg" size="lg">
               Browse Recipes
               <ChevronRight className="ml-2 h-4 w-4" />
             </Button>

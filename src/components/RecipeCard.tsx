@@ -29,9 +29,6 @@ const RecipeCard = ({
 }: RecipeProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Placeholder image for now
-  const placeholderImage = 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=600&h=400';
-
   return (
     <div 
       className="group rounded-xl overflow-hidden bg-white border border-border shadow-sm hover-lift"
@@ -41,7 +38,7 @@ const RecipeCard = ({
       <Link to={`/recipes/${id}`} className="block">
         <div className="relative h-48 overflow-hidden">
           <img 
-            src={image || placeholderImage} 
+            src={image} 
             alt={title} 
             className={cn(
               "w-full h-full object-cover transition-transform duration-700",
@@ -70,7 +67,7 @@ const RecipeCard = ({
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
           <h3 className="font-display text-lg font-medium line-clamp-1">
-            <Link to={`/recipes/${id}`} className="hover:text-spice-500 transition-colors">
+            <Link to={`/recipes/${id}`} className="hover:text-cookme-500 transition-colors">
               {title}
             </Link>
           </h3>
@@ -103,7 +100,7 @@ const RecipeCard = ({
           <Button 
             variant="ghost" 
             size="sm" 
-            className="text-spice-500 hover:text-spice-600 hover:bg-spice-50"
+            className="text-cookme-500 hover:text-cookme-600 hover:bg-cookme-50"
           >
             Add to Cart
           </Button>
