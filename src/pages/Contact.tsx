@@ -48,9 +48,9 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-hellofresh-50">
+      <section className="py-16 md:py-24 bg-hellofresh-50 dark:bg-gray-900">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Get In Touch</h1>
           <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
             Have questions about our meal kits or interested in partnering with us? 
             We'd love to hear from you!
@@ -59,20 +59,20 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-800">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold mb-8 text-hellofresh-500">Contact Information</h2>
+              <h2 className="text-3xl font-bold mb-8 text-hellofresh-500 dark:text-cookme-400">Contact Information</h2>
               
               <div className="space-y-6 mb-12">
                 <div className="flex items-start">
-                  <div className="h-10 w-10 rounded-lg bg-hellofresh-100 flex items-center justify-center text-hellofresh-500 mr-4">
+                  <div className="h-10 w-10 rounded-lg bg-hellofresh-100 dark:bg-hellofresh-950/50 flex items-center justify-center text-hellofresh-500 dark:text-cookme-400 mr-4">
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-1">Our Location</h3>
+                    <h3 className="text-lg font-semibold mb-1 text-foreground">Our Location</h3>
                     <p className="text-foreground/70">
                       123 Spice Market Lane<br />
                       Colombo 05<br />
@@ -82,21 +82,21 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="h-10 w-10 rounded-lg bg-hellofresh-100 flex items-center justify-center text-hellofresh-500 mr-4">
+                  <div className="h-10 w-10 rounded-lg bg-hellofresh-100 dark:bg-hellofresh-950/50 flex items-center justify-center text-hellofresh-500 dark:text-cookme-400 mr-4">
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-1">Phone Number</h3>
+                    <h3 className="text-lg font-semibold mb-1 text-foreground">Phone Number</h3>
                     <p className="text-foreground/70">+94 11 234 5678</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="h-10 w-10 rounded-lg bg-hellofresh-100 flex items-center justify-center text-hellofresh-500 mr-4">
+                  <div className="h-10 w-10 rounded-lg bg-hellofresh-100 dark:bg-hellofresh-950/50 flex items-center justify-center text-hellofresh-500 dark:text-cookme-400 mr-4">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-1">Email Address</h3>
+                    <h3 className="text-lg font-semibold mb-1 text-foreground">Email Address</h3>
                     <p className="text-foreground/70">hello@cookme.com</p>
                   </div>
                 </div>
@@ -104,18 +104,18 @@ const Contact = () => {
               
               <div className="rounded-lg overflow-hidden h-64 md:h-80">
                 {/* Placeholder for a map - in a real app, use Google Maps or similar */}
-                <div className="h-full w-full bg-hellofresh-100 flex items-center justify-center">
-                  <span className="text-hellofresh-500 font-medium">Map Location</span>
+                <div className="h-full w-full bg-hellofresh-100 dark:bg-hellofresh-950/30 flex items-center justify-center">
+                  <span className="text-hellofresh-500 dark:text-cookme-400 font-medium">Map Location</span>
                 </div>
               </div>
             </div>
             
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold mb-8 text-hellofresh-500">Send Us a Message</h2>
+              <h2 className="text-3xl font-bold mb-8 text-hellofresh-500 dark:text-cookme-400">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground">
                     Your Name
                   </label>
                   <Input
@@ -125,11 +125,12 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     placeholder="John Doe"
+                    className="dark:border-gray-700"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground">
                     Email Address
                   </label>
                   <Input
@@ -140,11 +141,12 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     placeholder="john@example.com"
+                    className="dark:border-gray-700"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium mb-2 text-foreground">
                     Subject
                   </label>
                   <Input
@@ -154,11 +156,12 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     placeholder="How can we help you?"
+                    className="dark:border-gray-700"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground">
                     Message
                   </label>
                   <Textarea
@@ -169,12 +172,13 @@ const Contact = () => {
                     required
                     placeholder="Your message here..."
                     rows={5}
+                    className="dark:border-gray-700"
                   />
                 </div>
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-hellofresh-500 hover:bg-hellofresh-600 text-white"
+                  className="w-full bg-hellofresh-500 hover:bg-hellofresh-600 text-white dark:bg-cookme-500 dark:hover:bg-cookme-600"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
