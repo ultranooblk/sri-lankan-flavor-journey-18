@@ -23,7 +23,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen pt-20 overflow-hidden">
+    <section className="relative min-h-[90vh] pt-20 overflow-hidden">
       {/* Background Images Carousel with fade transition */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         {heroImages.map((image, index) => (
@@ -37,61 +37,62 @@ const Hero = () => {
           />
         ))}
         <div className="absolute inset-0 hero-gradient" />
-        <div className="absolute inset-0 bg-white/40" />
+        <div className="absolute inset-0 bg-white/40 dark:bg-black/50" />
       </div>
 
-      <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-32">
-        <div className="max-w-3xl animate-fade-up">
-          <div className="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-cookme-100 text-cookme-700">
+      <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-28 text-center">
+        <div className="max-w-3xl mx-auto animate-fade-up">
+          <div className="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-primary/10 text-primary">
             <Leaf className="h-3 w-3 mr-1" />
             <span>Locally Sourced Sri Lankan Ingredients</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-gradient-primary">
-            Bringing Authentic Sri Lankan Flavors to Your Kitchen!
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-balance">
+            <span className="text-primary">Authentic Sri Lankan</span> <br />
+            <span className="text-accent">Flavors Delivered</span>
           </h1>
-          <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl">
+          <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
             Experience the joy of cooking traditional Sri Lankan cuisine with perfectly portioned ingredients and step-by-step recipes delivered to your door.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <Button className="bg-cookme-500 hover:bg-cookme-600 text-white shadow-lg" size="lg">
+          <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center">
+            <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg" size="lg">
               Browse Recipes
               <ChevronRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button variant="outline" className="border-cookme-500 text-cookme-600 hover:bg-cookme-50" size="lg">
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary/5" size="lg">
               How It Works
               <PlayCircle className="ml-2 h-4 w-4" />
             </Button>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="flex items-start space-x-3 p-4 rounded-lg glass-morphism hover-lift transition-all">
-              <div className="h-10 w-10 rounded-full flex items-center justify-center bg-cookme-100 text-cookme-600">
-                <Leaf className="h-5 w-5" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="flex items-center justify-center flex-col p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
+              <div className="h-14 w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
+                <Leaf className="h-6 w-6" />
               </div>
               <div>
-                <h3 className="font-medium">Fresh Ingredients</h3>
-                <p className="text-sm text-foreground/70">Locally sourced, perfectly portioned</p>
+                <h3 className="font-medium text-lg mb-1">Fresh Ingredients</h3>
+                <p className="text-foreground/70">Locally sourced, perfectly portioned</p>
               </div>
             </div>
             
-            <div className="flex items-start space-x-3 p-4 rounded-lg glass-morphism hover-lift transition-all">
-              <div className="h-10 w-10 rounded-full flex items-center justify-center bg-cookme-100 text-cookme-600">
-                <Clock className="h-5 w-5" />
+            <div className="flex items-center justify-center flex-col p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
+              <div className="h-14 w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
+                <Clock className="h-6 w-6" />
               </div>
               <div>
-                <h3 className="font-medium">Ready in 30 Minutes</h3>
-                <p className="text-sm text-foreground/70">Quick, easy-to-follow recipes</p>
+                <h3 className="font-medium text-lg mb-1">Ready in 30 Minutes</h3>
+                <p className="text-foreground/70">Quick, easy-to-follow recipes</p>
               </div>
             </div>
             
-            <div className="flex items-start space-x-3 p-4 rounded-lg glass-morphism hover-lift transition-all">
-              <div className="h-10 w-10 rounded-full flex items-center justify-center bg-cookme-100 text-cookme-600">
-                <ShoppingBag className="h-5 w-5" />
+            <div className="flex items-center justify-center flex-col p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
+              <div className="h-14 w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
+                <ShoppingBag className="h-6 w-6" />
               </div>
               <div>
-                <h3 className="font-medium">Flexible Plans</h3>
-                <p className="text-sm text-foreground/70">Subscribe or order as needed</p>
+                <h3 className="font-medium text-lg mb-1">Flexible Plans</h3>
+                <p className="text-foreground/70">Subscribe or order as needed</p>
               </div>
             </div>
           </div>
@@ -102,8 +103,8 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path 
-            fill="#FFFFFF" 
-            fillOpacity="1" 
+            fill="currentColor" 
+            className="text-background"
             d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,48C840,43,960,53,1080,58.7C1200,64,1320,64,1380,64L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"
           ></path>
         </svg>

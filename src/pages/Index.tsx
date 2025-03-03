@@ -5,7 +5,7 @@ import Features from '@/components/Features';
 import RecipeGrid from '@/components/RecipeGrid';
 import SubscriptionPlans from '@/components/SubscriptionPlans';
 import { Button } from '@/components/ui/button';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Leaf } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Sample data for featured recipes
@@ -48,22 +48,22 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Hero />
       
       <Features />
       
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cookme-600 font-display tracking-tight">Our Featured Recipes</h2>
+      <section className="section bg-background">
+        <div className="section-container">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12">
+            <div className="text-center md:text-left mb-6 md:mb-0">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Our Featured Recipes</h2>
               <p className="text-lg text-foreground/70 max-w-2xl font-light">
                 Discover our most popular authentic Sri Lankan dishes, each with pre-measured ingredients and step-by-step instructions.
               </p>
             </div>
             <Link to="/recipes">
-              <Button variant="outline" className="mt-4 md:mt-0 border-cookme-500 text-cookme-500 hover:bg-cookme-50">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary/5">
                 View All Recipes
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
@@ -74,15 +74,19 @@ const Index = () => {
         </div>
       </section>
       
-      <section className="py-20 bg-gradient-to-r from-cookme-50 to-white relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cookme-600 font-display tracking-tight">From Farm to Your Doorstep</h2>
+      <section className="section bg-muted/50 relative overflow-hidden">
+        <div className="section-container relative z-10">
+          <div className="md:max-w-lg lg:max-w-2xl">
+            <div className="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-primary/10 text-primary">
+              <Leaf className="h-3 w-3 mr-1" />
+              <span>Sustainable Sourcing</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">From Farm to Your Doorstep</h2>
             <p className="text-lg text-foreground/70 mb-6 font-light">
               We partner directly with local Sri Lankan farmers to bring you the freshest, most authentic ingredients while supporting sustainable farming practices.
             </p>
             <Link to="/sustainability">
-              <Button className="bg-cookme-500 hover:bg-cookme-600 text-white">
+              <Button className="bg-primary hover:bg-primary/90 text-white">
                 Learn About Our Impact
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
@@ -100,17 +104,17 @@ const Index = () => {
       
       <SubscriptionPlans />
       
-      <section className="py-16 bg-gradient-to-r from-cookme-600 to-cookme-700 text-white text-center">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-primary text-white text-center">
+        <div className="section-container">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display tracking-tight">Ready to Get Started?</h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8 font-light">
             Join thousands of Sri Lankan food enthusiasts who are already enjoying our authentic meal kits delivered to their doorstep.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="bg-white text-cookme-600 hover:bg-cookme-50" size="lg">
+            <Button className="bg-white text-primary hover:bg-accent" size="lg">
               Browse Recipes
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-cookme-600/80" size="lg">
+            <Button variant="outline" className="border-white text-white hover:bg-primary/80" size="lg">
               View Subscription Plans
             </Button>
           </div>
