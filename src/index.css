@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    --background: 30 25% 98%;
+    --background: 0 0% 100%;
     --foreground: 32 40% 15%;
 
     --card: 0 0% 100%;
@@ -16,8 +16,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 32 40% 15%;
 
-    --primary: 32 45% 46%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 45 93% 47%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 210 20% 96%;
     --secondary-foreground: 32 40% 20%;
@@ -25,15 +25,15 @@
     --muted: 32 10% 96%;
     --muted-foreground: 32 5% 45%;
 
-    --accent: 14 80% 50%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 350 89% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 32 15% 90%;
     --input: 32 15% 90%;
-    --ring: 32 45% 46%;
+    --ring: 45 93% 47%;
 
     --radius: 0.5rem;
 
@@ -65,7 +65,7 @@
 }
 
 .image-glow {
-  filter: drop-shadow(0 0 20px rgba(170, 133, 64, 0.15));
+  filter: drop-shadow(0 0 20px rgba(244, 63, 94, 0.15));
 }
 
 .backdrop-blur {
@@ -83,11 +83,11 @@
 
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .hero-gradient {
-  background: linear-gradient(100deg, rgba(170, 133, 64, 0.05) 0%, rgba(230, 61, 61, 0.05) 100%);
+  background: linear-gradient(100deg, rgba(245, 158, 11, 0.05) 0%, rgba(244, 63, 94, 0.05) 100%);
 }
 
 .recipe-gradient {

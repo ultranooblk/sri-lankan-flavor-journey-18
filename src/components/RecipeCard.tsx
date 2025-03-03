@@ -53,12 +53,12 @@ const RecipeCard = ({
           <div className="absolute bottom-0 left-0 right-0 p-4">
             <div className="flex flex-wrap gap-2">
               {tags.slice(0, 2).map((tag, i) => (
-                <Badge key={i} variant="secondary" className="bg-white/80 text-xs">
+                <Badge key={i} variant="secondary" className="bg-white/80 text-xs font-medium">
                   {tag}
                 </Badge>
               ))}
               {tags.length > 2 && (
-                <Badge variant="secondary" className="bg-white/80 text-xs">
+                <Badge variant="secondary" className="bg-white/80 text-xs font-medium">
                   +{tags.length - 2}
                 </Badge>
               )}
@@ -70,12 +70,12 @@ const RecipeCard = ({
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
           <h3 className="font-display text-lg font-medium line-clamp-1">
-            <Link to={`/recipes/${id}`} className="hover:text-primary transition-colors">
+            <Link to={`/recipes/${id}`} className="hover:text-spice-500 transition-colors">
               {title}
             </Link>
           </h3>
           
-          <div className="spice-indicator level-{spiceLevel}">
+          <div className={`spice-indicator level-${spiceLevel}`}>
             <span></span>
             <span></span>
             <span></span>
@@ -103,7 +103,7 @@ const RecipeCard = ({
           <Button 
             variant="ghost" 
             size="sm" 
-            className="text-primary hover:text-primary hover:bg-primary/10"
+            className="text-spice-500 hover:text-spice-600 hover:bg-spice-50"
           >
             Add to Cart
           </Button>
