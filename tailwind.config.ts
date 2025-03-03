@@ -66,31 +66,27 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				cookme: {
-					50: '#F2FCE2',  // Light green
-					100: '#E0F7C6',
-					200: '#C7F0A3',
-					300: '#AAE77B',
-					400: '#8FDC5A',
-					500: '#72D03A',  // Fresh green
-					600: '#5BB32E',
-					700: '#458C24',
-					800: '#326719',
-					900: '#1E3F0F',
-					950: '#112809',
+				hellofresh: {
+					50: '#F1FAE6',
+					100: '#E3F5CD',
+					200: '#CAECA9',
+					300: '#B0E385',
+					400: '#96D961',
+					500: '#67BC3C',
+					600: '#5E9F36',
+					700: '#4A7E2B',
+					800: '#3E6A24',
+					900: '#2E501B',
+					950: '#1D3211',
 				},
-				spice: {
-					50: '#FFF5F5',
-					100: '#FFE6E6',
-					200: '#FFC1C1',
-					300: '#FFA3A3',
-					400: '#FF7A7A',
-					500: '#FF5252',  // Reduced intensity red
-					600: '#E53A3A',
-					700: '#C52525',
-					800: '#9C1A1A',
-					900: '#7A1111',
-					950: '#450909',
+				hfpurple: {
+					500: '#552F60',
+				},
+				hforange: {
+					500: '#F9A528',
+				},
+				hfblue: {
+					500: '#037DB5',
 				}
 			},
 			borderRadius: {
