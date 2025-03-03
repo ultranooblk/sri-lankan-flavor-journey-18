@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -78,6 +79,12 @@ export default {
 					800: '#3E6A24',
 					900: '#2E501B',
 					950: '#1D3211',
+				},
+				cookme: {
+					400: '#7ED242', // Added brighter version for dark mode
+					500: '#67BC3C',
+					600: '#5E9F36',
+					700: '#4A7E2B',
 				},
 				hfpurple: {
 					500: '#552F60',
