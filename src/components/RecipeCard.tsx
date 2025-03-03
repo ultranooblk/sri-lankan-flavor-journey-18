@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Clock, Users, Tag } from 'lucide-react';
+import { Clock, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -31,7 +31,7 @@ const RecipeCard = ({
 
   return (
     <div 
-      className="group rounded-xl overflow-hidden bg-white border border-border shadow-sm hover-lift"
+      className="group rounded-xl overflow-hidden bg-card border border-border shadow-sm hover-lift"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -50,12 +50,12 @@ const RecipeCard = ({
           <div className="absolute bottom-0 left-0 right-0 p-4">
             <div className="flex flex-wrap gap-2">
               {tags.slice(0, 2).map((tag, i) => (
-                <Badge key={i} variant="secondary" className="bg-white/80 text-xs font-medium">
+                <Badge key={i} variant="secondary" className="bg-white/80 dark:bg-black/50 text-xs font-medium">
                   {tag}
                 </Badge>
               ))}
               {tags.length > 2 && (
-                <Badge variant="secondary" className="bg-white/80 text-xs font-medium">
+                <Badge variant="secondary" className="bg-white/80 dark:bg-black/50 text-xs font-medium">
                   +{tags.length - 2}
                 </Badge>
               )}
@@ -100,7 +100,7 @@ const RecipeCard = ({
           <Button 
             variant="ghost" 
             size="sm" 
-            className="text-hellofresh-500 hover:text-hellofresh-600 hover:bg-hellofresh-50"
+            className="text-hellofresh-500 hover:text-hellofresh-600 hover:bg-hellofresh-50 dark:hover:bg-hellofresh-950"
           >
             Add to Cart
           </Button>

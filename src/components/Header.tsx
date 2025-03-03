@@ -1,14 +1,16 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Menu, X, User } from 'lucide-react';
+import { ShoppingCart, Menu, X, User, Sun, Moon } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
+import { useTheme } from '@/hooks/use-theme';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,9 +29,8 @@ const Header = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Recipes', path: '/recipes' },
-    { name: 'Subscribe', path: '/subscribe' },
-    { name: 'Sustainability', path: '/sustainability' },
-    { name: 'About Us', path: '/about' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -40,7 +41,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <span className="relative flex h-10 w-10 overflow-hidden rounded-full bg-cookme-500 items-center justify-center">
+          <span className="relative flex h-10 w-10 overflow-hidden rounded-full bg-hellofresh-500 items-center justify-center">
             <span className="text-white font-display text-lg">CM</span>
           </span>
           <span className="font-display text-xl font-bold tracking-tight">Cook Me</span>
@@ -53,9 +54,9 @@ const Header = () => {
               key={link.path}
               to={link.path}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-primary relative py-2',
+                'text-sm font-medium transition-colors hover:text-hellofresh-500 relative py-2',
                 location.pathname === link.path 
-                  ? 'text-primary after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-primary after:content-[""]' 
+                  ? 'text-hellofresh-500 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-hellofresh-500 after:content-[""]' 
                   : 'text-foreground/80'
               )}
             >
@@ -66,28 +67,48 @@ const Header = () => {
 
         {/* Action buttons */}
         <div className="hidden md:flex items-center space-x-4">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </Button>
           <Button variant="ghost" size="icon" className="relative">
             <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-accent-foreground">
+            <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-hellofresh-500 text-[10px] font-bold text-white">
               0
             </span>
           </Button>
           <Button variant="ghost" size="icon">
             <User className="h-5 w-5" />
           </Button>
-          <Button variant="default" className="bg-primary text-white hover:bg-primary/90 transition-colors">
+          <Button variant="default" className="bg-hellofresh-500 text-white hover:bg-hellofresh-600 transition-colors">
             Sign In
           </Button>
         </div>
 
         {/* Mobile menu button */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="md:hidden flex items-center space-x-2">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -103,8 +124,8 @@ const Header = () => {
               key={link.path}
               to={link.path}
               className={cn(
-                'text-lg font-medium transition-colors hover:text-primary py-2 border-b border-border',
-                location.pathname === link.path ? 'text-primary' : 'text-foreground/80'
+                'text-lg font-medium transition-colors hover:text-hellofresh-500 py-2 border-b border-border',
+                location.pathname === link.path ? 'text-hellofresh-500' : 'text-foreground/80'
               )}
             >
               {link.name}
@@ -115,7 +136,7 @@ const Header = () => {
               <ShoppingCart className="h-5 w-5 mr-2" />
               Cart
             </Button>
-            <Button variant="default" className="flex-1 ml-2 bg-primary text-white" size="lg">
+            <Button variant="default" className="flex-1 ml-2 bg-hellofresh-500 text-white" size="lg">
               Sign In
             </Button>
           </div>
