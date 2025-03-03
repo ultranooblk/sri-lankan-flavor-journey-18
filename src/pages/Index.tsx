@@ -7,45 +7,14 @@ import SubscriptionPlans from '@/components/SubscriptionPlans';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Leaf } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-// Sample data for featured recipes
-const featuredRecipes = [
-  {
-    id: '1',
-    title: 'Authentic Sri Lankan Rice and Curry',
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107dc43d15?auto=format&fit=crop&w=600&h=400',
-    time: 45,
-    servings: '2-4',
-    spiceLevel: 3,
-    tags: ['Non-Vegetarian', 'Classic'],
-    description: 'A staple in Sri Lankan cuisine with fragrant rice served with a variety of flavorful curry dishes.',
-  },
-  {
-    id: '2',
-    title: 'Coconut Roti with Pol Sambol',
-    image: 'https://images.unsplash.com/photo-1667489022797-ab608913feeb?auto=format&fit=crop&w=600&h=400',
-    time: 30,
-    servings: '2',
-    spiceLevel: 2,
-    tags: ['Vegetarian', 'Breakfast'],
-    description: "Delicious coconut flatbread served with a spicy coconut relish that's bursting with flavor.",
-  },
-  {
-    id: '3',
-    title: 'Lamprais (Dutch-Burgher Influenced)',
-    image: 'https://images.unsplash.com/photo-1593854823322-5a737e0c5dd3?auto=format&fit=crop&w=600&h=400',
-    time: 60,
-    servings: '2',
-    spiceLevel: 3,
-    tags: ['Non-Vegetarian', 'Special'],
-    description: 'Rice and accompaniments wrapped in a banana leaf and baked, infusing the contents with a unique aroma.',
-  }
-];
+import { getFeaturedRecipes } from '@/services/recipeService';
 
 const Index = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const featuredRecipes = getFeaturedRecipes();
 
   return (
     <div className="min-h-screen bg-background">

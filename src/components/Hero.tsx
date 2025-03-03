@@ -40,7 +40,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-white/40 dark:bg-black/50" />
       </div>
 
-      <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-28 text-center">
+      <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-28 text-center relative z-10">
         <div className="max-w-3xl mx-auto animate-fade-up">
           <div className="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-primary/10 text-primary">
             <Leaf className="h-3 w-3 mr-1" />
@@ -66,7 +66,7 @@ const Hero = () => {
           </div>
           
           {/* Feature boxes - fixed to ensure visibility */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto px-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto px-2 relative z-20">
             <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
               <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
                 <Leaf className="h-5 w-5 sm:h-6 sm:w-6" />
