@@ -12,7 +12,7 @@ interface FeatureProps {
 const Feature = ({ icon, title, description, delay }: FeatureProps) => (
   <div 
     className={cn(
-      "p-6 rounded-xl border border-border bg-white shadow-sm hover-lift transition-all",
+      "p-6 rounded-xl border border-border bg-card shadow-sm hover-lift transition-all",
       "animate-fade-up"
     )}
     style={{ animationDelay: `${delay}ms` }}
@@ -20,8 +20,8 @@ const Feature = ({ icon, title, description, delay }: FeatureProps) => (
     <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
       {icon}
     </div>
-    <h3 className="text-xl font-medium mb-2">{title}</h3>
-    <p className="text-foreground/70">{description}</p>
+    <h3 className="text-xl font-medium mb-2 text-card-foreground">{title}</h3>
+    <p className="text-card-foreground/70">{description}</p>
   </div>
 );
 
@@ -66,10 +66,10 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-20 bg-hellofresh-50">
+    <section className="py-20 bg-muted/50 dark:bg-background/50">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience the Cook Me Difference</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Experience the Cook Me Difference</h2>
           <p className="text-lg text-foreground/70">
             We've reimagined meal kits to bring you the authentic flavors of Sri Lanka with convenience and sustainability in mind.
           </p>
