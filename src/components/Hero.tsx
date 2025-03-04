@@ -10,16 +10,11 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 
-// High-res Sri Lankan food images
+// Sri Lankan/South Indian food images (reduced to 3)
 const heroImages = [
   'https://images.unsplash.com/photo-1596797038530-2c107dc43d15?auto=format&fit=crop&q=90&w=2000&h=1200', // Rice and curry
-  'https://images.unsplash.com/photo-1667489022797-ab608913feeb?auto=format&fit=crop&q=90&w=2000&h=1200', // Sri Lankan spices
-  'https://images.unsplash.com/photo-1593854823322-5a737e0c5dd3?auto=format&fit=crop&q=90&w=2000&h=1200',  // Hoppers/string hoppers
-  'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&q=90&w=2000&h=1200', // Colorful curry dishes
-  'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&q=90&w=2000&h=1200', // Spice market
-  'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=90&w=2000&h=1200', // Vegetable curry
-  'public/lovable-uploads/15b59079-7146-4dbf-b859-8fcafaad882b.png', // Uploaded image
-  'public/lovable-uploads/3a4d6bf5-8d85-436d-9e24-b4d7e2a97cdb.png' // New uploaded image
+  'https://images.unsplash.com/photo-1668236543090-82eba5d78a2b?auto=format&fit=crop&q=90&w=2000&h=1200', // Dosa/South Indian food
+  'https://images.unsplash.com/photo-1589647363585-f4a7d3877b10?auto=format&fit=crop&q=90&w=2000&h=1200', // Spicy curry dish
 ];
 
 const Hero = () => {
@@ -73,8 +68,8 @@ const Hero = () => {
         </Carousel>
       </div>
 
-      {/* Buttons positioned in the bottom section with subtle background */}
-      <div className="absolute bottom-0 inset-x-0 z-20">
+      {/* Buttons positioned higher up in the section with subtle background */}
+      <div className="absolute bottom-1/3 inset-x-0 z-20">
         <div className="container mx-auto px-4 pb-16 relative">
           <div className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
