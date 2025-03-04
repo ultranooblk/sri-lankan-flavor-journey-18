@@ -1,8 +1,7 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, Leaf, Clock, ShoppingBag, PlayCircle } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { ChevronRight, PlayCircle } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -19,7 +18,8 @@ const heroImages = [
   'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&q=90&w=2000&h=1200', // Colorful curry dishes
   'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&q=90&w=2000&h=1200', // Spice market
   'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=90&w=2000&h=1200', // Vegetable curry
-  'public/lovable-uploads/15b59079-7146-4dbf-b859-8fcafaad882b.png' // Uploaded image
+  'public/lovable-uploads/15b59079-7146-4dbf-b859-8fcafaad882b.png', // Uploaded image
+  'public/lovable-uploads/3a4d6bf5-8d85-436d-9e24-b4d7e2a97cdb.png' // New uploaded image
 ];
 
 const Hero = () => {
@@ -85,71 +85,18 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-28 text-center relative z-20">
-        <div className="max-w-3xl mx-auto animate-fade-up">
-          <div className="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-primary/10 text-primary backdrop-blur-sm border border-primary/10">
-            <Leaf className="h-3 w-3 mr-1" />
-            <span>Locally Sourced Sri Lankan Ingredients</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-balance text-white">
-            <span className="text-primary relative">
-              Authentic Sri Lankan
-              <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 rounded-full"></span>
-            </span> <br />
-            <span className="text-accent relative">
-              Flavors Delivered
-              <span className="absolute -bottom-2 left-0 w-full h-1 bg-accent/30 rounded-full"></span>
+        <div className="max-w-3xl mx-auto animate-fade-up flex flex-col sm:flex-row gap-4 justify-center">
+          <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg relative overflow-hidden group" size="lg">
+            <span className="relative z-10 flex items-center">
+              Browse Recipes
+              <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Experience the joy of cooking traditional Sri Lankan cuisine with perfectly portioned ingredients and step-by-step recipes delivered to your door.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center">
-            <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg relative overflow-hidden group" size="lg">
-              <span className="relative z-10 flex items-center">
-                Browse Recipes
-                <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
-            </Button>
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 group text-white border-white" size="lg">
-              How It Works
-              <PlayCircle className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </div>
-          
-          {/* Feature boxes */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto px-2 relative z-20">
-            <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center backdrop-blur-sm bg-white/10">
-              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/20 text-primary mb-3">
-                <Leaf className="h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <div>
-                <h3 className="font-medium text-base sm:text-lg mb-1 text-white">Fresh Ingredients</h3>
-                <p className="text-sm sm:text-base text-white/70">Locally sourced, portioned</p>
-              </div>
-            </div>
-            
-            <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center backdrop-blur-sm bg-white/10">
-              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/20 text-primary mb-3">
-                <Clock className="h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <div>
-                <h3 className="font-medium text-base sm:text-lg mb-1 text-white">Ready in 30 Minutes</h3>
-                <p className="text-sm sm:text-base text-white/70">Easy-to-follow recipes</p>
-              </div>
-            </div>
-            
-            <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center backdrop-blur-sm bg-white/10">
-              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/20 text-primary mb-3">
-                <ShoppingBag className="h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <div>
-                <h3 className="font-medium text-base sm:text-lg mb-1 text-white">Flexible Plans</h3>
-                <p className="text-sm sm:text-base text-white/70">Subscribe or order</p>
-              </div>
-            </div>
-          </div>
+            <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+          </Button>
+          <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 group text-white border-white" size="lg">
+            How It Works
+            <PlayCircle className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
         </div>
       </div>
       
