@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Clock, Users, ChevronLeft, Info, ShoppingCart, Heart, Share2 } from 'lucide-react';
+import { Clock, Users, ChevronLeft, Info, ShoppingCart, Heart, Share2, Video } from 'lucide-react';
 import { getRecipeById, Recipe } from '@/services/recipeService';
 import { cn } from '@/lib/utils';
 
@@ -99,6 +99,17 @@ const RecipeDetails = () => {
               <Button size="icon" className="rounded-full bg-white/80 hover:bg-white text-primary">
                 <Share2 className="h-5 w-5" />
               </Button>
+            </div>
+          </div>
+          
+          {/* Video Tutorial Section - New Addition */}
+          <div className="mb-8 rounded-xl overflow-hidden border border-border">
+            <div className="aspect-w-16 aspect-h-9 relative bg-muted flex items-center justify-center">
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/5 dark:bg-white/5">
+                <Video className="h-16 w-16 text-primary opacity-80" />
+                <p className="mt-4 text-lg font-medium">Video Tutorial Coming Soon</p>
+                <p className="text-sm text-foreground/70">Watch how to prepare this recipe step by step</p>
+              </div>
             </div>
           </div>
           

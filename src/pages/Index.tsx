@@ -45,7 +45,7 @@ const Index = () => {
       
       <section className="section bg-muted/50 dark:bg-background/30 relative overflow-hidden">
         <div className="section-container relative z-10">
-          <div className="md:max-w-lg lg:max-w-2xl">
+          <div className="mx-auto text-center md:max-w-2xl mb-8">
             <div className="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-primary/10 text-primary">
               <Leaf className="h-3 w-3 mr-1" />
               <span>Sustainable Sourcing</span>
