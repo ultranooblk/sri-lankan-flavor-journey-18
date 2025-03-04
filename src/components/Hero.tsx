@@ -12,9 +12,9 @@ import {
 
 // Sri Lankan/South Indian food images
 const heroImages = [
-  'public/lovable-uploads/1a1de572-3ec7-40f8-9540-eef569c01cf2.png', // First uploaded image
-  'public/lovable-uploads/93463700-e3a5-4241-873e-de93bdea53a3.png', // Second uploaded image
-  'public/lovable-uploads/89e5fd46-4986-402e-9f89-2827c1b04663.png', // Third uploaded image
+  'public/lovable-uploads/f69768fb-e960-4489-92ae-402d9caf6fd3.png', // First uploaded image - Curry dishes in bowls
+  'public/lovable-uploads/f3b21353-bb64-4f30-909f-1d59483a755b.png', // Second uploaded image - South Indian thali/feast setup
+  'public/lovable-uploads/a65c612d-20f1-4041-98c9-452e14e918b0.png', // Third uploaded image - Dosa and South Indian breakfast
 ];
 
 const Hero = () => {
