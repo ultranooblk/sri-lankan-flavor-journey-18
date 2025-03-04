@@ -6,75 +6,75 @@
 
 @layer base {
   :root {
-    /* Warm, food-inspired color palette */
-    --background: 30 20% 97%; /* #f8f5f1 - Warm cream background */
-    --foreground: 30 10% 15%; /* Dark warm gray for text */
+    /* Clean green and white theme */
+    --background: 0 0% 100%; /* #FFFFFF - Pure white background */
+    --foreground: 150 10% 15%; /* Dark green-gray for text */
 
     --card: 0 0% 100%;
-    --card-foreground: 30 10% 15%;
+    --card-foreground: 150 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 30 10% 15%;
+    --popover-foreground: 150 10% 15%;
 
-    --primary: 22 80% 55%; /* #e67e22 - Warm pumpkin/spice orange */
+    --primary: 150 55% 40%; /* #2ecc71 - Fresh green */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 150 50% 40%; /* #2ecc71 - Fresh herb green */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 150 30% 96%; /* #F2FCE2 - Soft green */
+    --secondary-foreground: 150 55% 30%;
 
-    --muted: 30 10% 94%;
-    --muted-foreground: 30 10% 45%;
+    --muted: 150 10% 94%;
+    --muted-foreground: 150 10% 45%;
 
-    --accent: 200 60% 45%; /* #3498db - Fresh blueberry */
+    --accent: 150 50% 40%; /* Accent green */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 30 10% 85%;
-    --input: 30 10% 85%;
-    --ring: 22 80% 55%;
+    --border: 150 10% 85%;
+    --input: 150 10% 85%;
+    --ring: 150 55% 40%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 30 20% 98%;
-    --sidebar-foreground: 30 10% 20%;
-    --sidebar-primary: 22 80% 55%;
+    --sidebar-background: 150 20% 98%;
+    --sidebar-foreground: 150 10% 20%;
+    --sidebar-primary: 150 55% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 30 20% 95%;
-    --sidebar-accent-foreground: 30 10% 10%;
-    --sidebar-border: 30 10% 90%;
-    --sidebar-ring: 22 80% 55%;
+    --sidebar-accent: 150 20% 95%;
+    --sidebar-accent-foreground: 150 10% 10%;
+    --sidebar-border: 150 10% 90%;
+    --sidebar-ring: 150 55% 40%;
   }
 
   .dark {
-    --background: 30 15% 10%; /* #211e1b - Dark roast coffee */
-    --foreground: 30 10% 95%;
+    --background: 150 15% 10%; /* #1A241F - Dark green */
+    --foreground: 150 10% 95%;
 
-    --card: 30 15% 12%;
-    --card-foreground: 30 10% 95%;
+    --card: 150 15% 12%;
+    --card-foreground: 150 10% 95%;
 
-    --popover: 30 15% 12%;
-    --popover-foreground: 30 10% 95%;
+    --popover: 150 15% 12%;
+    --popover-foreground: 150 10% 95%;
 
-    --primary: 22 75% 50%; /* Slightly darker pumpkin for dark mode */
+    --primary: 150 50% 45%; /* Slightly brighter green for dark mode */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 150 45% 35%; /* Slightly darker herb green for dark mode */
+    --secondary: 150 25% 20%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 30 15% 20%;
-    --muted-foreground: 30 10% 85%;
+    --muted: 150 15% 20%;
+    --muted-foreground: 150 10% 85%;
 
-    --accent: 200 55% 40%; /* Slightly darker blueberry for dark mode */
+    --accent: 150 50% 45%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 30 15% 30%;
-    --input: 30 15% 30%;
-    --ring: 22 75% 50%;
+    --border: 150 15% 30%;
+    --input: 150 15% 30%;
+    --ring: 150 50% 45%;
   }
 }
 
@@ -105,7 +105,7 @@
 }
 
 .image-glow {
-  filter: drop-shadow(0 0 20px rgba(230, 126, 34, 0.2));
+  filter: drop-shadow(0 0 20px rgba(46, 204, 113, 0.2));
 }
 
 .backdrop-blur {
@@ -127,7 +127,7 @@
 }
 
 .hero-gradient {
-  background: linear-gradient(100deg, rgba(230, 126, 34, 0.08) 0%, rgba(46, 204, 113, 0.08) 100%);
+  background: linear-gradient(100deg, rgba(46, 204, 113, 0.08) 0%, rgba(242, 252, 226, 0.12) 100%);
 }
 
 .recipe-gradient {
@@ -139,31 +139,30 @@
 }
 
 .spice-indicator span {
-  @apply w-2 h-2 rounded-full bg-orange-200 dark:bg-orange-200/50;
+  @apply w-2 h-2 rounded-full bg-green-200 dark:bg-green-200/50;
   transition: background-color 0.3s ease;
 }
 
 .spice-indicator.level-1 span:nth-child(1) {
-  @apply bg-orange-500 dark:bg-orange-400;
+  @apply bg-green-500 dark:bg-green-400;
 }
 
 .spice-indicator.level-2 span:nth-child(-n+2) {
-  @apply bg-orange-500 dark:bg-orange-400;
+  @apply bg-green-500 dark:bg-green-400;
 }
 
 .spice-indicator.level-3 span:nth-child(-n+3) {
-  @apply bg-orange-500 dark:bg-orange-400;
+  @apply bg-green-500 dark:bg-green-400;
 }
 
 .spice-indicator.level-4 span:nth-child(-n+4) {
-  @apply bg-orange-500 dark:bg-orange-400;
+  @apply bg-green-500 dark:bg-green-400;
 }
 
 .spice-indicator.level-5 span {
-  @apply bg-orange-500 dark:bg-orange-400;
+  @apply bg-green-500 dark:bg-green-400;
 }
 
-/* Center-aligned layout utilities */
 .text-balance {
   text-wrap: balance;
 }
