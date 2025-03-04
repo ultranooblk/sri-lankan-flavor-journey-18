@@ -3,39 +3,52 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Leaf, Clock, ShoppingBag, PlayCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from "@/components/ui/carousel";
 
 // High-res Sri Lankan food images
 const heroImages = [
   'https://images.unsplash.com/photo-1596797038530-2c107dc43d15?auto=format&fit=crop&q=90&w=2000&h=1200', // Rice and curry
   'https://images.unsplash.com/photo-1667489022797-ab608913feeb?auto=format&fit=crop&q=90&w=2000&h=1200', // Sri Lankan spices
-  'https://images.unsplash.com/photo-1593854823322-5a737e0c5dd3?auto=format&fit=crop&q=90&w=2000&h=1200'  // Hoppers/string hoppers
+  'https://images.unsplash.com/photo-1593854823322-5a737e0c5dd3?auto=format&fit=crop&q=90&w=2000&h=1200',  // Hoppers/string hoppers
+  'public/lovable-uploads/15b59079-7146-4dbf-b859-8fcafaad882b.png' // Uploaded image
 ];
 
 const Hero = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="relative min-h-[90vh] pt-20 overflow-hidden">
-      {/* Background Images Carousel with fade transition */}
+      {/* Interactive Carousel */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        {heroImages.map((image, index) => (
-          <div 
-            key={index}
-            className={cn(
-              "absolute inset-0 bg-cover bg-center transition-opacity duration-1000",
-              index === currentImageIndex ? "opacity-100" : "opacity-0"
-            )}
-            style={{ backgroundImage: `url(${image})` }}
-          />
-        ))}
+        <Carousel className="w-full h-full" opts={{ loop: true, duration: 50 }} autoplay={true}>
+          <CarouselContent className="h-full">
+            {heroImages.map((image, index) => (
+              <CarouselItem key={index} className="h-full">
+                <div 
+                  className="w-full h-full bg-cover bg-center"
+                  style={{ backgroundImage: `url(${image})` }}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          
+          {/* Custom navigation buttons */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+            {heroImages.map((_, index) => (
+              <button 
+                key={index}
+                className="w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all"
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </Carousel>
+        
+        {/* Overlay gradient and tinting */}
         <div className="absolute inset-0 hero-gradient" />
         <div className="absolute inset-0 bg-white/40 dark:bg-black/50" />
         
@@ -44,7 +57,7 @@ const Hero = () => {
              style={{
                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
              }}
-        ></div>
+        />
       </div>
 
       <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-28 text-center relative z-10">
@@ -81,7 +94,7 @@ const Hero = () => {
             </Button>
           </div>
           
-          {/* Feature boxes - fixed to ensure visibility */}
+          {/* Feature boxes - kept as in original */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto px-2 relative z-20">
             <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
               <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
