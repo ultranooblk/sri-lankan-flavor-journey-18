@@ -10,11 +10,11 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 
-// Using direct image imports for more reliable reference
+// Updated to use external hosted images
 const heroImages = [
-  '/lovable-uploads/f69768fb-e960-4489-92ae-402d9caf6fd3.png', // First uploaded image - Curry dishes in bowls
-  '/lovable-uploads/f3b21353-bb64-4f30-909f-1d59483a755b.png', // Second uploaded image - South Indian thali/feast setup
-  '/lovable-uploads/a65c612d-20f1-4041-98c9-452e14e918b0.png', // Third uploaded image - Dosa and South Indian breakfast
+  'https://i.ibb.co/zWqxjvK6/web-banner-1.png', // First banner
+  'https://i.ibb.co/fdgy0cfW/web-banner-2.png', // Second banner
+  'https://i.ibb.co/XZ6J4nYY/web-banner-3.png', // Third banner
 ];
 
 const Hero = () => {
