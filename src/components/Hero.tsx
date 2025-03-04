@@ -23,11 +23,24 @@ const heroImages = [
 ];
 
 const Hero = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   return (
-    <section className="relative min-h-[90vh] pt-20 overflow-hidden">
-      {/* Interactive Carousel */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <Carousel className="w-full h-full" opts={{ loop: true, duration: 50 }} autoplay={true}>
+    <section className="relative min-h-[90vh] overflow-hidden">
+      {/* Background Carousel - Ensure full visibility */}
+      <div className="absolute inset-0 w-full h-full">
+        <Carousel 
+          className="w-full h-full" 
+          opts={{ loop: true, duration: 50 }} 
+          autoplay={true}
+          setApi={(api) => {
+            if (api) {
+              api.on('select', () => {
+                setCurrentIndex(api.selectedScrollSnap());
+              });
+            }
+          }}
+        >
           <CarouselContent className="h-full">
             {heroImages.map((image, index) => (
               <CarouselItem key={index} className="h-full">
@@ -39,12 +52,20 @@ const Hero = () => {
             ))}
           </CarouselContent>
           
-          {/* Custom navigation buttons */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+          {/* Show navigation controls */}
+          <CarouselPrevious className="left-4 z-20" />
+          <CarouselNext className="right-4 z-20" />
+          
+          {/* Custom navigation indicators */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
             {heroImages.map((_, index) => (
               <button 
                 key={index}
-                className="w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all"
+                className={`w-2.5 h-2.5 rounded-full transition-all ${
+                  currentIndex === index 
+                    ? "bg-white" 
+                    : "bg-white/50 hover:bg-white/70"
+                }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
@@ -52,24 +73,24 @@ const Hero = () => {
         </Carousel>
         
         {/* Overlay gradient and tinting */}
-        <div className="absolute inset-0 hero-gradient" />
-        <div className="absolute inset-0 bg-white/40 dark:bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20 z-10" />
+        <div className="absolute inset-0 bg-black/20 dark:bg-black/40 z-10" />
         
         {/* Subtle grain texture overlay */}
-        <div className="absolute inset-0 opacity-15 mix-blend-overlay"
+        <div className="absolute inset-0 opacity-15 mix-blend-overlay z-10"
              style={{
                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
              }}
         />
       </div>
 
-      <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-28 text-center relative z-10">
+      <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-28 text-center relative z-20">
         <div className="max-w-3xl mx-auto animate-fade-up">
           <div className="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-primary/10 text-primary backdrop-blur-sm border border-primary/10">
             <Leaf className="h-3 w-3 mr-1" />
             <span>Locally Sourced Sri Lankan Ingredients</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-balance">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-balance text-white">
             <span className="text-primary relative">
               Authentic Sri Lankan
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 rounded-full"></span>
@@ -79,7 +100,7 @@ const Hero = () => {
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-accent/30 rounded-full"></span>
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Experience the joy of cooking traditional Sri Lankan cuisine with perfectly portioned ingredients and step-by-step recipes delivered to your door.
           </p>
           
@@ -91,41 +112,41 @@ const Hero = () => {
               </span>
               <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
             </Button>
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 group" size="lg">
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 group text-white border-white" size="lg">
               How It Works
               <PlayCircle className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
           
-          {/* Feature boxes - kept as in original */}
+          {/* Feature boxes */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto px-2 relative z-20">
-            <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
-              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
+            <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center backdrop-blur-sm bg-white/10">
+              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/20 text-primary mb-3">
                 <Leaf className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
               <div>
-                <h3 className="font-medium text-base sm:text-lg mb-1">Fresh Ingredients</h3>
-                <p className="text-sm sm:text-base text-foreground/70">Locally sourced, portioned</p>
+                <h3 className="font-medium text-base sm:text-lg mb-1 text-white">Fresh Ingredients</h3>
+                <p className="text-sm sm:text-base text-white/70">Locally sourced, portioned</p>
               </div>
             </div>
             
-            <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
-              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
+            <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center backdrop-blur-sm bg-white/10">
+              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/20 text-primary mb-3">
                 <Clock className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
               <div>
-                <h3 className="font-medium text-base sm:text-lg mb-1">Ready in 30 Minutes</h3>
-                <p className="text-sm sm:text-base text-foreground/70">Easy-to-follow recipes</p>
+                <h3 className="font-medium text-base sm:text-lg mb-1 text-white">Ready in 30 Minutes</h3>
+                <p className="text-sm sm:text-base text-white/70">Easy-to-follow recipes</p>
               </div>
             </div>
             
-            <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center">
-              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/10 text-primary mb-3">
+            <div className="flex items-center justify-center flex-col p-4 sm:p-6 rounded-lg glass-morphism hover-lift transition-all text-center backdrop-blur-sm bg-white/10">
+              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full flex items-center justify-center bg-primary/20 text-primary mb-3">
                 <ShoppingBag className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
               <div>
-                <h3 className="font-medium text-base sm:text-lg mb-1">Flexible Plans</h3>
-                <p className="text-sm sm:text-base text-foreground/70">Subscribe or order</p>
+                <h3 className="font-medium text-base sm:text-lg mb-1 text-white">Flexible Plans</h3>
+                <p className="text-sm sm:text-base text-white/70">Subscribe or order</p>
               </div>
             </div>
           </div>
@@ -133,7 +154,7 @@ const Hero = () => {
       </div>
       
       {/* Wave decoration */}
-      <div className="absolute bottom-0 left-0 right-0">
+      <div className="absolute bottom-0 left-0 right-0 z-20">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path 
             fill="currentColor" 
