@@ -26,8 +26,8 @@ const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <section className="relative min-h-[90vh] overflow-hidden">
-      {/* Background Carousel - Ensure full visibility */}
+    <section className="relative h-screen w-full overflow-hidden">
+      {/* Full-size image carousel without dark overlays */}
       <div className="absolute inset-0 w-full h-full">
         <Carousel 
           className="w-full h-full" 
@@ -52,60 +52,59 @@ const Hero = () => {
             ))}
           </CarouselContent>
           
-          {/* Show navigation controls */}
-          <CarouselPrevious className="left-4 z-20" />
-          <CarouselNext className="right-4 z-20" />
+          {/* Show navigation controls with slightly transparent background */}
+          <CarouselPrevious className="left-4 z-20 bg-background/40 hover:bg-background/60" />
+          <CarouselNext className="right-4 z-20 bg-background/40 hover:bg-background/60" />
           
-          {/* Custom navigation indicators */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {/* Carousel indicators */}
+          <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-20 flex gap-2">
             {heroImages.map((_, index) => (
               <button 
                 key={index}
                 className={`w-2.5 h-2.5 rounded-full transition-all ${
                   currentIndex === index 
-                    ? "bg-white" 
-                    : "bg-white/50 hover:bg-white/70"
+                    ? "bg-primary border border-white" 
+                    : "bg-white/70 hover:bg-white"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
         </Carousel>
-        
-        {/* Overlay gradient and tinting */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20 z-10" />
-        <div className="absolute inset-0 bg-black/20 dark:bg-black/40 z-10" />
-        
-        {/* Subtle grain texture overlay */}
-        <div className="absolute inset-0 opacity-15 mix-blend-overlay z-10"
-             style={{
-               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-             }}
-        />
       </div>
 
-      <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-28 text-center relative z-20">
-        <div className="max-w-3xl mx-auto animate-fade-up flex flex-col sm:flex-row gap-4 justify-center">
-          <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg relative overflow-hidden group" size="lg">
-            <span className="relative z-10 flex items-center">
-              Browse Recipes
-              <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
-          </Button>
-          <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 group text-white border-white" size="lg">
-            How It Works
-            <PlayCircle className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
+      {/* Buttons positioned in the bottom section with subtle background */}
+      <div className="absolute bottom-0 inset-x-0 z-20">
+        <div className="container mx-auto px-4 pb-16 relative">
+          <div className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button 
+              className="bg-primary hover:bg-primary/90 text-white shadow-lg relative overflow-hidden group" 
+              size="lg"
+            >
+              <span className="relative z-10 flex items-center">
+                Browse Recipes
+                <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            </Button>
+            <Button 
+              variant="outline" 
+              className="border-2 border-white bg-transparent text-white hover:bg-white/20" 
+              size="lg"
+            >
+              How It Works
+              <PlayCircle className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </div>
         </div>
       </div>
       
-      {/* Wave decoration */}
-      <div className="absolute bottom-0 left-0 right-0 z-20">
+      {/* Wave decoration with less opacity */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path 
             fill="currentColor" 
-            className="text-background"
+            className="text-background/90" 
             d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,48C840,43,960,53,1080,58.7C1200,64,1320,64,1380,64L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"
           ></path>
         </svg>
