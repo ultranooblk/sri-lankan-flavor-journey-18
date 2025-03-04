@@ -68,6 +68,20 @@ const Hero = () => {
         </Carousel>
       </div>
 
+      {/* Slogan added above the buttons */}
+      <div className="absolute bottom-[40%] inset-x-0 z-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
+              Taste the Authentic <span className="text-primary">Sri Lankan</span> Flavors
+            </h1>
+            <p className="mt-4 text-xl md:text-2xl text-white/90 font-light drop-shadow-md">
+              Bringing traditional recipes to your doorstep
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Buttons positioned higher up in the section with subtle background */}
       <div className="absolute bottom-1/3 inset-x-0 z-20">
         <div className="container mx-auto px-4 pb-16 relative">
