@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -55,7 +54,6 @@ const RecipeDetails = () => {
       </Button>
       
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-        {/* Main Content - 3 columns */}
         <div className="lg:col-span-3">
           <div className="mb-6">
             <h1 className="text-3xl md:text-4xl font-bold mb-4 font-display">{recipe.title}</h1>
@@ -102,7 +100,6 @@ const RecipeDetails = () => {
             </div>
           </div>
           
-          {/* Video Tutorial Section - New Addition */}
           <div className="mb-8 rounded-xl overflow-hidden border border-border">
             <div className="aspect-w-16 aspect-h-9 relative bg-muted flex items-center justify-center">
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/5 dark:bg-white/5">
@@ -162,7 +159,6 @@ const RecipeDetails = () => {
           )}
         </div>
         
-        {/* Sidebar - 2 columns */}
         <div className="lg:col-span-2">
           <div className="sticky top-24">
             <div className="bg-card rounded-xl border border-border p-6 shadow-sm mb-6">
@@ -173,16 +169,12 @@ const RecipeDetails = () => {
               
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between items-center">
-                  <span>Base price ({recipe.servings})</span>
+                  <span>Base price ({recipe?.servings} servings)</span>
                   <span className="font-semibold">$18.99</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span>Delivery</span>
-                  <span className="font-semibold">$4.99</span>
                 </div>
                 <div className="flex justify-between items-center pt-2 border-t border-border">
                   <span className="font-bold">Total</span>
-                  <span className="font-bold">$23.98</span>
+                  <span className="font-bold">$18.99</span>
                 </div>
               </div>
               
@@ -195,7 +187,7 @@ const RecipeDetails = () => {
               </Button>
             </div>
             
-            {recipe.nutrition && (
+            {recipe?.nutrition && (
               <div className="bg-card rounded-xl border border-border p-6 shadow-sm">
                 <h3 className="text-xl font-bold mb-4">Nutrition Facts</h3>
                 <p className="text-sm text-card-foreground/70 mb-4">Per serving</p>

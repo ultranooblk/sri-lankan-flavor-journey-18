@@ -16,6 +16,9 @@ const heroImages = [
   'https://images.unsplash.com/photo-1596797038530-2c107dc43d15?auto=format&fit=crop&q=90&w=2000&h=1200', // Rice and curry
   'https://images.unsplash.com/photo-1667489022797-ab608913feeb?auto=format&fit=crop&q=90&w=2000&h=1200', // Sri Lankan spices
   'https://images.unsplash.com/photo-1593854823322-5a737e0c5dd3?auto=format&fit=crop&q=90&w=2000&h=1200',  // Hoppers/string hoppers
+  'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&q=90&w=2000&h=1200', // Colorful curry dishes
+  'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&q=90&w=2000&h=1200', // Spice market
+  'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=90&w=2000&h=1200', // Vegetable curry
   'public/lovable-uploads/15b59079-7146-4dbf-b859-8fcafaad882b.png' // Uploaded image
 ];
 
