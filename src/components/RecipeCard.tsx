@@ -5,6 +5,7 @@ import { Clock, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useCart } from '@/hooks/use-cart';
 
 export interface RecipeProps {
   id: string;
@@ -15,6 +16,7 @@ export interface RecipeProps {
   spiceLevel: number;
   tags: string[];
   description: string;
+  price?: number;
 }
 
 const RecipeCard = ({
@@ -25,9 +27,20 @@ const RecipeCard = ({
   servings,
   spiceLevel,
   tags,
-  description
+  description,
+  price = 18.99 // Default price if not provided
 }: RecipeProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { addToCart } = useCart();
+  
+  const handleAddToCart = () => {
+    addToCart({
+      id,
+      title,
+      image,
+      price
+    });
+  };
 
   return (
     <div 
@@ -101,6 +114,7 @@ const RecipeCard = ({
             variant="ghost" 
             size="sm" 
             className="text-primary hover:text-primary/80 hover:bg-primary/5 dark:text-primary dark:hover:text-primary/80 dark:hover:bg-primary/10"
+            onClick={handleAddToCart}
           >
             Add to Cart
           </Button>

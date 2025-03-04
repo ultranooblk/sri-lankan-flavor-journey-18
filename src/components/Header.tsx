@@ -5,12 +5,16 @@ import { ShoppingCart, Menu, X, User, Sun, Moon } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
 import { useTheme } from '@/hooks/use-theme';
+import { useCart } from '@/hooks/use-cart';
+import { useAuth } from '@/hooks/use-auth';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { theme, setTheme } = useTheme();
+  const { cartItems } = useCart();
+  const { user, isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +45,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <span className="relative flex h-10 w-10 overflow-hidden rounded-full bg-orange-500 items-center justify-center">
+          <span className="relative flex h-10 w-10 overflow-hidden rounded-full bg-primary items-center justify-center">
             <span className="text-white font-display text-lg">CM</span>
           </span>
           <span className="font-display text-xl font-bold tracking-tight">Cook Me</span>
@@ -54,9 +58,9 @@ const Header = () => {
               key={link.path}
               to={link.path}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-orange-500 relative py-2',
+                'text-sm font-medium transition-colors hover:text-primary relative py-2',
                 location.pathname === link.path 
-                  ? 'text-orange-500 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-orange-500 after:content-[""]' 
+                  ? 'text-primary after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-primary after:content-[""]' 
                   : 'text-foreground/80'
               )}
             >
@@ -75,18 +79,38 @@ const Header = () => {
           >
             {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
-          <Button variant="ghost" size="icon" className="relative">
-            <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-orange-500 text-[10px] font-bold text-white">
-              0
-            </span>
-          </Button>
-          <Button variant="ghost" size="icon">
-            <User className="h-5 w-5" />
-          </Button>
-          <Button variant="default" className="bg-orange-500 text-white hover:bg-orange-600 transition-colors">
-            Sign In
-          </Button>
+          <Link to="/cart">
+            <Button variant="ghost" size="icon" className="relative">
+              <ShoppingCart className="h-5 w-5" />
+              {cartItems.length > 0 && (
+                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">
+                  {cartItems.length}
+                </span>
+              )}
+            </Button>
+          </Link>
+          {isAuthenticated ? (
+            <div className="flex items-center gap-2">
+              <Link to="/profile">
+                <Button variant="ghost" size="icon">
+                  <User className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Button 
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary/10"
+                onClick={logout}
+              >
+                Sign Out
+              </Button>
+            </div>
+          ) : (
+            <Link to="/login">
+              <Button variant="default" className="bg-primary text-white hover:bg-primary/90 transition-colors">
+                Sign In
+              </Button>
+            </Link>
+          )}
         </div>
 
         {/* Mobile menu button */}
@@ -99,6 +123,14 @@ const Header = () => {
           >
             {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
+          <Link to="/cart" className="relative mr-2">
+            <ShoppingCart className="h-5 w-5" />
+            {cartItems.length > 0 && (
+              <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">
+                {cartItems.length}
+              </span>
+            )}
+          </Link>
           <Button
             variant="ghost"
             size="icon"
@@ -124,21 +156,37 @@ const Header = () => {
               key={link.path}
               to={link.path}
               className={cn(
-                'text-lg font-medium transition-colors hover:text-orange-500 py-2 border-b border-border',
-                location.pathname === link.path ? 'text-orange-500' : 'text-foreground/80'
+                'text-lg font-medium transition-colors hover:text-primary py-2 border-b border-border',
+                location.pathname === link.path ? 'text-primary' : 'text-foreground/80'
               )}
             >
               {link.name}
             </Link>
           ))}
-          <div className="pt-4 flex items-center justify-between">
-            <Button variant="outline" className="flex-1 mr-2" size="lg">
-              <ShoppingCart className="h-5 w-5 mr-2" />
-              Cart
-            </Button>
-            <Button variant="default" className="flex-1 ml-2 bg-orange-500 text-white" size="lg">
-              Sign In
-            </Button>
+          <div className="pt-4">
+            {isAuthenticated ? (
+              <div className="space-y-3">
+                <Link to="/profile">
+                  <Button variant="outline" className="w-full">
+                    <User className="h-5 w-5 mr-2" />
+                    My Profile
+                  </Button>
+                </Link>
+                <Button 
+                  variant="default" 
+                  className="w-full bg-primary text-white"
+                  onClick={logout}
+                >
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              <Link to="/login">
+                <Button variant="default" className="w-full bg-primary text-white">
+                  Sign In
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
