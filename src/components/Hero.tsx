@@ -68,10 +68,10 @@ const Hero = () => {
         </Carousel>
       </div>
 
-      {/* Slogan added above the buttons */}
-      <div className="absolute bottom-[40%] inset-x-0 z-20">
+      {/* Slogan with semi-transparent dark background for better visibility */}
+      <div className="absolute top-1/2 inset-x-0 z-20 transform -translate-y-3/4">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-6">
+          <div className="max-w-3xl mx-auto text-center mb-6 backdrop-blur-sm bg-black/40 py-6 px-4 rounded-lg">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
               Taste the Authentic <span className="text-primary">Sri Lankan</span> Flavors
             </h1>
@@ -82,8 +82,8 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Buttons positioned higher up in the section with subtle background */}
-      <div className="absolute bottom-1/3 inset-x-0 z-20">
+      {/* Buttons positioned lower with clear separation from text */}
+      <div className="absolute bottom-1/4 inset-x-0 z-20">
         <div className="container mx-auto px-4 pb-16 relative">
           <div className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
