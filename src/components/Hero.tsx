@@ -10,11 +10,11 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 
-// Adjusted the paths to ensure images work correctly - using absolute paths
+// Using direct image imports for more reliable reference
 const heroImages = [
-  'lovable-uploads/f69768fb-e960-4489-92ae-402d9caf6fd3.png', // First uploaded image - Curry dishes in bowls
-  'lovable-uploads/f3b21353-bb64-4f30-909f-1d59483a755b.png', // Second uploaded image - South Indian thali/feast setup
-  'lovable-uploads/a65c612d-20f1-4041-98c9-452e14e918b0.png', // Third uploaded image - Dosa and South Indian breakfast
+  '/lovable-uploads/f69768fb-e960-4489-92ae-402d9caf6fd3.png', // First uploaded image - Curry dishes in bowls
+  '/lovable-uploads/f3b21353-bb64-4f30-909f-1d59483a755b.png', // Second uploaded image - South Indian thali/feast setup
+  '/lovable-uploads/a65c612d-20f1-4041-98c9-452e14e918b0.png', // Third uploaded image - Dosa and South Indian breakfast
 ];
 
 const Hero = () => {
@@ -41,7 +41,7 @@ const Hero = () => {
               <CarouselItem key={index} className="h-full">
                 <div 
                   className="w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(/${image})` }}
+                  style={{ backgroundImage: `url(${image})` }}
                 />
               </CarouselItem>
             ))}
