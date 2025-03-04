@@ -10,11 +10,11 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 
-// Sri Lankan/South Indian food images
+// Sri Lankan/South Indian food images - using relative paths
 const heroImages = [
-  'public/lovable-uploads/f69768fb-e960-4489-92ae-402d9caf6fd3.png', // First uploaded image - Curry dishes in bowls
-  'public/lovable-uploads/f3b21353-bb64-4f30-909f-1d59483a755b.png', // Second uploaded image - South Indian thali/feast setup
-  'public/lovable-uploads/a65c612d-20f1-4041-98c9-452e14e918b0.png', // Third uploaded image - Dosa and South Indian breakfast
+  '/lovable-uploads/f69768fb-e960-4489-92ae-402d9caf6fd3.png', // First uploaded image - Curry dishes in bowls
+  '/lovable-uploads/f3b21353-bb64-4f30-909f-1d59483a755b.png', // Second uploaded image - South Indian thali/feast setup
+  '/lovable-uploads/a65c612d-20f1-4041-98c9-452e14e918b0.png', // Third uploaded image - Dosa and South Indian breakfast
 ];
 
 const Hero = () => {
@@ -84,11 +84,11 @@ const Hero = () => {
             </Button>
             <Button 
               variant="outline" 
-              className="border-2 border-primary bg-white text-primary hover:bg-primary/10 shadow-lg" 
+              className="border-2 border-primary bg-white/80 text-primary hover:bg-primary/10 shadow-lg" 
               size="lg"
             >
-              How It Works
-              <PlayCircle className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <span className="text-primary font-medium">How It Works</span>
+              <PlayCircle className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 text-primary" />
             </Button>
           </div>
         </div>

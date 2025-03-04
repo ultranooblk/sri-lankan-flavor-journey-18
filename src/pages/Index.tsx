@@ -116,8 +116,12 @@ const Index = () => {
             <Button className="bg-white text-primary hover:bg-secondary dark:hover:bg-white/90 shadow-lg" size="lg">
               Browse Recipes
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-primary/80 dark:hover:bg-primary-dark" size="lg">
-              View Subscription Plans
+            <Button 
+              variant="outline" 
+              className="border-white border-2 text-white hover:bg-primary-foreground/10 dark:hover:bg-primary-dark" 
+              size="lg"
+            >
+              <span className="text-white">View Subscription Plans</span>
             </Button>
           </div>
         </div>
