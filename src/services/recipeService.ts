@@ -1,4 +1,3 @@
-
 export interface Recipe {
   id: string;
   title: string;
@@ -17,6 +16,7 @@ export interface Recipe {
     fat: number;
   };
   chefNotes?: string;
+  price?: number;
 }
 
 // Sample data for all recipes
