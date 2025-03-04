@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -7,75 +6,75 @@
 
 @layer base {
   :root {
-    /* New color scheme based on specified colors */
-    --background: 0 0% 97%; /* #F7F7F7 - Light gray for background */
-    --foreground: 0 0% 15%; /* Dark gray for text */
+    /* Warm, food-inspired color palette */
+    --background: 30 20% 97%; /* #f8f5f1 - Warm cream background */
+    --foreground: 30 10% 15%; /* Dark warm gray for text */
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 15%;
+    --card-foreground: 30 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 15%;
+    --popover-foreground: 30 10% 15%;
 
-    --primary: 39 100% 50%; /* #FFA400 - Warm orange */
+    --primary: 22 80% 55%; /* #e67e22 - Warm pumpkin/spice orange */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 173 100% 33%; /* #00A896 - Cool green */
+    --secondary: 150 50% 40%; /* #2ecc71 - Fresh herb green */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 94%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 30 10% 94%;
+    --muted-foreground: 30 10% 45%;
 
-    --accent: 207 100% 30%; /* #005B9A - Deep blue */
+    --accent: 200 60% 45%; /* #3498db - Fresh blueberry */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 85%;
-    --input: 0 0% 85%;
-    --ring: 39 100% 50%;
+    --border: 30 10% 85%;
+    --input: 30 10% 85%;
+    --ring: 22 80% 55%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 20%;
-    --sidebar-primary: 39 100% 50%;
+    --sidebar-background: 30 20% 98%;
+    --sidebar-foreground: 30 10% 20%;
+    --sidebar-primary: 22 80% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 95%;
-    --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 0 0% 90%;
-    --sidebar-ring: 39 100% 50%;
+    --sidebar-accent: 30 20% 95%;
+    --sidebar-accent-foreground: 30 10% 10%;
+    --sidebar-border: 30 10% 90%;
+    --sidebar-ring: 22 80% 55%;
   }
 
   .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 98%;
+    --background: 30 15% 10%; /* #211e1b - Dark roast coffee */
+    --foreground: 30 10% 95%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 30 15% 12%;
+    --card-foreground: 30 10% 95%;
 
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 30 15% 12%;
+    --popover-foreground: 30 10% 95%;
 
-    --primary: 39 100% 50%; /* Keep same primary */
-    --primary-foreground: 0 0% 10%;
+    --primary: 22 75% 50%; /* Slightly darker pumpkin for dark mode */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 173 100% 28%; /* Slightly darker secondary for dark mode */
+    --secondary: 150 45% 35%; /* Slightly darker herb green for dark mode */
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 85%;
+    --muted: 30 15% 20%;
+    --muted-foreground: 30 10% 85%;
 
-    --accent: 207 100% 25%; /* Slightly darker accent for dark mode */
+    --accent: 200 55% 40%; /* Slightly darker blueberry for dark mode */
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 30%;
-    --input: 0 0% 30%;
-    --ring: 39 100% 50%;
+    --border: 30 15% 30%;
+    --input: 30 15% 30%;
+    --ring: 22 75% 50%;
   }
 }
 
@@ -106,7 +105,7 @@
 }
 
 .image-glow {
-  filter: drop-shadow(0 0 20px rgba(255, 164, 0, 0.15));
+  filter: drop-shadow(0 0 20px rgba(230, 126, 34, 0.2));
 }
 
 .backdrop-blur {
@@ -128,7 +127,7 @@
 }
 
 .hero-gradient {
-  background: linear-gradient(100deg, rgba(255, 164, 0, 0.08) 0%, rgba(0, 168, 150, 0.08) 100%);
+  background: linear-gradient(100deg, rgba(230, 126, 34, 0.08) 0%, rgba(46, 204, 113, 0.08) 100%);
 }
 
 .recipe-gradient {
