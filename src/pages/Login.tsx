@@ -1,17 +1,23 @@
 
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { LogIn, UserPlus, Mail, Lock, User } from 'lucide-react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login, signup } = useAuth();
+  const location = useLocation();
+  const { login, signup, isAuthenticated } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
+  
+  // Get redirect information from location state
+  const from = location.state?.from || '/';
+  const message = location.state?.message || '';
   
   // Login form state
   const [loginEmail, setLoginEmail] = useState('');
@@ -23,6 +29,13 @@ const Login = () => {
   const [signupPassword, setSignupPassword] = useState('');
   const [signupConfirmPassword, setSignupConfirmPassword] = useState('');
   
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate(from);
+    }
+  }, [isAuthenticated, navigate, from]);
+  
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -31,7 +44,7 @@ const Login = () => {
     
     setIsLoading(false);
     if (success) {
-      navigate('/');
+      navigate(from);
     }
   };
   
@@ -48,7 +61,7 @@ const Login = () => {
     
     setIsLoading(false);
     if (success) {
-      navigate('/');
+      navigate(from);
     }
   };
   
@@ -56,6 +69,12 @@ const Login = () => {
     <div className="container mx-auto px-4 py-20 min-h-screen flex flex-col items-center justify-center">
       <div className="w-full max-w-md mx-auto bg-card rounded-xl border border-border p-6 shadow-md">
         <h1 className="text-2xl font-bold text-center mb-6 font-display">Welcome to Cook Me</h1>
+        
+        {message && (
+          <Alert className="mb-4 bg-muted">
+            <AlertDescription>{message}</AlertDescription>
+          </Alert>
+        )}
         
         <Tabs defaultValue="login" className="w-full">
           <TabsList className="grid w-full grid-cols-2 mb-6">

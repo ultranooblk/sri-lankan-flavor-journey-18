@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Menu, X, User, Sun, Moon } from 'lucide-react';
+import { ShoppingCart, Menu, X, User, Sun, Moon, Settings } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
 import { useTheme } from '@/hooks/use-theme';
@@ -25,7 +24,6 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when changing routes
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
@@ -37,13 +35,14 @@ const Header = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
+  const adminLink = isAuthenticated ? { name: 'Admin', path: '/admin' } : null;
+
   return (
     <header className={cn(
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4',
       isScrolled ? 'glass-morphism' : 'bg-transparent'
     )}>
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <span className="relative flex h-10 w-10 overflow-hidden rounded-full bg-primary items-center justify-center">
             <span className="text-white font-display text-lg">CM</span>
@@ -51,7 +50,6 @@ const Header = () => {
           <span className="font-display text-xl font-bold tracking-tight">Cook Me</span>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <Link
@@ -69,7 +67,6 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Action buttons */}
         <div className="hidden md:flex items-center space-x-4">
           <Button 
             variant="ghost" 
@@ -96,6 +93,13 @@ const Header = () => {
                   <User className="h-5 w-5" />
                 </Button>
               </Link>
+              {adminLink && (
+                <Link to={adminLink.path}>
+                  <Button variant="ghost" size="icon">
+                    <Settings className="h-5 w-5" />
+                  </Button>
+                </Link>
+              )}
               <Button 
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary/10"
@@ -113,7 +117,6 @@ const Header = () => {
           )}
         </div>
 
-        {/* Mobile menu button */}
         <div className="md:hidden flex items-center space-x-2">
           <Button 
             variant="ghost" 
@@ -143,7 +146,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       <div
         className={cn(
           'fixed inset-0 top-16 bg-background transition-transform duration-300 ease-in-out md:hidden',
@@ -163,6 +165,19 @@ const Header = () => {
               {link.name}
             </Link>
           ))}
+          
+          {adminLink && (
+            <Link
+              to={adminLink.path}
+              className={cn(
+                'text-lg font-medium transition-colors hover:text-primary py-2 border-b border-border',
+                location.pathname === adminLink.path ? 'text-primary' : 'text-foreground/80'
+              )}
+            >
+              {adminLink.name}
+            </Link>
+          )}
+          
           <div className="pt-4">
             {isAuthenticated ? (
               <div className="space-y-3">
