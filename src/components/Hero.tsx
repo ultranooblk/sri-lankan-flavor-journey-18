@@ -26,7 +26,7 @@ const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <section className="relative min-h-[90vh] overflow-hidden">
+    <section className="relative h-screen overflow-hidden">
       {/* Background Carousel - Ensure full visibility */}
       <div className="absolute inset-0 w-full h-full">
         <Carousel 
@@ -57,7 +57,7 @@ const Hero = () => {
           <CarouselNext className="right-4 z-20" />
           
           {/* Custom navigation indicators */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-20 flex gap-2">
             {heroImages.map((_, index) => (
               <button 
                 key={index}
@@ -84,19 +84,22 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-28 text-center relative z-20">
-        <div className="max-w-3xl mx-auto animate-fade-up flex flex-col sm:flex-row gap-4 justify-center">
-          <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg relative overflow-hidden group" size="lg">
-            <span className="relative z-10 flex items-center">
-              Browse Recipes
-              <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
-          </Button>
-          <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 group text-white border-white" size="lg">
-            How It Works
-            <PlayCircle className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
+      {/* Buttons positioned at the bottom of the hero section */}
+      <div className="absolute bottom-16 left-0 right-0 z-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-4 justify-center">
+            <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg relative overflow-hidden group" size="lg">
+              <span className="relative z-10 flex items-center">
+                Browse Recipes
+                <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            </Button>
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 group text-white border-white" size="lg">
+              How It Works
+              <PlayCircle className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </div>
         </div>
       </div>
       
