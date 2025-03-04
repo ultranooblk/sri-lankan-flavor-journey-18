@@ -38,30 +38,46 @@ const Hero = () => {
         ))}
         <div className="absolute inset-0 hero-gradient" />
         <div className="absolute inset-0 bg-white/40 dark:bg-black/50" />
+        
+        {/* Subtle grain texture overlay */}
+        <div className="absolute inset-0 opacity-15 mix-blend-overlay"
+             style={{
+               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+             }}
+        ></div>
       </div>
 
       <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-28 text-center relative z-10">
         <div className="max-w-3xl mx-auto animate-fade-up">
-          <div className="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-primary/10 text-primary">
+          <div className="inline-flex items-center px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-primary/10 text-primary backdrop-blur-sm border border-primary/10">
             <Leaf className="h-3 w-3 mr-1" />
             <span>Locally Sourced Sri Lankan Ingredients</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-balance">
-            <span className="text-primary">Authentic Sri Lankan</span> <br />
-            <span className="text-accent">Flavors Delivered</span>
+            <span className="text-primary relative">
+              Authentic Sri Lankan
+              <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 rounded-full"></span>
+            </span> <br />
+            <span className="text-accent relative">
+              Flavors Delivered
+              <span className="absolute -bottom-2 left-0 w-full h-1 bg-accent/30 rounded-full"></span>
+            </span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
             Experience the joy of cooking traditional Sri Lankan cuisine with perfectly portioned ingredients and step-by-step recipes delivered to your door.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center">
-            <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg" size="lg">
-              Browse Recipes
-              <ChevronRight className="ml-2 h-4 w-4" />
+            <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg relative overflow-hidden group" size="lg">
+              <span className="relative z-10 flex items-center">
+                Browse Recipes
+                <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
             </Button>
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary/5" size="lg">
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 group" size="lg">
               How It Works
-              <PlayCircle className="ml-2 h-4 w-4" />
+              <PlayCircle className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
           
