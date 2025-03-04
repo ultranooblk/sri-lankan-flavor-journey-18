@@ -41,7 +41,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <span className="relative flex h-10 w-10 overflow-hidden rounded-full bg-hellofresh-500 items-center justify-center">
+          <span className="relative flex h-10 w-10 overflow-hidden rounded-full bg-orange-500 items-center justify-center">
             <span className="text-white font-display text-lg">CM</span>
           </span>
           <span className="font-display text-xl font-bold tracking-tight">Cook Me</span>
@@ -54,9 +54,9 @@ const Header = () => {
               key={link.path}
               to={link.path}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-hellofresh-500 relative py-2',
+                'text-sm font-medium transition-colors hover:text-orange-500 relative py-2',
                 location.pathname === link.path 
-                  ? 'text-hellofresh-500 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-hellofresh-500 after:content-[""]' 
+                  ? 'text-orange-500 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-orange-500 after:content-[""]' 
                   : 'text-foreground/80'
               )}
             >
@@ -77,14 +77,14 @@ const Header = () => {
           </Button>
           <Button variant="ghost" size="icon" className="relative">
             <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-hellofresh-500 text-[10px] font-bold text-white">
+            <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-orange-500 text-[10px] font-bold text-white">
               0
             </span>
           </Button>
           <Button variant="ghost" size="icon">
             <User className="h-5 w-5" />
           </Button>
-          <Button variant="default" className="bg-hellofresh-500 text-white hover:bg-hellofresh-600 transition-colors">
+          <Button variant="default" className="bg-orange-500 text-white hover:bg-orange-600 transition-colors">
             Sign In
           </Button>
         </div>
@@ -124,8 +124,8 @@ const Header = () => {
               key={link.path}
               to={link.path}
               className={cn(
-                'text-lg font-medium transition-colors hover:text-hellofresh-500 py-2 border-b border-border',
-                location.pathname === link.path ? 'text-hellofresh-500' : 'text-foreground/80'
+                'text-lg font-medium transition-colors hover:text-orange-500 py-2 border-b border-border',
+                location.pathname === link.path ? 'text-orange-500' : 'text-foreground/80'
               )}
             >
               {link.name}
@@ -136,7 +136,7 @@ const Header = () => {
               <ShoppingCart className="h-5 w-5 mr-2" />
               Cart
             </Button>
-            <Button variant="default" className="flex-1 ml-2 bg-hellofresh-500 text-white" size="lg">
+            <Button variant="default" className="flex-1 ml-2 bg-orange-500 text-white" size="lg">
               Sign In
             </Button>
           </div>

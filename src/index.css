@@ -7,74 +7,75 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 126 49% 24%;
+    /* New color scheme based on specified colors */
+    --background: 0 0% 97%; /* #F7F7F7 - Light gray for background */
+    --foreground: 0 0% 15%; /* Dark gray for text */
 
     --card: 0 0% 100%;
-    --card-foreground: 126 49% 24%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 126 49% 24%;
+    --popover-foreground: 0 0% 15%;
 
-    --primary: 97 67% 44%;
+    --primary: 39 100% 50%; /* #FFA400 - Warm orange */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 39 96% 64%;
-    --secondary-foreground: 126 49% 24%;
+    --secondary: 173 100% 33%; /* #00A896 - Cool green */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 97 10% 94%;
-    --muted-foreground: 97 10% 45%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 39 96% 64%;
-    --accent-foreground: 126 49% 24%;
+    --accent: 207 100% 30%; /* #005B9A - Deep blue */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 126 15% 90%;
-    --input: 126 15% 90%;
-    --ring: 97 67% 44%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 39 100% 50%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 39 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 95%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 39 100% 50%;
   }
 
   .dark {
-    --background: 126 30% 10%;
-    --foreground: 0 0% 98%; /* Improved foreground contrast for dark mode */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 126 25% 12%;
-    --card-foreground: 0 0% 98%; /* Improved card text contrast */
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 126 25% 12%;
-    --popover-foreground: 0 0% 98%; /* Improved popover text contrast */
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 97 50% 55%; /* Brighter primary color for dark mode */
-    --primary-foreground: 0 0% 100%;
+    --primary: 39 100% 50%; /* Keep same primary */
+    --primary-foreground: 0 0% 10%;
 
-    --secondary: 39 95% 60%; /* Brighter secondary color for dark mode */
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 173 100% 28%; /* Slightly darker secondary for dark mode */
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 126 20% 20%;
-    --muted-foreground: 0 0% 85%; /* Improved muted text contrast */
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 85%;
 
-    --accent: 39 95% 60%; /* Brighter accent color for dark mode */
-    --accent-foreground: 0 0% 95%;
+    --accent: 207 100% 25%; /* Slightly darker accent for dark mode */
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 126 20% 30%; /* Improved border visibility */
-    --input: 126 20% 30%;
-    --ring: 97 50% 55%;
+    --border: 0 0% 30%;
+    --input: 0 0% 30%;
+    --ring: 39 100% 50%;
   }
 }
 
@@ -105,7 +106,7 @@
 }
 
 .image-glow {
-  filter: drop-shadow(0 0 20px rgba(244, 63, 94, 0.15));
+  filter: drop-shadow(0 0 20px rgba(255, 164, 0, 0.15));
 }
 
 .backdrop-blur {
@@ -127,7 +128,7 @@
 }
 
 .hero-gradient {
-  background: linear-gradient(100deg, rgba(140, 192, 33, 0.08) 0%, rgba(243, 186, 47, 0.08) 100%);
+  background: linear-gradient(100deg, rgba(255, 164, 0, 0.08) 0%, rgba(0, 168, 150, 0.08) 100%);
 }
 
 .recipe-gradient {
@@ -139,28 +140,28 @@
 }
 
 .spice-indicator span {
-  @apply w-2 h-2 rounded-full bg-hellofresh-200 dark:bg-hellofresh-200/50;
+  @apply w-2 h-2 rounded-full bg-orange-200 dark:bg-orange-200/50;
   transition: background-color 0.3s ease;
 }
 
 .spice-indicator.level-1 span:nth-child(1) {
-  @apply bg-hellofresh-500 dark:bg-hellofresh-400;
+  @apply bg-orange-500 dark:bg-orange-400;
 }
 
 .spice-indicator.level-2 span:nth-child(-n+2) {
-  @apply bg-hellofresh-500 dark:bg-hellofresh-400;
+  @apply bg-orange-500 dark:bg-orange-400;
 }
 
 .spice-indicator.level-3 span:nth-child(-n+3) {
-  @apply bg-hellofresh-500 dark:bg-hellofresh-400;
+  @apply bg-orange-500 dark:bg-orange-400;
 }
 
 .spice-indicator.level-4 span:nth-child(-n+4) {
-  @apply bg-hellofresh-500 dark:bg-hellofresh-400;
+  @apply bg-orange-500 dark:bg-orange-400;
 }
 
 .spice-indicator.level-5 span {
-  @apply bg-hellofresh-500 dark:bg-hellofresh-400;
+  @apply bg-orange-500 dark:bg-orange-400;
 }
 
 /* Center-aligned layout utilities */

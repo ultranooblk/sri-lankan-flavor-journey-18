@@ -73,17 +73,17 @@ const Index = () => {
       
       <SubscriptionPlans />
       
-      <section className="py-16 bg-hellofresh-500 dark:bg-hellofresh-700 text-white text-center">
+      <section className="py-16 bg-orange-500 dark:bg-orange-600 text-white text-center">
         <div className="section-container">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display tracking-tight">Ready to Get Started?</h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8 font-light">
             Join thousands of Sri Lankan food enthusiasts who are already enjoying our authentic meal kits delivered to their doorstep.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="bg-white text-hellofresh-500 hover:bg-hellofresh-50 dark:hover:bg-white/90" size="lg">
+            <Button className="bg-white text-orange-500 hover:bg-orange-50 dark:hover:bg-white/90" size="lg">
               Browse Recipes
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-hellofresh-600 dark:hover:bg-hellofresh-600/80" size="lg">
+            <Button variant="outline" className="border-white text-white hover:bg-orange-600/80 dark:hover:bg-orange-700" size="lg">
               View Subscription Plans
             </Button>
           </div>
