@@ -10,11 +10,11 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 
-// Sri Lankan/South Indian food images (reduced to 3)
+// Sri Lankan/South Indian food images
 const heroImages = [
-  'https://images.unsplash.com/photo-1596797038530-2c107dc43d15?auto=format&fit=crop&q=90&w=2000&h=1200', // Rice and curry
-  'https://images.unsplash.com/photo-1668236543090-82eba5d78a2b?auto=format&fit=crop&q=90&w=2000&h=1200', // Dosa/South Indian food
-  'https://images.unsplash.com/photo-1589647363585-f4a7d3877b10?auto=format&fit=crop&q=90&w=2000&h=1200', // Spicy curry dish
+  'public/lovable-uploads/1a1de572-3ec7-40f8-9540-eef569c01cf2.png', // First uploaded image
+  'public/lovable-uploads/93463700-e3a5-4241-873e-de93bdea53a3.png', // Second uploaded image
+  'public/lovable-uploads/89e5fd46-4986-402e-9f89-2827c1b04663.png', // Third uploaded image
 ];
 
 const Hero = () => {
@@ -84,7 +84,7 @@ const Hero = () => {
             </Button>
             <Button 
               variant="outline" 
-              className="border-2 border-white bg-transparent text-white hover:bg-white/20" 
+              className="border-2 border-primary bg-white text-primary hover:bg-primary/10 shadow-lg" 
               size="lg"
             >
               How It Works
