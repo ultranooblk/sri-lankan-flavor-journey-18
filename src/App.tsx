@@ -20,7 +20,19 @@ import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const queryClient = new QueryClient();
+// Remove unused App.css import if it exists
+// import './App.css';
+
+// Create a new QueryClient with better error handling
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      refetchOnWindowFocus: false,
+      staleTime: 5 * 60 * 1000, // 5 minutes
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -29,7 +41,7 @@ const App = () => (
         <CartProvider>
           <TooltipProvider>
             <Toaster />
-            <Sonner />
+            <Sonner position="top-right" closeButton theme="light" />
             <BrowserRouter>
               <div className="flex min-h-screen flex-col">
                 <Header />

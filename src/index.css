@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -6,75 +7,96 @@
 
 @layer base {
   :root {
-    /* Clean green and white theme */
-    --background: 0 0% 100%; /* #FFFFFF - Pure white background */
-    --foreground: 150 10% 15%; /* Dark green-gray for text */
+    /* Base colors - modify these to change the entire theme */
+    --color-green-primary: 150 55% 40%; /* #2ecc71 - Fresh green */
+    --color-green-dark: 150 55% 30%; /* Darker shade for hover states */
+    --color-green-light: 150 55% 92%; /* Light green for backgrounds */
+    --color-text-dark: 150 10% 15%; /* Dark green-gray for text */
+    --color-text-light: 0 0% 100%; /* White text */
+    --color-background: 0 0% 100%; /* White background */
+    --color-background-alt: 150 20% 98%; /* Slightly green tinted background */
+    --color-border: 150 10% 85%; /* Light border color */
 
-    --card: 0 0% 100%;
-    --card-foreground: 150 10% 15%;
+    /* System colors - these map to the base colors */
+    --background: var(--color-background);
+    --foreground: var(--color-text-dark);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 150 10% 15%;
+    --card: var(--color-background);
+    --card-foreground: var(--color-text-dark);
 
-    --primary: 150 55% 40%; /* #2ecc71 - Fresh green */
-    --primary-foreground: 0 0% 100%;
+    --popover: var(--color-background);
+    --popover-foreground: var(--color-text-dark);
 
-    --secondary: 150 30% 96%; /* #F2FCE2 - Soft green */
+    --primary: var(--color-green-primary);
+    --primary-foreground: var(--color-text-light);
+
+    --secondary: 150 30% 96%;
     --secondary-foreground: 150 55% 30%;
 
     --muted: 150 10% 94%;
     --muted-foreground: 150 10% 45%;
 
-    --accent: 150 50% 40%; /* Accent green */
-    --accent-foreground: 0 0% 100%;
+    --accent: var(--color-green-primary);
+    --accent-foreground: var(--color-text-light);
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 150 10% 85%;
-    --input: 150 10% 85%;
-    --ring: 150 55% 40%;
+    --border: var(--color-border);
+    --input: var(--color-border);
+    --ring: var(--color-green-primary);
 
     --radius: 0.5rem;
 
-    --sidebar-background: 150 20% 98%;
-    --sidebar-foreground: 150 10% 20%;
-    --sidebar-primary: 150 55% 40%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-background: var(--color-background-alt);
+    --sidebar-foreground: var(--color-text-dark);
+    --sidebar-primary: var(--color-green-primary);
+    --sidebar-primary-foreground: var(--color-text-light);
     --sidebar-accent: 150 20% 95%;
     --sidebar-accent-foreground: 150 10% 10%;
     --sidebar-border: 150 10% 90%;
-    --sidebar-ring: 150 55% 40%;
+    --sidebar-ring: var(--color-green-primary);
   }
 
   .dark {
-    --background: 150 15% 10%; /* #1A241F - Dark green */
-    --foreground: 150 10% 95%;
+    /* Base colors for dark mode */
+    --color-green-primary: 150 50% 45%; /* Slightly brighter green for dark mode */
+    --color-green-dark: 150 50% 35%; /* Darker shade for hover states */
+    --color-green-light: 150 25% 20%; /* Dark green for backgrounds */
+    --color-text-dark: 150 10% 15%; /* Dark text */
+    --color-text-light: 150 10% 95%; /* Light text */
+    --color-background: 150 15% 10%; /* Dark green background */
+    --color-background-alt: 150 15% 12%; /* Slightly lighter background */
+    --color-border: 150 15% 30%; /* Dark border color */
 
-    --card: 150 15% 12%;
-    --card-foreground: 150 10% 95%;
+    /* System colors - these map to the base colors */
+    --background: var(--color-background);
+    --foreground: var(--color-text-light);
 
-    --popover: 150 15% 12%;
-    --popover-foreground: 150 10% 95%;
+    --card: var(--color-background-alt);
+    --card-foreground: var(--color-text-light);
 
-    --primary: 150 50% 45%; /* Slightly brighter green for dark mode */
-    --primary-foreground: 0 0% 100%;
+    --popover: var(--color-background-alt);
+    --popover-foreground: var(--color-text-light);
 
-    --secondary: 150 25% 20%;
+    --primary: var(--color-green-primary);
+    --primary-foreground: var(--color-text-light);
+
+    --secondary: var(--color-green-light);
     --secondary-foreground: 0 0% 98%;
 
     --muted: 150 15% 20%;
     --muted-foreground: 150 10% 85%;
 
-    --accent: 150 50% 45%;
+    --accent: var(--color-green-primary);
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 150 15% 30%;
-    --input: 150 15% 30%;
-    --ring: 150 50% 45%;
+    --border: var(--color-border);
+    --input: var(--color-border);
+    --ring: var(--color-green-primary);
   }
 }
 
@@ -102,8 +124,22 @@
   .section {
     @apply py-12 md:py-16 lg:py-20;
   }
+
+  /* Improved contrast text utility classes */
+  .text-high-contrast {
+    @apply text-foreground font-medium;
+  }
+  
+  .text-medium-contrast {
+    @apply text-foreground/80;
+  }
+  
+  .text-low-contrast {
+    @apply text-foreground/60;
+  }
 }
 
+/* Utility classes with improved naming for better understanding */
 .image-glow {
   filter: drop-shadow(0 0 20px rgba(46, 204, 113, 0.2));
 }
@@ -134,6 +170,7 @@
   background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
 }
 
+/* Spice indicator styling */
 .spice-indicator {
   @apply inline-flex gap-0.5;
 }
