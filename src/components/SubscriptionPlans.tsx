@@ -1,202 +1,146 @@
+
 import { useState } from 'react';
-import { Check, Info, Users, Calendar, Package } from 'lucide-react';
+import { Check, Info, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
-interface PlanSelections {
-  portions: number;
-  frequency: 'weekly' | 'bi-weekly' | 'monthly';
-  recipes: number;
-}
+const popularPlans = [
+  {
+    id: 'weekly-2p',
+    name: 'Starter Experience',
+    description: 'Perfect for couples or individuals wanting to explore Sri Lankan cuisine',
+    price: 3600,
+    details: '2 portions, 3 recipes per week',
+    features: [
+      'Free delivery',
+      'Weekly recipe rotation',
+      'Skip or cancel anytime',
+      'Recipe cards included'
+    ],
+    popular: false
+  },
+  {
+    id: 'weekly-4p',
+    name: 'Family Feast',
+    description: 'Ideal for families or meal prep enthusiasts',
+    price: 6800,
+    details: '4 portions, 4 recipes per week',
+    features: [
+      'Free delivery',
+      'Weekly recipe rotation',
+      'Skip or cancel anytime',
+      'Recipe cards included',
+      'Premium recipe options'
+    ],
+    popular: true
+  },
+  {
+    id: 'monthly-4p',
+    name: 'Monthly Explorer',
+    description: 'For adventurous eaters who love variety',
+    price: 7200,
+    details: '4 portions, 5 recipes monthly',
+    features: [
+      'Free delivery',
+      'Monthly curated box',
+      'Skip or cancel anytime',
+      'Recipe cards included',
+      'Premium recipe options',
+      '10% discount on total price'
+    ],
+    popular: false
+  }
+];
 
 const SubscriptionPlans = () => {
-  const [selections, setSelections] = useState<PlanSelections>({
-    portions: 2,
-    frequency: 'weekly',
-    recipes: 3
-  });
-
-  const handlePortionChange = (portions: number) => {
-    setSelections(prev => ({ ...prev, portions }));
-  };
-
-  const handleFrequencyChange = (frequency: 'weekly' | 'bi-weekly' | 'monthly') => {
-    setSelections(prev => ({ ...prev, frequency }));
-  };
-
-  const handleRecipesChange = (recipes: number) => {
-    setSelections(prev => ({ ...prev, recipes }));
-  };
-
-  // Calculate price based on selections
-  const calculatePrice = () => {
-    const basePrice = 1200; // Base price per recipe portion
-    const portionMultiplier = selections.portions;
-    const recipeMultiplier = selections.recipes;
-    let frequencyDiscount = 1.0;
-    
-    // Apply discounts based on frequency
-    switch(selections.frequency) {
-      case 'bi-weekly': 
-        frequencyDiscount = 0.95; // 5% discount
-        break;
-      case 'monthly':
-        frequencyDiscount = 0.9; // 10% discount
-        break;
-      default:
-        frequencyDiscount = 1.0;
-    }
-    
-    return Math.round(basePrice * portionMultiplier * recipeMultiplier * frequencyDiscount);
-  };
-
-  const price = calculatePrice();
+  const [selectedPlanId, setSelectedPlanId] = useState('weekly-4p');
 
   return (
     <section className="py-20 bg-gradient-to-br from-background via-background to-muted/50 dark:from-background dark:to-background/80">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Customize Your Plan</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Choose Your Perfect Plan</h2>
           <p className="text-lg text-foreground/70">
-            Build your perfect meal plan by selecting portions, frequency, and number of recipes.
+            Discover authentic Sri Lankan flavors with our carefully curated meal plans
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-card rounded-2xl shadow-md p-6 md:p-8">
-          <div className="grid gap-10 md:gap-12">
-            {/* Portion Selection */}
-            <div>
-              <h3 className="text-xl font-semibold mb-4 flex items-center text-card-foreground">
-                <Users className="mr-2 h-5 w-5 text-primary" />
-                How many people are you cooking for?
-              </h3>
-              <div className="grid grid-cols-3 gap-4">
-                {[2, 4, 6].map((option) => (
-                  <button
-                    key={option}
-                    className={cn(
-                      "flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all",
-                      selections.portions === option
-                        ? "border-primary bg-primary/10 text-card-foreground"
-                        : "border-border hover:border-primary/50 text-card-foreground"
-                    )}
-                    onClick={() => handlePortionChange(option)}
-                  >
-                    <span className="text-2xl font-bold">{option}</span>
-                    <span className="text-sm text-card-foreground/70">portions</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-            
-            {/* Delivery Frequency */}
-            <div>
-              <h3 className="text-xl font-semibold mb-4 flex items-center text-card-foreground">
-                <Calendar className="mr-2 h-5 w-5 text-primary" />
-                How often would you like deliveries?
-              </h3>
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { value: 'weekly', label: 'Weekly' },
-                  { value: 'bi-weekly', label: 'Bi-Weekly' },
-                  { value: 'monthly', label: 'Monthly' }
-                ].map((option) => (
-                  <button
-                    key={option.value}
-                    className={cn(
-                      "flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all",
-                      selections.frequency === option.value
-                        ? "border-primary bg-primary/10 text-card-foreground"
-                        : "border-border hover:border-primary/50 text-card-foreground"
-                    )}
-                    onClick={() => handleFrequencyChange(option.value as any)}
-                  >
-                    <span className="text-lg font-bold">{option.label}</span>
-                    {option.value === 'weekly' && <span className="text-xs text-card-foreground/70">Every week</span>}
-                    {option.value === 'bi-weekly' && <span className="text-xs text-card-foreground/70">Every 2 weeks</span>}
-                    {option.value === 'monthly' && <span className="text-xs text-card-foreground/70">Once a month</span>}
-                  </button>
-                ))}
-              </div>
-            </div>
-            
-            {/* Recipes per Delivery */}
-            <div>
-              <h3 className="text-xl font-semibold mb-4 flex items-center text-card-foreground">
-                <Package className="mr-2 h-5 w-5 text-primary" />
-                How many recipes per delivery?
-              </h3>
-              <div className="grid grid-cols-3 gap-4">
-                {[3, 4, 5].map((option) => (
-                  <button
-                    key={option}
-                    className={cn(
-                      "flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all",
-                      selections.recipes === option
-                        ? "border-primary bg-primary/10 text-card-foreground"
-                        : "border-border hover:border-primary/50 text-card-foreground"
-                    )}
-                    onClick={() => handleRecipesChange(option)}
-                  >
-                    <span className="text-2xl font-bold">{option}</span>
-                    <span className="text-sm text-card-foreground/70">recipes</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-            
-            {/* Summary and Pricing */}
-            <div className="bg-gradient-to-r from-muted to-card p-6 rounded-xl border border-border">
-              <div className="flex flex-col md:flex-row justify-between items-center">
-                <div>
-                  <h3 className="text-xl font-bold text-card-foreground mb-2">Your Customized Plan</h3>
-                  <ul className="space-y-1 mb-4 md:mb-0">
-                    <li className="flex items-center text-card-foreground">
-                      <Check className="h-4 w-4 text-primary mr-2" />
-                      <span>{selections.portions} portions per meal</span>
-                    </li>
-                    <li className="flex items-center text-card-foreground">
-                      <Check className="h-4 w-4 text-primary mr-2" />
-                      <span>{selections.recipes} recipes per delivery</span>
-                    </li>
-                    <li className="flex items-center text-card-foreground">
-                      <Check className="h-4 w-4 text-primary mr-2" />
-                      <span>{selections.frequency === 'weekly' ? 'Weekly' : selections.frequency === 'bi-weekly' ? 'Bi-weekly' : 'Monthly'} delivery</span>
-                    </li>
-                    <li className="flex items-center text-card-foreground">
-                      <Check className="h-4 w-4 text-primary mr-2" />
-                      <span>Free delivery</span>
-                    </li>
-                  </ul>
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {popularPlans.map((plan) => (
+            <Card 
+              key={plan.id}
+              className={cn(
+                "relative overflow-hidden transition-all border-2",
+                selectedPlanId === plan.id 
+                  ? "border-primary shadow-lg shadow-primary/10" 
+                  : "border-border hover:border-primary/50"
+              )}
+            >
+              {plan.popular && (
+                <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-3 py-1 text-xs font-medium">
+                  Most Popular
                 </div>
-                
-                <div className="text-center md:text-right">
-                  <div className="mb-1">
-                    {selections.frequency === 'bi-weekly' && <span className="text-xs font-semibold px-2 py-1 bg-primary/10 text-primary rounded-full">5% OFF</span>}
-                    {selections.frequency === 'monthly' && <span className="text-xs font-semibold px-2 py-1 bg-primary/10 text-primary rounded-full">10% OFF</span>}
-                  </div>
-                  <div className="flex items-baseline justify-center md:justify-end">
-                    <span className="text-3xl font-bold text-card-foreground">LKR {price}</span>
-                    <span className="text-sm text-card-foreground/70 ml-1">
-                      /delivery
-                    </span>
-                  </div>
-                  <div className="mt-4">
-                    <Button className="bg-primary hover:bg-primary/90 text-primary-foreground w-full md:w-auto">
-                      Subscribe Now
-                    </Button>
-                  </div>
+              )}
+              <CardHeader>
+                <CardTitle className="text-xl">{plan.name}</CardTitle>
+                <CardDescription className="min-h-12">{plan.description}</CardDescription>
+                <div className="mt-4">
+                  <span className="text-3xl font-bold text-foreground">LKR {plan.price.toLocaleString()}</span>
+                  <span className="text-sm text-foreground/70 ml-1">/delivery</span>
                 </div>
-              </div>
-            </div>
+                <div className="text-sm text-foreground/70 mt-1">{plan.details}</div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start">
+                      <Check className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                      <span className="text-card-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button 
+                  className={cn(
+                    "w-full",
+                    selectedPlanId === plan.id
+                      ? "bg-primary hover:bg-primary/90 text-primary-foreground"
+                      : "bg-card hover:bg-muted border border-input text-card-foreground"
+                  )}
+                  onClick={() => setSelectedPlanId(plan.id)}
+                >
+                  {selectedPlanId === plan.id ? "Selected" : "Select Plan"}
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+        
+        <div className="mt-16 max-w-3xl mx-auto text-center">
+          <h3 className="text-2xl font-bold mb-6">Ready to start your culinary journey?</h3>
+          <Button 
+            className="bg-primary hover:bg-primary/90 text-white mx-auto group" 
+            size="lg"
+          >
+            Subscribe Now
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
+          
+          <div className="mt-8 text-center">
+            <p className="flex items-center justify-center text-sm text-foreground/70">
+              <Info className="h-4 w-4 mr-2 text-primary" />
+              All plans include the option to customize your meal preferences and dietary restrictions.
+            </p>
           </div>
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="flex items-center justify-center text-sm text-foreground/70">
-            <Info className="h-4 w-4 mr-2 text-primary" />
-            All plans include the option to customize your meal preferences and dietary restrictions.
-          </p>
         </div>
       </div>
     </section>
