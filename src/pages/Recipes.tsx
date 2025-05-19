@@ -36,27 +36,27 @@ const Recipes = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20">
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Explore Our Sri Lankan Recipes</h1>
-          <p className="text-lg text-foreground/70">
+    <div className="min-h-screen pt-16 sm:pt-20">
+      <div className="container mx-auto px-4 py-8 sm:py-12">
+        <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Explore Our Sri Lankan Recipes</h1>
+          <p className="text-base sm:text-lg text-foreground/70">
             Discover authentic Sri Lankan dishes with our pre-portioned ingredients and easy-to-follow recipes.
           </p>
         </div>
         
-        <FilterBar onFilterChange={handleFilterChange} className="mb-8" />
+        <FilterBar onFilterChange={handleFilterChange} className="mb-6 sm:mb-8" />
         
         {recipes.length > 0 ? (
           <>
             <RecipeGrid recipes={recipes.slice(0, visibleRecipes)} />
             
             {visibleRecipes < recipes.length && (
-              <div className="mt-12 text-center">
+              <div className="mt-8 sm:mt-12 text-center">
                 <Button 
                   onClick={loadMore} 
                   variant="outline" 
-                  className="px-8"
+                  className="px-6 sm:px-8 w-full sm:w-auto"
                 >
                   Load More Recipes
                 </Button>
@@ -64,15 +64,15 @@ const Recipes = () => {
             )}
           </>
         ) : (
-          <div className="text-center py-16">
-            <h3 className="text-xl font-medium mb-2">No recipes found</h3>
+          <div className="text-center py-12 sm:py-16">
+            <h3 className="text-lg sm:text-xl font-medium mb-2">No recipes found</h3>
             <p className="text-foreground/70">
               Try adjusting your filters to find more recipes.
             </p>
             <Button 
               onClick={() => handleFilterChange({})} 
               variant="outline" 
-              className="mt-4"
+              className="mt-4 w-full sm:w-auto"
             >
               Clear All Filters
             </Button>

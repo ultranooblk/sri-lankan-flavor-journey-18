@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, PlayCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import {
   Carousel,
   CarouselContent,
@@ -48,11 +49,13 @@ const Hero = () => {
           </CarouselContent>
           
           {/* Show navigation controls with slightly transparent background */}
-          <CarouselPrevious className="left-4 z-20 bg-background/40 hover:bg-background/60" />
-          <CarouselNext className="right-4 z-20 bg-background/40 hover:bg-background/60" />
+          <div className="sm:block hidden">
+            <CarouselPrevious className="left-4 z-20 bg-background/40 hover:bg-background/60" />
+            <CarouselNext className="right-4 z-20 bg-background/40 hover:bg-background/60" />
+          </div>
           
           {/* Carousel indicators */}
-          <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          <div className="absolute bottom-24 sm:bottom-28 left-1/2 -translate-x-1/2 z-20 flex gap-2">
             {heroImages.map((_, index) => (
               <button 
                 key={index}
@@ -69,13 +72,13 @@ const Hero = () => {
       </div>
 
       {/* Slogan with semi-transparent dark background for better visibility */}
-      <div className="absolute top-1/2 inset-x-0 z-20 transform -translate-y-3/4">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-6 backdrop-blur-sm bg-black/40 py-6 px-4 rounded-lg">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
+      <div className="absolute top-1/2 inset-x-0 z-20 transform -translate-y-3/4 px-4">
+        <div className="container mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-6 backdrop-blur-sm bg-black/40 py-4 sm:py-6 px-3 sm:px-4 rounded-lg">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
               Taste the Authentic <span className="text-primary">Sri Lankan</span> Flavors
             </h1>
-            <p className="mt-4 text-xl md:text-2xl text-white/90 font-light drop-shadow-md">
+            <p className="mt-3 sm:mt-4 text-lg sm:text-xl md:text-2xl text-white/90 font-light drop-shadow-md">
               Bringing traditional recipes to your doorstep
             </p>
           </div>
@@ -87,22 +90,28 @@ const Hero = () => {
         <div className="container mx-auto px-4 pb-16 relative">
           <div className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
-              className="bg-primary hover:bg-primary/90 text-white shadow-lg relative overflow-hidden group" 
+              className="bg-primary hover:bg-primary/90 text-white shadow-lg relative overflow-hidden group w-full sm:w-auto" 
               size="lg"
+              asChild
             >
-              <span className="relative z-10 flex items-center">
-                Browse Recipes
-                <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              <Link to="/recipes">
+                <span className="relative z-10 flex items-center">
+                  Browse Recipes
+                  <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+                <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              </Link>
             </Button>
             <Button 
               variant="outline" 
-              className="border-2 border-primary bg-white/80 text-primary hover:bg-primary/10 shadow-lg" 
+              className="border-2 border-primary bg-white/80 text-primary hover:bg-primary/10 shadow-lg w-full sm:w-auto" 
               size="lg"
+              asChild
             >
-              <span className="text-primary font-medium">How It Works</span>
-              <PlayCircle className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 text-primary" />
+              <Link to="/how-it-works">
+                <span className="text-primary font-medium">How It Works</span>
+                <PlayCircle className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 text-primary" />
+              </Link>
             </Button>
           </div>
         </div>

@@ -79,7 +79,7 @@ const RecipeCard = ({
 
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="font-display text-lg font-medium line-clamp-1 text-card-foreground">
+          <h3 className="font-display text-base sm:text-lg font-medium line-clamp-1 text-card-foreground">
             <Link to={`/recipes/${id}`} className="hover:text-primary dark:hover:text-primary transition-colors">
               {title}
             </Link>
@@ -94,18 +94,18 @@ const RecipeCard = ({
           </div>
         </div>
 
-        <p className="text-card-foreground/70 text-sm line-clamp-2 mb-4">
+        <p className="text-card-foreground/70 text-xs sm:text-sm line-clamp-2 mb-3 sm:mb-4">
           {description}
         </p>
 
-        <div className="flex items-center justify-between">
-          <div className="flex space-x-3 text-sm text-card-foreground/70">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex space-x-3 text-xs sm:text-sm text-card-foreground/70">
             <div className="flex items-center">
-              <Clock className="h-4 w-4 mr-1" />
+              <Clock className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
               <span>{time} min</span>
             </div>
             <div className="flex items-center">
-              <Users className="h-4 w-4 mr-1" />
+              <Users className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
               <span>{servings}</span>
             </div>
           </div>
@@ -113,7 +113,7 @@ const RecipeCard = ({
           <Button 
             variant="ghost" 
             size="sm" 
-            className="text-primary hover:text-primary/80 hover:bg-primary/5 dark:text-primary dark:hover:text-primary/80 dark:hover:bg-primary/10"
+            className="text-primary hover:text-primary/80 hover:bg-primary/5 dark:text-primary dark:hover:text-primary/80 dark:hover:bg-primary/10 text-xs sm:text-sm py-1 px-2 h-auto min-h-0 sm:py-2 sm:px-3"
             onClick={handleAddToCart}
           >
             Add to Cart
