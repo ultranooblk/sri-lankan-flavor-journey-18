@@ -91,6 +91,21 @@ const Cart = () => {
                         <h3 className="font-medium hover:text-primary transition-colors">{item.title}</h3>
                       </Link>
                       <p className="text-muted-foreground text-sm mt-1">${item.price.toFixed(2)} per serving</p>
+                      
+                      {/* Display recipes in meal kits */}
+                      {item.recipes && item.recipes.length > 0 && (
+                        <div className="mt-3 space-y-1">
+                          <p className="text-sm font-medium">Included Recipes:</p>
+                          <ul className="text-sm text-muted-foreground pl-3">
+                            {item.recipes.map(recipe => (
+                              <li key={recipe.id} className="flex items-center">
+                                <span className="w-1 h-1 bg-foreground/50 rounded-full mr-2"></span>
+                                {recipe.name} ({recipe.portions} portions)
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                     
                     <div className="flex items-center justify-between mt-4 sm:mt-0">

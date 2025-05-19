@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Check, Info, ArrowRight, ShoppingCart } from 'lucide-react';
+import { Check, Info, ShoppingCart, Plus, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import {
@@ -13,6 +13,35 @@ import {
 } from "@/components/ui/card";
 import { useCart } from '@/hooks/use-cart';
 import { toast } from '@/hooks/use-toast';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+// Mock recipe data for selection
+const availableRecipes = [
+  { id: 'recipe-1', name: 'Spicy Chicken Curry', image: '/placeholder.svg' },
+  { id: 'recipe-2', name: 'Coconut Rice', image: '/placeholder.svg' },
+  { id: 'recipe-3', name: 'String Hoppers', image: '/placeholder.svg' },
+  { id: 'recipe-4', name: 'Vegetable Kottu', image: '/placeholder.svg' },
+  { id: 'recipe-5', name: 'Lentil Dal', image: '/placeholder.svg' },
+  { id: 'recipe-6', name: 'Egg Hoppers', image: '/placeholder.svg' },
+];
 
 const mealKits = [
   {
@@ -27,7 +56,8 @@ const mealKits = [
       'Free delivery',
       'Full refund if not satisfied'
     ],
-    popular: false
+    popular: false,
+    maxRecipes: 3
   },
   {
     id: 'family-kit',
@@ -42,7 +72,8 @@ const mealKits = [
       'Full refund if not satisfied',
       'Premium recipe options'
     ],
-    popular: true
+    popular: true,
+    maxRecipes: 4
   },
   {
     id: 'deluxe-kit',
@@ -58,25 +89,113 @@ const mealKits = [
       'Premium recipe options',
       'Specialty spice collection'
     ],
-    popular: false
+    popular: false,
+    maxRecipes: 5
   }
 ];
+
+// Type for recipe in meal kit
+type MealKitRecipe = {
+  id: string;
+  name: string;
+  image: string;
+  portions: number;
+};
 
 const SubscriptionPlans = () => {
   const [selectedPlanId, setSelectedPlanId] = useState('family-kit');
   const { addToCart } = useCart();
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedRecipeId, setSelectedRecipeId] = useState('');
+  const [portions, setPortions] = useState(2);
+  
+  // Store recipes added to each meal kit
+  const [kitRecipes, setKitRecipes] = useState<Record<string, MealKitRecipe[]>>({
+    'starter-kit': [],
+    'family-kit': [],
+    'deluxe-kit': []
+  });
+
+  const selectedPlan = mealKits.find(plan => plan.id === selectedPlanId);
+  const selectedKitRecipes = kitRecipes[selectedPlanId] || [];
+  
+  const handleOpenRecipeDialog = () => {
+    if (!selectedPlan) return;
+    if (selectedKitRecipes.length >= selectedPlan.maxRecipes) {
+      toast({
+        title: "Maximum recipes reached",
+        description: `You can only add up to ${selectedPlan.maxRecipes} recipes to this kit`,
+        variant: "destructive"
+      });
+      return;
+    }
+    setDialogOpen(true);
+    setSelectedRecipeId(availableRecipes[0].id);
+    setPortions(2);
+  };
+
+  const handleAddRecipeToKit = () => {
+    const recipe = availableRecipes.find(r => r.id === selectedRecipeId);
+    if (!recipe || !selectedPlan) return;
+    
+    // Check if recipe is already in the kit
+    const alreadyExists = selectedKitRecipes.some(r => r.id === recipe.id);
+    if (alreadyExists) {
+      toast({
+        title: "Recipe already added",
+        description: "This recipe is already in your meal kit",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    setKitRecipes(prev => ({
+      ...prev,
+      [selectedPlanId]: [
+        ...prev[selectedPlanId],
+        {
+          id: recipe.id,
+          name: recipe.name,
+          image: recipe.image,
+          portions
+        }
+      ]
+    }));
+    
+    setDialogOpen(false);
+    toast({
+      title: "Recipe added",
+      description: `${recipe.name} has been added to your ${selectedPlan.name}`,
+    });
+  };
+
+  const handleRemoveRecipe = (recipeId: string) => {
+    setKitRecipes(prev => ({
+      ...prev,
+      [selectedPlanId]: prev[selectedPlanId].filter(r => r.id !== recipeId)
+    }));
+    
+    toast({
+      title: "Recipe removed",
+      description: "Recipe has been removed from your meal kit",
+    });
+  };
 
   const handleBuyNow = (plan) => {
+    // Prepare cart item with selected recipes
+    const selectedRecipes = kitRecipes[plan.id] || [];
+    
     addToCart({
       id: plan.id,
       title: plan.name,
       image: '/placeholder.svg',
-      price: plan.price
+      price: plan.price,
+      recipes: selectedRecipes
     });
     
     toast({
       title: "Added to cart",
-      description: `${plan.name} has been added to your cart`,
+      description: `${plan.name} has been added to your cart with ${selectedRecipes.length} recipes`,
     });
   };
 
@@ -115,6 +234,60 @@ const SubscriptionPlans = () => {
                 <div className="text-sm text-foreground/70 mt-1">{plan.details}</div>
               </CardHeader>
               <CardContent>
+                {/* Recipe List */}
+                {selectedPlanId === plan.id && (
+                  <div className="mb-6">
+                    <div className="flex justify-between items-center mb-3">
+                      <h4 className="text-sm font-medium">Selected Recipes</h4>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="h-8 text-xs"
+                        onClick={handleOpenRecipeDialog}
+                      >
+                        <Plus className="h-4 w-4 mr-1" />
+                        Add Recipe
+                      </Button>
+                    </div>
+
+                    {selectedKitRecipes.length > 0 ? (
+                      <div className="space-y-2 mb-4">
+                        {selectedKitRecipes.map((recipe) => (
+                          <div 
+                            key={recipe.id} 
+                            className="flex items-center justify-between p-2 bg-muted/50 rounded-md"
+                          >
+                            <div className="flex items-center">
+                              <img 
+                                src={recipe.image} 
+                                alt={recipe.name} 
+                                className="w-8 h-8 rounded-md object-cover mr-2" 
+                              />
+                              <div>
+                                <p className="text-xs font-medium line-clamp-1">{recipe.name}</p>
+                                <p className="text-xs text-muted-foreground">{recipe.portions} portions</p>
+                              </div>
+                            </div>
+                            <Button 
+                              size="icon" 
+                              variant="ghost" 
+                              className="h-6 w-6"
+                              onClick={() => handleRemoveRecipe(recipe.id)}
+                            >
+                              <X className="h-3 w-3" />
+                            </Button>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-sm text-muted-foreground italic mb-4">
+                        No recipes selected. Add up to {plan.maxRecipes} recipes.
+                      </p>
+                    )}
+                  </div>
+                )}
+                
+                {/* Features List */}
                 <ul className="space-y-2 sm:space-y-3">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start">
@@ -173,6 +346,65 @@ const SubscriptionPlans = () => {
           </div>
         </div>
       </div>
+      
+      {/* Recipe Selection Dialog */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Add Recipe to Meal Kit</DialogTitle>
+            <DialogDescription>
+              Choose a recipe and set the number of portions you'd like to include.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="recipe" className="text-right">
+                Recipe
+              </Label>
+              <Select 
+                value={selectedRecipeId} 
+                onValueChange={setSelectedRecipeId}
+              >
+                <SelectTrigger className="col-span-3">
+                  <SelectValue placeholder="Select a recipe" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Recipes</SelectLabel>
+                    {availableRecipes.map(recipe => (
+                      <SelectItem key={recipe.id} value={recipe.id}>
+                        {recipe.name}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="portions" className="text-right">
+                Portions
+              </Label>
+              <Input
+                id="portions"
+                type="number"
+                value={portions}
+                onChange={(e) => setPortions(Math.max(1, Math.min(8, parseInt(e.target.value) || 1)))}
+                min={1}
+                max={8}
+                className="col-span-3"
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setDialogOpen(false)}>
+              Cancel
+            </Button>
+            <Button onClick={handleAddRecipeToKit}>
+              Add to Kit
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

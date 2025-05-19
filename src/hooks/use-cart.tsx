@@ -2,12 +2,20 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { toast } from '@/hooks/use-toast';
 
+export type CartRecipe = {
+  id: string;
+  name: string;
+  image: string;
+  portions: number;
+};
+
 export type CartItem = {
   id: string;
   title: string;
   image: string;
   price: number;
   quantity: number;
+  recipes?: CartRecipe[];
 };
 
 type CartContextType = {
