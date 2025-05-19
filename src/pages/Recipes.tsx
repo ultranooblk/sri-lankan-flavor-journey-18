@@ -4,31 +4,46 @@ import FilterBar from '@/components/FilterBar';
 import RecipeGrid from '@/components/RecipeGrid';
 import { Button } from '@/components/ui/button';
 import { allRecipes } from '@/services/recipeService';
+import { Loader2 } from "lucide-react";
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState(allRecipes);
   const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({});
   const [visibleRecipes, setVisibleRecipes] = useState(6);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Simulate loading state for better UX
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   const handleFilterChange = (filters: Record<string, string[]>) => {
     setSelectedFilters(filters);
+    setIsLoading(true);
     
-    if (Object.values(filters).flat().length === 0) {
-      setRecipes(allRecipes);
-    } else {
-      const filtered = allRecipes.filter(recipe => {
-        return Object.values(filters).flat().some(filter => 
-          recipe.tags.includes(filter)
-        );
-      });
-      setRecipes(filtered);
-    }
-    
-    setVisibleRecipes(6);
+    // Simulate API call delay
+    setTimeout(() => {
+      if (Object.values(filters).flat().length === 0) {
+        setRecipes(allRecipes);
+      } else {
+        const filtered = allRecipes.filter(recipe => {
+          return Object.values(filters).flat().some(filter => 
+            recipe.tags.includes(filter)
+          );
+        });
+        setRecipes(filtered);
+      }
+      
+      setVisibleRecipes(6);
+      setIsLoading(false);
+    }, 300);
   };
 
   const loadMore = () => {
@@ -47,7 +62,11 @@ const Recipes = () => {
         
         <FilterBar onFilterChange={handleFilterChange} className="mb-6 sm:mb-8" />
         
-        {recipes.length > 0 ? (
+        {isLoading ? (
+          <div className="flex justify-center items-center py-16">
+            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          </div>
+        ) : recipes.length > 0 ? (
           <>
             <RecipeGrid recipes={recipes.slice(0, visibleRecipes)} />
             

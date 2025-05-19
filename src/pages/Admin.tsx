@@ -6,7 +6,7 @@ import { useAuth } from '@/hooks/use-auth';
 import RecipeManager from '@/components/admin/RecipeManager';
 import Dashboard from '@/components/admin/Dashboard';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Shield, AlertTriangle } from 'lucide-react';
+import { Shield, AlertTriangle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Admin = () => {
@@ -14,6 +14,7 @@ const Admin = () => {
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState("dashboard");
   
   useEffect(() => {
     // Check if user is authenticated
@@ -43,7 +44,7 @@ const Admin = () => {
     return (
       <div className="container mx-auto py-20 text-center">
         <div className="flex justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+          <Loader2 className="h-12 w-12 animate-spin text-primary" />
         </div>
         <p className="mt-4 text-muted-foreground">Checking credentials...</p>
       </div>
@@ -85,17 +86,17 @@ const Admin = () => {
         )}
       </header>
 
-      <Tabs defaultValue="recipes" className="w-full">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="mb-8 w-full max-w-md bg-card border border-border">
           <TabsTrigger value="dashboard" className="flex-1">Dashboard</TabsTrigger>
           <TabsTrigger value="recipes" className="flex-1">Recipes</TabsTrigger>
         </TabsList>
         
-        <TabsContent value="dashboard">
+        <TabsContent value="dashboard" className="focus-visible:outline-none focus-visible:ring-0">
           <Dashboard />
         </TabsContent>
         
-        <TabsContent value="recipes">
+        <TabsContent value="recipes" className="focus-visible:outline-none focus-visible:ring-0">
           <RecipeManager />
         </TabsContent>
       </Tabs>

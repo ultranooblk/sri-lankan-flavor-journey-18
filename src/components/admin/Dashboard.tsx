@@ -1,17 +1,53 @@
 
+import { useState, useEffect } from "react";
 import { BarChart, LineChart, PieChart } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { allRecipes } from '@/services/recipeService';
 
 const Dashboard = () => {
-  // This is a simplified dashboard with mock data
-  // In a real app, this would fetch actual data from an API
+  const [metrics, setMetrics] = useState({
+    totalOrders: 0,
+    revenue: 0,
+    activeUsers: 0,
+  });
   
-  const popularRecipes = [
-    { id: '1', name: 'Authentic Sri Lankan Rice and Curry', orders: 142 },
-    { id: '2', name: 'Coconut Roti with Pol Sambol', orders: 98 },
-    { id: '6', name: 'Jaffna Crab Curry', orders: 87 },
-    { id: '4', name: 'Hoppers (Appam)', orders: 76 },
-  ];
+  // Calculate real metrics from data
+  useEffect(() => {
+    // In a real app, this would fetch from an API
+    // For now, we'll generate realistic data based on recipes
+    const calculateMetrics = () => {
+      // Get total number of recipes
+      const recipeCount = allRecipes.length;
+      
+      // Generate somewhat realistic metrics based on recipe count
+      const avgOrdersPerRecipe = Math.floor(Math.random() * 20) + 10; // 10-30 orders per recipe
+      const totalOrders = recipeCount * avgOrdersPerRecipe;
+      
+      const avgPricePerOrder = 18.99; // Using default price from RecipeCard
+      const revenue = Math.round(totalOrders * avgPricePerOrder);
+      
+      const activeUsers = Math.floor(totalOrders * 0.7); // Assume 70% of orders are from unique users
+      
+      setMetrics({
+        totalOrders,
+        revenue,
+        activeUsers,
+      });
+    };
+    
+    calculateMetrics();
+  }, []);
+  
+  // Get popular recipes data - sorted by their ID to simulate popularity
+  const popularRecipes = allRecipes
+    .slice() // create a copy to avoid mutating the original array
+    .sort((a, b) => Number(a.id) - Number(b.id))
+    .slice(0, 4)
+    .map(recipe => ({
+      id: recipe.id,
+      name: recipe.title,
+      orders: Math.floor(Math.random() * 50) + 50, // 50-100 orders
+    }));
 
   return (
     <div className="space-y-8">
@@ -22,7 +58,7 @@ const Dashboard = () => {
             <CardDescription>Last 30 days</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold">452</div>
+            <div className="text-3xl font-bold">{metrics.totalOrders}</div>
             <p className="text-xs text-muted-foreground mt-1">
               <span className="text-green-500">↑ 12%</span> from last month
             </p>
@@ -38,7 +74,7 @@ const Dashboard = () => {
             <CardDescription>Last 30 days</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold">$8,245</div>
+            <div className="text-3xl font-bold">${metrics.revenue.toLocaleString()}</div>
             <p className="text-xs text-muted-foreground mt-1">
               <span className="text-green-500">↑ 18%</span> from last month
             </p>
@@ -54,7 +90,7 @@ const Dashboard = () => {
             <CardDescription>Last 30 days</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold">218</div>
+            <div className="text-3xl font-bold">{metrics.activeUsers}</div>
             <p className="text-xs text-muted-foreground mt-1">
               <span className="text-green-500">↑ 5%</span> from last month
             </p>
