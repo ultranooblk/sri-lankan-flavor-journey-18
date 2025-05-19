@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import FilterBar from '@/components/FilterBar';
 import RecipeGrid from '@/components/RecipeGrid';
@@ -81,7 +80,8 @@ const Recipes = () => {
         <FilterBar 
           onFilterChange={handleFilterChange} 
           onSearchChange={handleSearchChange}
-          className="mb-6 sm:mb-8" 
+          className="mb-6 sm:mb-8"
+          recipes={allRecipes} // Pass all recipes to calculate filter counts
         />
         
         {isLoading ? (

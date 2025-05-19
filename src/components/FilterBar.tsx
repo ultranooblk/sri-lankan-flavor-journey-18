@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
+import { Recipe } from '@/services/recipeService';
 
 interface FilterOption {
   label: string;
@@ -21,9 +22,10 @@ interface FilterBarProps {
   onFilterChange: (filters: Record<string, string[]>) => void;
   onSearchChange: (searchTerm: string) => void;
   className?: string;
+  recipes: Recipe[]; // Add recipes prop
 }
 
-const FilterBar = ({ onFilterChange, onSearchChange, className = '' }: FilterBarProps) => {
+const FilterBar = ({ onFilterChange, onSearchChange, className = '', recipes }: FilterBarProps) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({
     meal: [],
@@ -31,36 +33,53 @@ const FilterBar = ({ onFilterChange, onSearchChange, className = '' }: FilterBar
     allergens: [],
   });
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
-
-  const filterGroups: FilterGroup[] = [
+  const [filterGroups, setFilterGroups] = useState<FilterGroup[]>([
     {
       name: 'meal',
       options: [
-        { label: 'Breakfast', value: 'breakfast', count: 12 },
-        { label: 'Lunch', value: 'lunch', count: 24 },
-        { label: 'Dinner', value: 'dinner', count: 18 },
-        { label: 'Dessert', value: 'dessert', count: 8 },
+        { label: 'Breakfast', value: 'breakfast', count: 0 },
+        { label: 'Lunch', value: 'lunch', count: 0 },
+        { label: 'Dinner', value: 'dinner', count: 0 },
+        { label: 'Dessert', value: 'dessert', count: 0 },
       ],
     },
     {
       name: 'dietary',
       options: [
-        { label: 'Vegetarian', value: 'vegetarian', count: 15 },
-        { label: 'Eggitarian', value: 'eggitarian', count: 7 },
-        { label: 'Non-Vegetarian', value: 'non-vegetarian', count: 30 },
-        { label: 'Vegan', value: 'vegan', count: 5 },
+        { label: 'Vegetarian', value: 'vegetarian', count: 0 },
+        { label: 'Eggitarian', value: 'eggitarian', count: 0 },
+        { label: 'Non-Vegetarian', value: 'non-vegetarian', count: 0 },
+        { label: 'Vegan', value: 'vegan', count: 0 },
       ],
     },
     {
       name: 'allergens',
       options: [
-        { label: 'Gluten-Free', value: 'gluten-free', count: 20 },
-        { label: 'Nut-Free', value: 'nut-free', count: 25 },
-        { label: 'Dairy-Free', value: 'dairy-free', count: 18 },
-        { label: 'Shellfish-Free', value: 'shellfish-free', count: 28 },
+        { label: 'Gluten-Free', value: 'gluten-free', count: 0 },
+        { label: 'Nut-Free', value: 'nut-free', count: 0 },
+        { label: 'Dairy-Free', value: 'dairy-free', count: 0 },
+        { label: 'Shellfish-Free', value: 'shellfish-free', count: 0 },
       ],
     },
-  ];
+  ]);
+
+  // Calculate filter counts based on actual recipe data
+  useEffect(() => {
+    if (recipes.length > 0) {
+      setFilterGroups(prevGroups => {
+        return prevGroups.map(group => {
+          const updatedOptions = group.options.map(option => {
+            // Count recipes that contain this tag
+            const count = recipes.filter(recipe => 
+              recipe.tags.includes(option.value)
+            ).length;
+            return { ...option, count };
+          });
+          return { ...group, options: updatedOptions };
+        });
+      });
+    }
+  }, [recipes]);
 
   // Handle search term changes with debounce
   useEffect(() => {
