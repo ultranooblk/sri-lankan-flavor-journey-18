@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import RecipeTable from '@/components/admin/RecipeTable';
 import RecipeForm from '@/components/admin/RecipeForm';
-import { Recipe, allRecipes } from '@/services/recipeService';
+import { Recipe, allRecipes } from '@/data/recipes';
 
 const RecipeManager = () => {
   const [recipes, setRecipes] = useState<Recipe[]>(allRecipes);

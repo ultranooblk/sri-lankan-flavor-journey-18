@@ -1,8 +1,9 @@
+
 import { useState, useEffect } from 'react';
 import FilterBar from '@/components/FilterBar';
 import RecipeGrid from '@/components/RecipeGrid';
 import { Button } from '@/components/ui/button';
-import { allRecipes } from '@/services/recipeService';
+import { allRecipes } from '@/data/recipes';
 import { Loader2 } from "lucide-react";
 
 const Recipes = () => {
