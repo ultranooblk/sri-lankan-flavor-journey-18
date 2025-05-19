@@ -18,11 +18,9 @@ import Cart from "./pages/Cart";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
 import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
+import HowItWorks from "./pages/HowItWorks";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
-// Remove unused App.css import if it exists
-// import './App.css';
 
 // Create a new QueryClient with better error handling
 const queryClient = new QueryClient({
@@ -58,6 +56,7 @@ const App = () => (
                     <Route path="/checkout/success" element={<CheckoutSuccess />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/admin" element={<Admin />} />
+                    <Route path="/how-it-works" element={<HowItWorks />} />
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                     <Route path="*" element={<NotFound />} />
                   </Routes>
