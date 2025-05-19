@@ -10,8 +10,8 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
+          <div className="space-y-4 text-center md:text-left">
+            <div className="flex items-center gap-2 justify-center md:justify-start">
               <div className="relative flex h-10 w-10 overflow-hidden rounded-full bg-cookme-500 items-center justify-center">
                 <span className="text-white font-display text-lg">CM</span>
               </div>
@@ -20,7 +20,7 @@ const Footer = () => {
             <p className="text-gray-600 dark:text-gray-300 text-sm">
               Bringing authentic Sri Lankan flavors to your kitchen with fresh, pre-portioned ingredients and easy-to-follow recipes.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center md:justify-start">
               <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-cookme-500 dark:hover:text-cookme-400 transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
@@ -37,7 +37,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
+          <div className="space-y-4 text-center md:text-left">
             <h3 className="font-display text-lg font-medium text-gray-900 dark:text-white">Quick Links</h3>
             <ul className="space-y-2">
               <li>
@@ -69,27 +69,27 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div className="space-y-4">
+          <div className="space-y-4 text-center md:text-left">
             <h3 className="font-display text-lg font-medium text-gray-900 dark:text-white">Contact Us</h3>
             <ul className="space-y-2">
-              <li className="flex items-center text-sm text-gray-600 dark:text-gray-300">
+              <li className="flex items-center text-sm text-gray-600 dark:text-gray-300 justify-center md:justify-start">
                 <Mail className="h-4 w-4 mr-2 text-cookme-500 dark:text-cookme-400" />
                 <a href="mailto:hello@cookme.lk" className="hover:text-cookme-500 dark:hover:text-cookme-400 transition-colors">
                   hello@cookme.lk
                 </a>
               </li>
-              <li className="flex items-center text-sm text-gray-600 dark:text-gray-300">
+              <li className="flex items-center text-sm text-gray-600 dark:text-gray-300 justify-center md:justify-start">
                 <Phone className="h-4 w-4 mr-2 text-cookme-500 dark:text-cookme-400" />
                 <a href="tel:+94112345678" className="hover:text-cookme-500 dark:hover:text-cookme-400 transition-colors">
                   +94 11 234 5678
                 </a>
               </li>
-              <li className="flex items-start text-sm text-gray-600 dark:text-gray-300">
+              <li className="flex items-start text-sm text-gray-600 dark:text-gray-300 justify-center md:justify-start">
                 <MapPin className="h-4 w-4 mr-2 text-cookme-500 dark:text-cookme-400 mt-1" />
                 <span>42 Temple Road, Colombo 3, Sri Lanka</span>
               </li>
             </ul>
-            <div className="pt-2">
+            <div className="pt-2 flex justify-center md:justify-start">
               <Button variant="outline" className="border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-cookme-500 hover:text-cookme-500 dark:hover:border-cookme-400 dark:hover:text-cookme-400">
                 Contact Support
               </Button>
@@ -97,12 +97,12 @@ const Footer = () => {
           </div>
 
           {/* Newsletter */}
-          <div className="space-y-4">
+          <div className="space-y-4 text-center md:text-left">
             <h3 className="font-display text-lg font-medium text-gray-900 dark:text-white">Stay Updated</h3>
             <p className="text-gray-600 dark:text-gray-300 text-sm">
               Subscribe to our newsletter for exclusive recipes, offers, and updates.
             </p>
-            <div className="flex">
+            <div className="flex justify-center md:justify-start">
               <Input 
                 type="email" 
                 placeholder="Your email" 

@@ -90,7 +90,7 @@ const Cart = () => {
                       <Link to={`/recipes/${item.id}`}>
                         <h3 className="font-medium hover:text-primary transition-colors">{item.title}</h3>
                       </Link>
-                      <p className="text-muted-foreground text-sm mt-1">${item.price.toFixed(2)} per serving</p>
+                      <p className="text-muted-foreground text-sm mt-1">LKR {item.price.toLocaleString()} per serving</p>
                       
                       {/* Display recipes in meal kits */}
                       {item.recipes && item.recipes.length > 0 && (
@@ -137,7 +137,7 @@ const Cart = () => {
                       </div>
                       
                       <div className="flex items-center ml-6">
-                        <span className="font-semibold mr-4">${(item.price * item.quantity).toFixed(2)}</span>
+                        <span className="font-semibold mr-4">LKR {(item.price * item.quantity).toLocaleString()}</span>
                         <Button
                           variant="ghost"
                           size="icon"
@@ -163,15 +163,15 @@ const Cart = () => {
             <div className="space-y-4 mb-6">
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Subtotal</span>
-                <span>${cartTotal.toFixed(2)}</span>
+                <span>LKR {cartTotal.toLocaleString()}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Delivery</span>
-                <span>$4.99</span>
+                <span>LKR 500</span>
               </div>
               <div className="flex justify-between pt-4 border-t border-border font-bold">
                 <span>Total</span>
-                <span>${(cartTotal + 4.99).toFixed(2)}</span>
+                <span>LKR {(cartTotal + 500).toLocaleString()}</span>
               </div>
             </div>
             
@@ -187,7 +187,7 @@ const Cart = () => {
                 </>
               ) : (
                 <>
-                  Checkout (${(cartTotal + 4.99).toFixed(2)})
+                  Checkout (LKR {(cartTotal + 500).toLocaleString()})
                 </>
               )}
             </Button>

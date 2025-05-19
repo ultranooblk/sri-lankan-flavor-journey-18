@@ -242,7 +242,7 @@ const SubscriptionPlans = () => {
                 {selectedPlanId === plan.id && (
                   <div className="mb-6">
                     <div className="flex justify-between items-center mb-3">
-                      <h4 className="text-sm font-medium">Selected Recipes</h4>
+                      <h4 className="text-sm font-medium">Selected Recipes ({selectedKitRecipes.length}/{plan.maxRecipes})</h4>
                       <Button 
                         size="sm" 
                         variant="outline" 
