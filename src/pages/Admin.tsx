@@ -42,9 +42,9 @@ const Admin = () => {
   
   if (isLoading) {
     return (
-      <div className="container mx-auto py-20 text-center">
+      <div className="container mx-auto py-16 sm:py-20 text-center">
         <div className="flex justify-center">
-          <Loader2 className="h-12 w-12 animate-spin text-primary" />
+          <Loader2 className="h-10 w-10 sm:h-12 sm:w-12 animate-spin text-primary" />
         </div>
         <p className="mt-4 text-muted-foreground">Checking credentials...</p>
       </div>
@@ -53,7 +53,7 @@ const Admin = () => {
 
   if (!isAdmin) {
     return (
-      <div className="container mx-auto py-20 max-w-md">
+      <div className="container mx-auto py-16 sm:py-20 max-w-md px-4">
         <Alert variant="destructive" className="mb-6">
           <AlertTriangle className="h-4 w-4" />
           <AlertTitle>Access Denied</AlertTitle>
@@ -69,13 +69,13 @@ const Admin = () => {
   }
 
   return (
-    <div className="container mx-auto py-10 px-4">
+    <div className="container mx-auto py-8 sm:py-10 px-4">
       <header className="mb-8">
         <div className="flex items-center gap-2 mb-2">
-          <Shield className="h-6 w-6 text-primary" />
-          <h1 className="text-3xl font-bold font-display">Admin Dashboard</h1>
+          <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+          <h1 className="text-2xl sm:text-3xl font-bold font-display">Admin Dashboard</h1>
         </div>
-        <p className="text-muted-foreground">Manage recipes, track orders, and monitor user insights</p>
+        <p className="text-muted-foreground text-sm sm:text-base">Manage recipes, track orders, and monitor user insights</p>
         
         {user && (
           <Alert className="mt-4 bg-secondary border-primary/20">
@@ -87,7 +87,7 @@ const Admin = () => {
       </header>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="mb-8 w-full max-w-md bg-card border border-border">
+        <TabsList className="mb-6 sm:mb-8 w-full max-w-md bg-card border border-border">
           <TabsTrigger value="dashboard" className="flex-1">Dashboard</TabsTrigger>
           <TabsTrigger value="recipes" className="flex-1">Recipes</TabsTrigger>
         </TabsList>

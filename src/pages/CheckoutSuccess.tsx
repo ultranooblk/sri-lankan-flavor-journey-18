@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { CheckCircle2, Calendar, Package, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/use-auth';
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const CheckoutSuccess = () => {
   const { isAuthenticated } = useAuth();
@@ -27,22 +27,22 @@ const CheckoutSuccess = () => {
   const estimatedDelivery = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toLocaleDateString();
 
   return (
-    <div className="container mx-auto px-4 py-20 min-h-screen flex flex-col items-center justify-center">
+    <div className="container mx-auto px-4 py-16 sm:py-20 min-h-screen flex flex-col items-center justify-center">
       <div className="w-full max-w-md mx-auto text-center">
-        <div className="mb-8 p-3 rounded-full bg-primary/10 w-24 h-24 flex items-center justify-center mx-auto">
-          <CheckCircle2 className="h-12 w-12 text-primary" />
+        <div className="mb-8 p-3 rounded-full bg-primary/10 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center mx-auto">
+          <CheckCircle2 className="h-10 w-10 sm:h-12 sm:w-12 text-primary" />
         </div>
         
-        <h1 className="text-3xl font-bold mb-4 font-display text-high-contrast">Order Confirmed!</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold mb-4 font-display text-high-contrast">Order Confirmed!</h1>
         
         <Alert className="mb-8 bg-secondary border-primary/20">
-          <AlertDescription className="text-lg">
+          <AlertDescription className="text-base sm:text-lg">
             Thank you for your order. Your fresh ingredients will be delivered soon.
           </AlertDescription>
         </Alert>
         
-        <div className="bg-card rounded-xl border border-border p-6 mb-8 shadow-sm">
-          <h2 className="text-xl font-semibold mb-4 text-high-contrast">Order Details</h2>
+        <div className="bg-card rounded-xl border border-border p-5 sm:p-6 mb-8 shadow-sm">
+          <h2 className="text-lg sm:text-xl font-semibold mb-4 text-high-contrast">Order Details</h2>
           
           <div className="space-y-4 text-left">
             <div className="flex items-center justify-between py-2 border-b border-border">

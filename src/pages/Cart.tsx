@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ChevronLeft, Trash2, ShoppingBag, Check, X } from 'lucide-react';
+import { ChevronLeft, Trash2, ShoppingBag, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useCart } from '@/hooks/use-cart';
@@ -16,7 +16,7 @@ const Cart = () => {
   
   if (cartItems.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-12 text-center">
+      <div className="container mx-auto px-4 py-12 md:py-16 text-center">
         <div className="max-w-md mx-auto">
           <ShoppingBag className="mx-auto h-16 w-16 text-muted-foreground mb-4" />
           <h2 className="text-2xl font-bold mb-4">Your cart is empty</h2>
@@ -45,7 +45,7 @@ const Cart = () => {
   };
   
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-12 md:py-16">
       <Button 
         variant="ghost" 
         className="mb-6 hover:bg-transparent group" 
@@ -56,7 +56,7 @@ const Cart = () => {
       </Button>
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Cart items - 2 columns */}
+        {/* Cart items - 2 columns on desktop, full width on mobile */}
         <div className="lg:col-span-2">
           <div className="bg-card rounded-xl border border-border overflow-hidden">
             <div className="px-6 py-4 border-b border-border flex justify-between items-center">
@@ -68,7 +68,7 @@ const Cart = () => {
                 onClick={clearCart}
               >
                 <Trash2 className="h-4 w-4 mr-1" />
-                Clear Cart
+                <span className="hidden sm:inline">Clear Cart</span>
               </Button>
             </div>
             
@@ -140,7 +140,7 @@ const Cart = () => {
           </div>
         </div>
         
-        {/* Order summary - 1 column */}
+        {/* Order summary - sticky on desktop */}
         <div className="lg:col-span-1">
           <div className="bg-card rounded-xl border border-border p-6 shadow-sm sticky top-24">
             <h3 className="text-xl font-bold mb-4">Order Summary</h3>
