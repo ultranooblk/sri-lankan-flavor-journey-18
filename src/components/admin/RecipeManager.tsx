@@ -17,7 +17,9 @@ const RecipeManager = () => {
   useEffect(() => {
     if (searchQuery) {
       const filteredRecipes = allRecipes.filter(recipe => 
-        recipe.title.toLowerCase().includes(searchQuery.toLowerCase())
+        recipe.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        recipe.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        recipe.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
       );
       setRecipes(filteredRecipes);
     } else {

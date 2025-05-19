@@ -11,6 +11,7 @@ const Recipes = () => {
   const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({});
   const [visibleRecipes, setVisibleRecipes] = useState(6);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -24,26 +25,43 @@ const Recipes = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleFilterChange = (filters: Record<string, string[]>) => {
-    setSelectedFilters(filters);
+  // Handle both filters and search together
+  useEffect(() => {
     setIsLoading(true);
     
     // Simulate API call delay
     setTimeout(() => {
-      if (Object.values(filters).flat().length === 0) {
-        setRecipes(allRecipes);
-      } else {
-        const filtered = allRecipes.filter(recipe => {
-          return Object.values(filters).flat().some(filter => 
-            recipe.tags.includes(filter)
-          );
-        });
-        setRecipes(filtered);
+      let filteredRecipes = allRecipes;
+      
+      // Apply search filter if searchTerm exists
+      if (searchTerm.trim()) {
+        filteredRecipes = filteredRecipes.filter(recipe => 
+          recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+          recipe.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          recipe.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+        );
       }
       
+      // Apply tag filters if any are selected
+      const selectedTags = Object.values(selectedFilters).flat();
+      if (selectedTags.length > 0) {
+        filteredRecipes = filteredRecipes.filter(recipe => 
+          selectedTags.some(filter => recipe.tags.includes(filter))
+        );
+      }
+      
+      setRecipes(filteredRecipes);
       setVisibleRecipes(6);
       setIsLoading(false);
     }, 300);
+  }, [selectedFilters, searchTerm]);
+
+  const handleFilterChange = (filters: Record<string, string[]>) => {
+    setSelectedFilters(filters);
+  };
+
+  const handleSearchChange = (term: string) => {
+    setSearchTerm(term);
   };
 
   const loadMore = () => {
@@ -60,7 +78,11 @@ const Recipes = () => {
           </p>
         </div>
         
-        <FilterBar onFilterChange={handleFilterChange} className="mb-6 sm:mb-8" />
+        <FilterBar 
+          onFilterChange={handleFilterChange} 
+          onSearchChange={handleSearchChange}
+          className="mb-6 sm:mb-8" 
+        />
         
         {isLoading ? (
           <div className="flex justify-center items-center py-16">
@@ -86,10 +108,13 @@ const Recipes = () => {
           <div className="text-center py-12 sm:py-16">
             <h3 className="text-lg sm:text-xl font-medium mb-2">No recipes found</h3>
             <p className="text-foreground/70">
-              Try adjusting your filters to find more recipes.
+              Try adjusting your filters or search term to find more recipes.
             </p>
             <Button 
-              onClick={() => handleFilterChange({})} 
+              onClick={() => {
+                handleFilterChange({});
+                handleSearchChange('');
+              }} 
               variant="outline" 
               className="mt-4 w-full sm:w-auto"
             >

@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Search, Filter, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -19,10 +19,11 @@ interface FilterGroup {
 
 interface FilterBarProps {
   onFilterChange: (filters: Record<string, string[]>) => void;
+  onSearchChange: (searchTerm: string) => void;
   className?: string;
 }
 
-const FilterBar = ({ onFilterChange, className = '' }: FilterBarProps) => {
+const FilterBar = ({ onFilterChange, onSearchChange, className = '' }: FilterBarProps) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({
     meal: [],
@@ -61,6 +62,15 @@ const FilterBar = ({ onFilterChange, className = '' }: FilterBarProps) => {
     },
   ];
 
+  // Handle search term changes with debounce
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onSearchChange(searchTerm);
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  }, [searchTerm, onSearchChange]);
+
   const handleFilterSelect = (group: string, value: string) => {
     setSelectedFilters((prev) => {
       const newFilters = { ...prev };
@@ -83,6 +93,7 @@ const FilterBar = ({ onFilterChange, className = '' }: FilterBarProps) => {
     });
     setSearchTerm('');
     onFilterChange({});
+    onSearchChange('');
   };
 
   const handleApplyFilters = () => {
