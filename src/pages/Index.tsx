@@ -18,16 +18,16 @@ const Index = () => {
   const featuredRecipes = getFeaturedRecipes();
 
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen bg-background relative overflow-hidden">
       <TextureOverlay />
       
-      <div className="absolute top-0 left-0 w-96 h-96 -translate-x-1/2 -translate-y-1/2 opacity-25 pointer-events-none z-0 max-md:w-64 max-md:h-64">
+      <div className="absolute top-0 left-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 -translate-x-1/2 -translate-y-1/2 opacity-25 pointer-events-none z-0">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <path fill="hsl(var(--primary) / 0.1)" d="M44.7,-76.4C58.8,-69.2,71.8,-58.8,79.6,-45.2C87.4,-31.7,90,-15.8,88.6,-0.8C87.3,14.2,82,28.3,74.2,42C66.3,55.7,55.9,68.9,42.2,75.9C28.4,82.9,11.2,83.6,-3.9,89.5C-19,95.5,-38,106.6,-54.8,104.9C-71.5,103.1,-85.9,88.4,-93.2,71.3C-100.6,54.2,-100.8,34.6,-100.9,16.9C-101,0.8,-101,-17.6,-93.5,-36.6C-86,-55.7,-71,-75.3,-53.2,-80.7C-35.3,-86.2,-14.7,-77.6,0.9,-79.2C16.6,-80.8,33.2,-92.5,45.2,-89.1C57.3,-85.8,70.8,-67.3,44.7,-76.4Z" transform="translate(100 100)" />
         </svg>
       </div>
       
-      <div className="absolute bottom-0 right-0 w-96 h-96 translate-x-1/3 translate-y-1/4 opacity-15 pointer-events-none z-0 max-md:w-64 max-md:h-64">
+      <div className="absolute bottom-0 right-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 translate-x-1/3 translate-y-1/4 opacity-15 pointer-events-none z-0">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <path fill="hsl(var(--accent) / 0.15)" d="M48.2,-75.3C61.1,-69,69.4,-53.3,74.9,-37.5C80.5,-21.7,83.2,-5.9,81.9,9.7C80.5,25.4,75,40.8,65.4,54.1C55.8,67.4,42,78.5,26.5,83.2C11,87.8,-6.1,86.1,-19.7,79.4C-33.4,72.6,-43.6,60.9,-53.8,48.8C-63.9,36.8,-73.9,24.4,-78.3,9.9C-82.7,-4.7,-81.3,-21.3,-73.9,-34.4C-66.5,-47.4,-53,-57,-39.7,-62.7C-26.3,-68.3,-13.1,-70,-0.7,-68.9C11.8,-67.7,23.5,-64,35.5,-63.8C47.6,-63.6,60,-63.9,48.2,-75.3Z" transform="translate(100 100)" />
         </svg>

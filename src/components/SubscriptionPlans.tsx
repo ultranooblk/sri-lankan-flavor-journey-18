@@ -81,16 +81,16 @@ const SubscriptionPlans = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-background via-background to-muted/50 dark:from-background dark:to-background/80">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-background via-background to-muted/50 dark:from-background dark:to-background/80">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Our Meal Kits</h2>
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-foreground">Our Meal Kits</h2>
           <p className="text-lg text-foreground/70">
             Discover authentic Sri Lankan flavors with our carefully curated meal kits
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
           {mealKits.map((plan) => (
             <Card 
               key={plan.id}
@@ -110,12 +110,12 @@ const SubscriptionPlans = () => {
                 <CardTitle className="text-xl">{plan.name}</CardTitle>
                 <CardDescription className="min-h-12">{plan.description}</CardDescription>
                 <div className="mt-4">
-                  <span className="text-3xl font-bold text-foreground">LKR {plan.price.toLocaleString()}</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-foreground">LKR {plan.price.toLocaleString()}</span>
                 </div>
                 <div className="text-sm text-foreground/70 mt-1">{plan.details}</div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start">
                       <Check className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
@@ -149,8 +149,8 @@ const SubscriptionPlans = () => {
           ))}
         </div>
         
-        <div className="mt-16 max-w-3xl mx-auto text-center">
-          <h3 className="text-2xl font-bold mb-6">Ready to start your culinary journey?</h3>
+        <div className="mt-12 sm:mt-16 max-w-3xl mx-auto text-center">
+          <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Ready to start your culinary journey?</h3>
           <Button 
             className="bg-primary hover:bg-primary/90 text-white mx-auto group" 
             size="lg"
@@ -165,7 +165,7 @@ const SubscriptionPlans = () => {
             <ShoppingCart className="ml-2 h-4 w-4 transition-transform group-hover:scale-110" />
           </Button>
           
-          <div className="mt-8 text-center">
+          <div className="mt-6 sm:mt-8 text-center">
             <p className="flex items-center justify-center text-sm text-foreground/70">
               <Info className="h-4 w-4 mr-2 text-primary" />
               All kits include premium ingredients and recipe instructions.
