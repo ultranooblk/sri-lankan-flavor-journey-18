@@ -1,5 +1,6 @@
+
 import { useEffect } from 'react';
-import { Leaf, Heart, Users, Graduation, Book, Rocket } from 'lucide-react';
+import { Leaf, Heart, Users, GraduationCap, Book, Rocket } from 'lucide-react';
 
 const About = () => {
   useEffect(() => {
@@ -161,7 +162,7 @@ const About = () => {
             
             <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                <Graduation className="h-6 w-6" />
+                <GraduationCap className="h-6 w-6" />
               </div>
               <div>
                 <h3 className="text-lg md:text-xl font-semibold mb-2 text-foreground">Academic Roots</h3>
