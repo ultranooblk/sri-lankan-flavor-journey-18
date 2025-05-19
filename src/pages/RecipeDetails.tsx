@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -257,11 +256,16 @@ const RecipeDetails = () => {
                 Get all ingredients for this recipe delivered straight to your door.
               </p>
               
-              {/* Serving Size Slider */}
-              <div className="mb-5 md:mb-6">
+              {/* Serving Size Slider with NEW label */}
+              <div className="mb-5 md:mb-6 relative">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-medium text-sm md:text-base">Serving Size</span>
-                  <span className="font-semibold text-sm md:text-base">{servingCount} servings</span>
+                  <span className="font-medium text-sm md:text-base">Customize Serving Size</span>
+                  <div className="flex items-center">
+                    <span className="bg-primary/10 text-primary text-xs font-medium px-1.5 py-0.5 rounded mr-2">
+                      NEW
+                    </span>
+                    <span className="font-semibold text-sm md:text-base">{servingCount} servings</span>
+                  </div>
                 </div>
                 <Slider 
                   value={[servingCount]} 
@@ -272,6 +276,9 @@ const RecipeDetails = () => {
                   onValueChange={(value) => setServingCount(value[0])}
                   aria-label="Set serving size"
                 />
+                <p className="text-xs text-muted-foreground">
+                  Adjust portions to match your needs before adding to cart
+                </p>
               </div>
               
               {/* Price Info */}

@@ -57,7 +57,8 @@ const mealKits = [
       'Full refund if not satisfied'
     ],
     popular: false,
-    maxRecipes: 3
+    maxRecipes: 3,
+    maxPortions: 2
   },
   {
     id: 'family-kit',
@@ -73,7 +74,8 @@ const mealKits = [
       'Premium recipe options'
     ],
     popular: true,
-    maxRecipes: 4
+    maxRecipes: 4,
+    maxPortions: 4
   },
   {
     id: 'deluxe-kit',
@@ -90,7 +92,8 @@ const mealKits = [
       'Specialty spice collection'
     ],
     popular: false,
-    maxRecipes: 5
+    maxRecipes: 5,
+    maxPortions: 4
   }
 ];
 
@@ -131,7 +134,8 @@ const SubscriptionPlans = () => {
     }
     setDialogOpen(true);
     setSelectedRecipeId(availableRecipes[0].id);
-    setPortions(2);
+    // Set initial portions based on the selected plan's maximum
+    setPortions(Math.min(2, selectedPlan.maxPortions));
   };
 
   const handleAddRecipeToKit = () => {
@@ -388,11 +392,18 @@ const SubscriptionPlans = () => {
                 id="portions"
                 type="number"
                 value={portions}
-                onChange={(e) => setPortions(Math.max(1, Math.min(8, parseInt(e.target.value) || 1)))}
+                onChange={(e) => {
+                  const newValue = parseInt(e.target.value) || 1;
+                  // Limit portions to the maximum allowed for the selected plan
+                  setPortions(Math.max(1, Math.min(selectedPlan?.maxPortions || 4, newValue)));
+                }}
                 min={1}
-                max={8}
+                max={selectedPlan?.maxPortions || 4}
                 className="col-span-3"
               />
+              <div className="col-span-4 text-xs text-muted-foreground text-right">
+                Maximum {selectedPlan?.maxPortions || 4} portions allowed for this kit
+              </div>
             </div>
           </div>
           <DialogFooter>
