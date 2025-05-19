@@ -46,29 +46,29 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-hellofresh-50 dark:bg-gray-900">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Get In Touch</h1>
-          <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
+    <div className="min-h-screen w-full">
+      {/* Hero Section - Optimized for all screen sizes */}
+      <section className="py-10 sm:py-12 md:py-16 lg:py-24 bg-hellofresh-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-foreground">Get In Touch</h1>
+          <p className="text-base sm:text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto px-4 sm:px-0">
             Have questions about our meal kits or interested in partnering with us? 
             We'd love to hear from you!
           </p>
         </div>
       </section>
 
-      {/* Contact Form & Info */}
-      <section className="py-16 bg-white dark:bg-gray-800">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {/* Contact Form & Info - Optimized layout for responsive design */}
+      <section className="py-8 sm:py-12 md:py-16 bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Information */}
-            <div>
-              <h2 className="text-3xl font-bold mb-8 text-hellofresh-500 dark:text-cookme-400">Contact Information</h2>
+            <div className="order-2 lg:order-1">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-hellofresh-500 dark:text-cookme-400">Contact Information</h2>
               
-              <div className="space-y-6 mb-12">
+              <div className="space-y-6 mb-8 sm:mb-12">
                 <div className="flex items-start">
-                  <div className="h-10 w-10 rounded-lg bg-hellofresh-100 dark:bg-hellofresh-950/50 flex items-center justify-center text-hellofresh-500 dark:text-cookme-400 mr-4">
+                  <div className="h-10 w-10 rounded-lg bg-hellofresh-100 dark:bg-hellofresh-950/50 flex items-center justify-center text-hellofresh-500 dark:text-cookme-400 mr-4 shrink-0">
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
@@ -82,7 +82,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="h-10 w-10 rounded-lg bg-hellofresh-100 dark:bg-hellofresh-950/50 flex items-center justify-center text-hellofresh-500 dark:text-cookme-400 mr-4">
+                  <div className="h-10 w-10 rounded-lg bg-hellofresh-100 dark:bg-hellofresh-950/50 flex items-center justify-center text-hellofresh-500 dark:text-cookme-400 mr-4 shrink-0">
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
@@ -92,7 +92,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="h-10 w-10 rounded-lg bg-hellofresh-100 dark:bg-hellofresh-950/50 flex items-center justify-center text-hellofresh-500 dark:text-cookme-400 mr-4">
+                  <div className="h-10 w-10 rounded-lg bg-hellofresh-100 dark:bg-hellofresh-950/50 flex items-center justify-center text-hellofresh-500 dark:text-cookme-400 mr-4 shrink-0">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
@@ -102,7 +102,8 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div className="rounded-lg overflow-hidden h-64 md:h-80">
+              {/* Map - Responsive height */}
+              <div className="rounded-lg overflow-hidden h-48 sm:h-56 md:h-64 lg:h-72">
                 {/* Placeholder for a map - in a real app, use Google Maps or similar */}
                 <div className="h-full w-full bg-hellofresh-100 dark:bg-hellofresh-950/30 flex items-center justify-center">
                   <span className="text-hellofresh-500 dark:text-cookme-400 font-medium">Map Location</span>
@@ -110,12 +111,12 @@ const Contact = () => {
               </div>
             </div>
             
-            {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold mb-8 text-hellofresh-500 dark:text-cookme-400">Send Us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Contact Form - Moved up on mobile */}
+            <div className="order-1 lg:order-2">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-hellofresh-500 dark:text-cookme-400">Send Us a Message</h2>
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground">
+                  <label htmlFor="name" className="block text-sm font-medium mb-1 sm:mb-2 text-foreground">
                     Your Name
                   </label>
                   <Input
@@ -125,12 +126,12 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     placeholder="John Doe"
-                    className="dark:border-gray-700"
+                    className="dark:border-gray-700 w-full"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground">
+                  <label htmlFor="email" className="block text-sm font-medium mb-1 sm:mb-2 text-foreground">
                     Email Address
                   </label>
                   <Input
@@ -141,12 +142,12 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     placeholder="john@example.com"
-                    className="dark:border-gray-700"
+                    className="dark:border-gray-700 w-full"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2 text-foreground">
+                  <label htmlFor="subject" className="block text-sm font-medium mb-1 sm:mb-2 text-foreground">
                     Subject
                   </label>
                   <Input
@@ -156,12 +157,12 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     placeholder="How can we help you?"
-                    className="dark:border-gray-700"
+                    className="dark:border-gray-700 w-full"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground">
+                  <label htmlFor="message" className="block text-sm font-medium mb-1 sm:mb-2 text-foreground">
                     Message
                   </label>
                   <Textarea
@@ -171,8 +172,8 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     placeholder="Your message here..."
-                    rows={5}
-                    className="dark:border-gray-700"
+                    rows={4}
+                    className="dark:border-gray-700 w-full"
                   />
                 </div>
                 
