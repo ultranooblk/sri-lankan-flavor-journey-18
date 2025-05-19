@@ -14,7 +14,7 @@ const About = () => {
         <div className="container mx-auto text-center px-4">
           <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-foreground">Our Story</h1>
           <p className="text-base md:text-xl text-foreground/70 max-w-3xl mx-auto">
-            We are a group of university students turning our academic idea into reality through Cook Me, 
+            We are a group of university students turning our academic project into reality through Cook Me, 
             bringing authentic Sri Lankan flavors to your kitchen.
           </p>
         </div>
@@ -50,7 +50,7 @@ const About = () => {
       <section className="py-12 md:py-16 bg-muted/50 dark:bg-background/30">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-foreground">Our Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             <div className="bg-card p-6 md:p-8 rounded-xl shadow-sm border border-border">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <Leaf className="h-6 w-6" />
@@ -71,7 +71,7 @@ const About = () => {
                 adaptations that work for modern home kitchens.
               </p>
             </div>
-            <div className="bg-card p-6 md:p-8 rounded-xl shadow-sm border border-border">
+            <div className="bg-card p-6 md:p-8 rounded-xl shadow-sm border border-border sm:col-span-2 md:col-span-1">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <Rocket className="h-6 w-6" />
               </div>
@@ -89,12 +89,12 @@ const About = () => {
       <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-foreground">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {/* Ashen */}
-            <div className="text-center">
-              <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
+            <div className="text-center bg-card p-6 rounded-xl border border-border shadow-sm hover-lift transition">
+              <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
                 <img 
-                  src={`https://i.pravatar.cc/300?img=${21}`} 
+                  src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=300&h=300" 
                   alt="Ashen" 
                   className="w-full h-full object-cover"
                 />
@@ -107,10 +107,10 @@ const About = () => {
             </div>
             
             {/* Akila */}
-            <div className="text-center">
-              <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
+            <div className="text-center bg-card p-6 rounded-xl border border-border shadow-sm hover-lift transition">
+              <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
                 <img 
-                  src={`https://i.pravatar.cc/300?img=${22}`} 
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&h=300" 
                   alt="Akila" 
                   className="w-full h-full object-cover"
                 />
@@ -123,10 +123,10 @@ const About = () => {
             </div>
             
             {/* Dinodh */}
-            <div className="text-center">
-              <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
+            <div className="text-center bg-card p-6 rounded-xl border border-border shadow-sm hover-lift transition sm:col-span-2 md:col-span-1">
+              <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
                 <img 
-                  src={`https://i.pravatar.cc/300?img=${23}`} 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&h=300" 
                   alt="Dinodh" 
                   className="w-full h-full object-cover"
                 />
@@ -146,7 +146,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center text-foreground">Our Journey</h2>
           <div className="max-w-3xl mx-auto">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8 p-6 bg-card rounded-xl border border-border shadow-sm">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
                 <Book className="h-6 w-6" />
               </div>
@@ -160,7 +160,7 @@ const About = () => {
               </div>
             </div>
             
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8 p-6 bg-card rounded-xl border border-border shadow-sm">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
                 <GraduationCap className="h-6 w-6" />
               </div>
@@ -174,7 +174,7 @@ const About = () => {
               </div>
             </div>
             
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 p-6 bg-card rounded-xl border border-border shadow-sm">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
                 <Users className="h-6 w-6" />
               </div>
