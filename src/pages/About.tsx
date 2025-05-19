@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { Leaf, Heart, Users, Graduation, Book, Rocket } from 'lucide-react';
 
@@ -14,8 +13,8 @@ const About = () => {
         <div className="container mx-auto text-center px-4">
           <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-foreground">Our Story</h1>
           <p className="text-base md:text-xl text-foreground/70 max-w-3xl mx-auto">
-            At Cook Me, we're a group of university students passionate about bringing the authentic 
-            flavors of Sri Lanka to your kitchen, turning our academic idea into reality.
+            We are a group of university students turning our academic idea into reality through Cook Me, 
+            bringing authentic Sri Lankan flavors to your kitchen.
           </p>
         </div>
       </section>
@@ -27,14 +26,12 @@ const About = () => {
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-primary">Our Mission</h2>
               <p className="text-base md:text-lg text-foreground/70 mb-4 md:mb-6">
-                As university students, we identified a gap in the market for accessible, 
-                authentic Sri Lankan cuisine. Our mission is to bridge this gap by providing 
-                high-quality meal kits that make cooking Sri Lankan food easy, enjoyable, and sustainable.
+                As university students, we're working to expand this idea into reality. Our mission is to make authentic Sri Lankan 
+                cuisine accessible to everyone through high-quality meal kits that are easy to prepare.
               </p>
               <p className="text-base md:text-lg text-foreground/70">
-                We're taking our academic project to the next level, transforming it into a 
-                real-world solution that brings the rich culinary traditions of Sri Lanka 
-                to kitchens everywhere.
+                We're taking our academic project to the next level, bringing the rich culinary traditions 
+                of Sri Lanka to kitchens everywhere.
               </p>
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg">
