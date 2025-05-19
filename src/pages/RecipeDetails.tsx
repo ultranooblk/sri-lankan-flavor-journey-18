@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -50,7 +51,7 @@ const RecipeDetails = () => {
         id: recipe.id,
         title: recipe.title,
         image: recipe.image,
-        price: 18.99 * servingCount / parseInt(recipe.servings || '2')
+        price: (recipe.price || 6500) * servingCount / parseInt(recipe.servings || '2')
       });
       
       toast({
@@ -103,9 +104,9 @@ const RecipeDetails = () => {
   }
 
   // Calculate adjusted price based on serving count
-  const basePrice = 18.99;
+  const basePrice = recipe.price || 6500; // Default to 6500 LKR if price is not specified
   const pricePerServing = basePrice / parseInt(recipe.servings || '2');
-  const adjustedPrice = (pricePerServing * servingCount).toFixed(2);
+  const adjustedPrice = (pricePerServing * servingCount).toFixed(0);
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
@@ -285,11 +286,11 @@ const RecipeDetails = () => {
               <div className="space-y-3 mb-5 md:mb-6 text-sm md:text-base">
                 <div className="flex justify-between items-center">
                   <span>Price ({servingCount} servings)</span>
-                  <span className="font-semibold">${adjustedPrice}</span>
+                  <span className="font-semibold">LKR {adjustedPrice}</span>
                 </div>
                 <div className="flex justify-between items-center pt-2 border-t border-border">
                   <span className="font-bold">Total</span>
-                  <span className="font-bold">${adjustedPrice}</span>
+                  <span className="font-bold">LKR {adjustedPrice}</span>
                 </div>
               </div>
               

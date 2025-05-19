@@ -28,7 +28,7 @@ const RecipeCard = ({
   spiceLevel,
   tags,
   description,
-  price = 18.99 // Default price if not provided
+  price = 6500 // Default price if not provided in LKR
 }: RecipeProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const { addToCart } = useCart();

@@ -25,7 +25,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '1',
     title: 'Home-Style Rice & Curry',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=2071',
+    image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80&w=2071',
     time: 45,
     servings: '2-4',
     spiceLevel: 2,
@@ -68,12 +68,12 @@ export const allRecipes: Recipe[] = [
       fat: 16
     },
     chefNotes: 'Use coconut oil and let the curry simmer for deeper flavor.',
-    price: 18.99
+    price: 6500
   },
   {
     id: '2',
     title: 'Vegetarian Feast',
-    image: 'https://images.unsplash.com/photo-1656048612927-33201fa60fff?auto=format&fit=crop&q=80&w=2070',
+    image: 'https://images.unsplash.com/photo-1599043513900-ed6fe01d3833?auto=format&fit=crop&q=80&w=2070',
     time: 40,
     servings: '2-4',
     spiceLevel: 1,
@@ -113,12 +113,12 @@ export const allRecipes: Recipe[] = [
       fat: 8
     },
     chefNotes: 'Rich in nutrients and perfect for clean, plant-based eating.',
-    price: 17.99
+    price: 5900
   },
   {
     id: '3',
     title: 'Fish Lover\'s Meal',
-    image: 'https://images.unsplash.com/photo-1609436132203-a76dc854141a?auto=format&fit=crop&q=80&w=1974',
+    image: 'https://images.unsplash.com/photo-1626164761742-fc2aa9a84795?auto=format&fit=crop&q=80&w=1974',
     time: 50,
     servings: '2-4',
     spiceLevel: 3,
@@ -158,12 +158,12 @@ export const allRecipes: Recipe[] = [
       fat: 12
     },
     chefNotes: 'Marinate the fish first for best results.',
-    price: 21.99
+    price: 7200
   },
   {
     id: '4',
     title: 'Chicken Kottu Roti',
-    image: 'https://images.unsplash.com/photo-1631292784640-2b24d91b7580?auto=format&fit=crop&q=80&w=2070',
+    image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80&w=2071',
     time: 30,
     servings: '2',
     spiceLevel: 2,
@@ -205,12 +205,12 @@ export const allRecipes: Recipe[] = [
       fat: 25
     },
     chefNotes: 'Cook everything on high heat for the best kottu-style aroma.',
-    price: 16.99
+    price: 5800
   },
   {
     id: '5',
     title: 'Lamprais',
-    image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=80&w=2074',
+    image: 'https://images.unsplash.com/photo-1623227447072-087a3d659b85?auto=format&fit=crop&q=80&w=2074',
     time: 90,
     servings: '2',
     spiceLevel: 2,
@@ -253,12 +253,12 @@ export const allRecipes: Recipe[] = [
       fat: 30
     },
     chefNotes: 'Medium spice and intense depth of flavor make it a weekend favorite.',
-    price: 22.99
+    price: 7500
   },
   {
     id: '6',
     title: 'Hoppers & Lunu Miris',
-    image: 'https://images.unsplash.com/photo-1651117128577-5c368764d5ed?auto=format&fit=crop&q=80&w=2070',
+    image: 'https://images.unsplash.com/photo-1543340713-1bf56d3d1b68?auto=format&fit=crop&q=80&w=2070',
     time: 45,
     servings: '2',
     spiceLevel: 3,
@@ -298,12 +298,12 @@ export const allRecipes: Recipe[] = [
       fat: 9
     },
     chefNotes: 'Ferment the batter in advance for best results.',
-    price: 15.99
+    price: 5200
   },
   {
     id: '7',
     title: 'Pittu & Coconut Sambol',
-    image: 'https://images.unsplash.com/photo-1560963805-6c64417e3413?auto=format&fit=crop&q=80&w=2070',
+    image: 'https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?auto=format&fit=crop&q=80&w=2070',
     time: 35,
     servings: '2',
     spiceLevel: 1,
@@ -340,12 +340,12 @@ export const allRecipes: Recipe[] = [
       fat: 15
     },
     chefNotes: 'Mild and grounding, perfect for a balanced vegetarian meal.',
-    price: 14.99
+    price: 4800
   },
   {
     id: '8',
     title: 'String Hoppers & Kiri Hodi',
-    image: 'https://images.unsplash.com/photo-1560963805-6c64417e3413?auto=format&fit=crop&q=80&w=2070',
+    image: 'https://images.unsplash.com/photo-1627308595171-d1b5d95d002b?auto=format&fit=crop&q=80&w=2070',
     time: 40,
     servings: '2',
     spiceLevel: 1,
@@ -381,12 +381,12 @@ export const allRecipes: Recipe[] = [
       fat: 12
     },
     chefNotes: 'A gentle spice level makes it great for all palates.',
-    price: 15.99
+    price: 5200
   },
   {
     id: '9',
     title: 'Beef Curry & Yellow Rice',
-    image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&q=80&w=2074',
+    image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&q=80&w=2074',
     time: 60,
     servings: '2',
     spiceLevel: 3,
@@ -429,12 +429,12 @@ export const allRecipes: Recipe[] = [
       fat: 25
     },
     chefNotes: 'This bold set fills the kitchen with heavenly aromas.',
-    price: 19.99
+    price: 6800
   },
   {
     id: '10',
     title: 'Egg Curry with Coconut Roti',
-    image: 'https://images.unsplash.com/photo-1611578658829-719723ac9fc9?auto=format&fit=crop&q=80&w=2070',
+    image: 'https://images.unsplash.com/photo-1613292443284-8d11e01aae56?auto=format&fit=crop&q=80&w=2070',
     time: 35,
     servings: '2',
     spiceLevel: 2,
@@ -475,12 +475,12 @@ export const allRecipes: Recipe[] = [
       fat: 20
     },
     chefNotes: 'Toast the roti on a clay pan for the best flavor.',
-    price: 16.99
+    price: 5600
   },
   {
     id: '11',
     title: 'Sri Lankan Brunch Delight',
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=2070',
+    image: 'https://images.unsplash.com/photo-1589301760014-d929f3979afc?auto=format&fit=crop&q=80&w=2070',
     time: 45,
     servings: '2-4',
     spiceLevel: 2,
@@ -518,12 +518,12 @@ export const allRecipes: Recipe[] = [
       fat: 18
     },
     chefNotes: 'This is a meal the whole family can enjoy.',
-    price: 20.99
+    price: 7100
   },
   {
     id: '12',
     title: 'Jackfruit Curry & Red Rice Set',
-    image: 'https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&q=80&w=2070',
+    image: 'https://images.unsplash.com/photo-1604329756574-bda1f2cada6f?auto=format&fit=crop&q=80&w=2070',
     time: 50,
     servings: '2-4',
     spiceLevel: 3,
@@ -563,7 +563,7 @@ export const allRecipes: Recipe[] = [
       fat: 8
     },
     chefNotes: 'Packed with fiber and flavor, it\'s a nutritious and satisfying meat-free option.',
-    price: 18.99
+    price: 6500
   }
 ];
 
