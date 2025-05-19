@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Check, Info, ArrowRight } from 'lucide-react';
+import { Check, Info, ArrowRight, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import {
@@ -11,70 +11,87 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useCart } from '@/hooks/use-cart';
+import { toast } from '@/hooks/use-toast';
 
-const popularPlans = [
+const mealKits = [
   {
-    id: 'weekly-2p',
-    name: 'Starter Experience',
+    id: 'starter-kit',
+    name: 'Starter Kit',
     description: 'Perfect for couples or individuals wanting to explore Sri Lankan cuisine',
     price: 3600,
-    details: '2 portions, 3 recipes per week',
+    details: '2 portions, 3 recipes',
     features: [
+      'Premium ingredients',
+      'Recipe cards included',
       'Free delivery',
-      'Weekly recipe rotation',
-      'Skip or cancel anytime',
-      'Recipe cards included'
+      'Full refund if not satisfied'
     ],
     popular: false
   },
   {
-    id: 'weekly-4p',
-    name: 'Family Feast',
+    id: 'family-kit',
+    name: 'Family Kit',
     description: 'Ideal for families or meal prep enthusiasts',
     price: 6800,
-    details: '4 portions, 4 recipes per week',
+    details: '4 portions, 4 recipes',
     features: [
-      'Free delivery',
-      'Weekly recipe rotation',
-      'Skip or cancel anytime',
+      'Premium ingredients',
       'Recipe cards included',
+      'Free delivery',
+      'Full refund if not satisfied',
       'Premium recipe options'
     ],
     popular: true
   },
   {
-    id: 'monthly-4p',
-    name: 'Monthly Explorer',
+    id: 'deluxe-kit',
+    name: 'Deluxe Explorer Kit',
     description: 'For adventurous eaters who love variety',
     price: 7200,
-    details: '4 portions, 5 recipes monthly',
+    details: '4 portions, 5 recipes',
     features: [
-      'Free delivery',
-      'Monthly curated box',
-      'Skip or cancel anytime',
+      'Premium ingredients',
       'Recipe cards included',
+      'Free delivery',
+      'Full refund if not satisfied',
       'Premium recipe options',
-      '10% discount on total price'
+      'Specialty spice collection'
     ],
     popular: false
   }
 ];
 
 const SubscriptionPlans = () => {
-  const [selectedPlanId, setSelectedPlanId] = useState('weekly-4p');
+  const [selectedPlanId, setSelectedPlanId] = useState('family-kit');
+  const { addToCart } = useCart();
+
+  const handleBuyNow = (plan) => {
+    addToCart({
+      id: plan.id,
+      title: plan.name,
+      image: '/placeholder.svg',
+      price: plan.price
+    });
+    
+    toast({
+      title: "Added to cart",
+      description: `${plan.name} has been added to your cart`,
+    });
+  };
 
   return (
     <section className="py-20 bg-gradient-to-br from-background via-background to-muted/50 dark:from-background dark:to-background/80">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Choose Your Perfect Plan</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Our Meal Kits</h2>
           <p className="text-lg text-foreground/70">
-            Discover authentic Sri Lankan flavors with our carefully curated meal plans
+            Discover authentic Sri Lankan flavors with our carefully curated meal kits
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {popularPlans.map((plan) => (
+          {mealKits.map((plan) => (
             <Card 
               key={plan.id}
               className={cn(
@@ -94,7 +111,6 @@ const SubscriptionPlans = () => {
                 <CardDescription className="min-h-12">{plan.description}</CardDescription>
                 <div className="mt-4">
                   <span className="text-3xl font-bold text-foreground">LKR {plan.price.toLocaleString()}</span>
-                  <span className="text-sm text-foreground/70 ml-1">/delivery</span>
                 </div>
                 <div className="text-sm text-foreground/70 mt-1">{plan.details}</div>
               </CardHeader>
@@ -108,7 +124,7 @@ const SubscriptionPlans = () => {
                   ))}
                 </ul>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="flex flex-col gap-3">
                 <Button 
                   className={cn(
                     "w-full",
@@ -118,7 +134,15 @@ const SubscriptionPlans = () => {
                   )}
                   onClick={() => setSelectedPlanId(plan.id)}
                 >
-                  {selectedPlanId === plan.id ? "Selected" : "Select Plan"}
+                  {selectedPlanId === plan.id ? "Selected" : "Select Kit"}
+                </Button>
+                
+                <Button 
+                  onClick={() => handleBuyNow(plan)}
+                  className={selectedPlanId === plan.id ? "w-full" : "w-full bg-muted/70 hover:bg-muted text-foreground/70"}
+                >
+                  <ShoppingCart className="mr-2 h-4 w-4" />
+                  Add to Cart
                 </Button>
               </CardFooter>
             </Card>
@@ -130,15 +154,21 @@ const SubscriptionPlans = () => {
           <Button 
             className="bg-primary hover:bg-primary/90 text-white mx-auto group" 
             size="lg"
+            onClick={() => {
+              const selectedPlan = mealKits.find(plan => plan.id === selectedPlanId);
+              if (selectedPlan) {
+                handleBuyNow(selectedPlan);
+              }
+            }}
           >
-            Subscribe Now
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            Buy Now
+            <ShoppingCart className="ml-2 h-4 w-4 transition-transform group-hover:scale-110" />
           </Button>
           
           <div className="mt-8 text-center">
             <p className="flex items-center justify-center text-sm text-foreground/70">
               <Info className="h-4 w-4 mr-2 text-primary" />
-              All plans include the option to customize your meal preferences and dietary restrictions.
+              All kits include premium ingredients and recipe instructions.
             </p>
           </div>
         </div>
