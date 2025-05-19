@@ -2,15 +2,22 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Slider } from '@/components/ui/slider';
 import { Clock, Users, ChevronLeft, Info, ShoppingCart, Heart, Share2, Video } from 'lucide-react';
 import { getRecipeById, Recipe } from '@/services/recipeService';
+import { useCart } from '@/hooks/use-cart';
 import { cn } from '@/lib/utils';
+import { toast } from '@/hooks/use-toast';
 
 const RecipeDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const [loading, setLoading] = useState(true);
+  const [servingCount, setServingCount] = useState(2);
+  const [isFavorite, setIsFavorite] = useState(false);
+  
+  const { addToCart } = useCart();
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -19,10 +26,58 @@ const RecipeDetails = () => {
       const foundRecipe = getRecipeById(id);
       if (foundRecipe) {
         setRecipe(foundRecipe);
+        // Set initial serving count from recipe if available
+        if (foundRecipe.servings) {
+          const initialServings = parseInt(foundRecipe.servings);
+          if (!isNaN(initialServings)) {
+            setServingCount(initialServings);
+          }
+        }
       }
     }
     setLoading(false);
+    
+    // Check if recipe is in favorites
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    if (id && favorites.includes(id)) {
+      setIsFavorite(true);
+    }
   }, [id]);
+
+  const handleAddToCart = () => {
+    if (recipe) {
+      addToCart({
+        id: recipe.id,
+        title: recipe.title,
+        image: recipe.image,
+        price: 18.99 * servingCount / parseInt(recipe.servings || '2')
+      });
+    }
+  };
+  
+  const handleToggleFavorite = () => {
+    if (!recipe) return;
+    
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    let updatedFavorites;
+    
+    if (isFavorite) {
+      updatedFavorites = favorites.filter((favId: string) => favId !== recipe.id);
+      toast({
+        title: "Removed from favorites",
+        description: `${recipe.title} has been removed from your favorites`,
+      });
+    } else {
+      updatedFavorites = [...favorites, recipe.id];
+      toast({
+        title: "Added to favorites",
+        description: `${recipe.title} has been added to your favorites`,
+      });
+    }
+    
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    setIsFavorite(!isFavorite);
+  };
 
   if (loading) {
     return (
@@ -41,6 +96,11 @@ const RecipeDetails = () => {
       </div>
     );
   }
+
+  // Calculate adjusted price based on serving count
+  const basePrice = 18.99;
+  const pricePerServing = basePrice / parseInt(recipe.servings || '2');
+  const adjustedPrice = (pricePerServing * servingCount).toFixed(2);
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -91,8 +151,17 @@ const RecipeDetails = () => {
               className="w-full h-full object-cover rounded-xl"
             />
             <div className="absolute top-4 right-4 flex space-x-2">
-              <Button size="icon" className="rounded-full bg-white/80 hover:bg-white text-primary">
-                <Heart className="h-5 w-5" />
+              <Button 
+                size="icon" 
+                className={cn(
+                  "rounded-full hover:bg-white", 
+                  isFavorite 
+                    ? "bg-white text-red-500" 
+                    : "bg-white/80 text-primary"
+                )}
+                onClick={handleToggleFavorite}
+              >
+                <Heart className="h-5 w-5" fill={isFavorite ? "currentColor" : "none"} />
               </Button>
               <Button size="icon" className="rounded-full bg-white/80 hover:bg-white text-primary">
                 <Share2 className="h-5 w-5" />
@@ -167,23 +236,49 @@ const RecipeDetails = () => {
                 Get all ingredients for this recipe delivered straight to your door.
               </p>
               
+              <div className="mb-6">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="font-medium">Serving Size</span>
+                  <span className="font-semibold">{servingCount} servings</span>
+                </div>
+                <Slider 
+                  defaultValue={[servingCount]} 
+                  min={1} 
+                  max={8} 
+                  step={1}
+                  className="mb-6"
+                  onValueChange={(value) => setServingCount(value[0])}
+                />
+              </div>
+              
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between items-center">
-                  <span>Base price ({recipe?.servings} servings)</span>
-                  <span className="font-semibold">$18.99</span>
+                  <span>Price ({servingCount} servings)</span>
+                  <span className="font-semibold">${adjustedPrice}</span>
                 </div>
                 <div className="flex justify-between items-center pt-2 border-t border-border">
                   <span className="font-bold">Total</span>
-                  <span className="font-bold">$18.99</span>
+                  <span className="font-bold">${adjustedPrice}</span>
                 </div>
               </div>
               
-              <Button className="w-full mb-3">
+              <Button 
+                className="w-full mb-3"
+                onClick={handleAddToCart}
+              >
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 Add to Cart
               </Button>
-              <Button variant="outline" className="w-full">
-                Add to Favorites
+              <Button 
+                variant="outline" 
+                className={cn(
+                  "w-full", 
+                  isFavorite && "bg-primary/5 border-primary/20 text-primary"
+                )}
+                onClick={handleToggleFavorite}
+              >
+                <Heart className="mr-2 h-4 w-4" fill={isFavorite ? "currentColor" : "none"} />
+                {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
               </Button>
             </div>
             
