@@ -10,11 +10,11 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 
-// Updated to use external hosted images
+// Updated to use high-resolution banner images
 const heroImages = [
-  'https://i.ibb.co/zWqxjvK6/web-banner-1.png', // First banner
-  'https://i.ibb.co/fdgy0cfW/web-banner-2.png', // Second banner
-  'https://i.ibb.co/XZ6J4nYY/web-banner-3.png', // Third banner
+  'https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&q=80&w=2070', // Sri Lankan spices and curry
+  'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=2070', // Food spread
+  'https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&q=80&w=2070', // Cooking with spices
 ];
 
 const Hero = () => {

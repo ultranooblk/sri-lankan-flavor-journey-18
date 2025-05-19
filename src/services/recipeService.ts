@@ -19,12 +19,12 @@ export interface Recipe {
   price?: number;
 }
 
-// Sample data for all recipes
+// Sample data for all recipes with high-resolution images
 export const allRecipes: Recipe[] = [
   {
     id: '1',
     title: 'Authentic Sri Lankan Rice and Curry',
-    image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&h=400',
+    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=2071',
     time: 45,
     servings: '2-4',
     spiceLevel: 3,
@@ -70,7 +70,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '2',
     title: 'Coconut Roti with Pol Sambol',
-    image: 'https://images.unsplash.com/photo-1619057883606-0faad403da2a?auto=format&fit=crop&w=600&h=400',
+    image: 'https://images.unsplash.com/photo-1656048612927-33201fa60fff?auto=format&fit=crop&q=80&w=2070',
     time: 30,
     servings: '2',
     spiceLevel: 2,
@@ -112,7 +112,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '3',
     title: 'Lamprais (Dutch-Burgher Influenced)',
-    image: '/assets/recipe-3.jpg',
+    image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=80&w=2074',
     time: 60,
     servings: '2',
     spiceLevel: 3,
@@ -157,7 +157,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '4',
     title: 'Hoppers (Appam)',
-    image: '/assets/recipe-4.jpg',
+    image: 'https://images.unsplash.com/photo-1651117128577-5c368764d5ed?auto=format&fit=crop&q=80&w=2070',
     time: 40,
     servings: '2',
     spiceLevel: 1,
@@ -196,7 +196,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '5',
     title: 'String Hoppers with Curry',
-    image: '/assets/recipe-5.jpg',
+    image: 'https://images.unsplash.com/photo-1560963805-6c64417e3413?auto=format&fit=crop&q=80&w=2070',
     time: 50,
     servings: '2-3',
     spiceLevel: 2,
@@ -237,7 +237,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '6',
     title: 'Jaffna Crab Curry',
-    image: '/assets/recipe-6.jpg',
+    image: 'https://images.unsplash.com/photo-1609436132203-a76dc854141a?auto=format&fit=crop&q=80&w=1974',
     time: 55,
     servings: '2',
     spiceLevel: 4,
@@ -283,7 +283,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '7',
     title: 'Vegetable Kottu Roti',
-    image: '/assets/recipe-7.jpg',
+    image: 'https://images.unsplash.com/photo-1631292784640-2b24d91b7580?auto=format&fit=crop&q=80&w=2070',
     time: 35,
     servings: '2',
     spiceLevel: 3,
@@ -328,7 +328,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '8',
     title: 'Cashew Curry',
-    image: '/assets/recipe-8.jpg',
+    image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&q=80&w=2074',
     time: 40,
     servings: '4',
     spiceLevel: 2,
@@ -371,7 +371,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '9',
     title: 'Watalappan (Coconut Custard)',
-    image: '/assets/recipe-9.jpg',
+    image: 'https://images.unsplash.com/photo-1611578658829-719723ac9fc9?auto=format&fit=crop&q=80&w=2070',
     time: 60,
     servings: '6',
     spiceLevel: 1,
