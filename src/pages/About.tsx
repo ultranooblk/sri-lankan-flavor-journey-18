@@ -1,6 +1,6 @@
 
 import { useEffect } from 'react';
-import { Leaf, Heart, Users } from 'lucide-react';
+import { Leaf, Heart, Users, Graduation, Book, Rocket } from 'lucide-react';
 
 const About = () => {
   useEffect(() => {
@@ -10,32 +10,31 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-muted/50 dark:bg-background/30">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Our Story</h1>
-          <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
-            At Cook Me, we're passionate about bringing the authentic flavors of Sri Lanka
-            to your kitchen, making it easy to prepare delicious meals at home.
+      <section className="py-12 md:py-20 bg-muted/50 dark:bg-background/30">
+        <div className="container mx-auto text-center px-4">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-foreground">Our Story</h1>
+          <p className="text-base md:text-xl text-foreground/70 max-w-3xl mx-auto">
+            At Cook Me, we're a group of university students passionate about bringing the authentic 
+            flavors of Sri Lanka to your kitchen, turning our academic idea into reality.
           </p>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section className="py-12 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-primary">Our Mission</h2>
-              <p className="text-lg text-foreground/70 mb-6">
-                We believe everyone should be able to enjoy authentic Sri Lankan cuisine, 
-                regardless of their cooking experience. Our mission is to provide 
-                high-quality meal kits that make cooking Sri Lankan food accessible, 
-                enjoyable, and sustainable.
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-primary">Our Mission</h2>
+              <p className="text-base md:text-lg text-foreground/70 mb-4 md:mb-6">
+                As university students, we identified a gap in the market for accessible, 
+                authentic Sri Lankan cuisine. Our mission is to bridge this gap by providing 
+                high-quality meal kits that make cooking Sri Lankan food easy, enjoyable, and sustainable.
               </p>
-              <p className="text-lg text-foreground/70">
-                Every recipe we create is tested extensively to ensure it's both authentic 
-                and adaptable to home kitchens, with clear instructions that make even complex 
-                dishes feel approachable.
+              <p className="text-base md:text-lg text-foreground/70">
+                We're taking our academic project to the next level, transforming it into a 
+                real-world solution that brings the rich culinary traditions of Sri Lanka 
+                to kitchens everywhere.
               </p>
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg">
@@ -50,38 +49,38 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-muted/50 dark:bg-background/30">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center text-foreground">Our Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-card p-8 rounded-xl shadow-sm border border-border">
+      <section className="py-12 md:py-16 bg-muted/50 dark:bg-background/30">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-foreground">Our Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div className="bg-card p-6 md:p-8 rounded-xl shadow-sm border border-border">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <Leaf className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-card-foreground">Sustainability</h3>
-              <p className="text-card-foreground/70">
+              <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-card-foreground">Sustainability</h3>
+              <p className="text-card-foreground/70 text-sm md:text-base">
                 We work directly with local farmers to reduce our carbon footprint and 
                 use eco-friendly packaging to minimize waste.
               </p>
             </div>
-            <div className="bg-card p-8 rounded-xl shadow-sm border border-border">
+            <div className="bg-card p-6 md:p-8 rounded-xl shadow-sm border border-border">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <Heart className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-card-foreground">Authenticity</h3>
-              <p className="text-card-foreground/70">
+              <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-card-foreground">Authenticity</h3>
+              <p className="text-card-foreground/70 text-sm md:text-base">
                 Every recipe stays true to traditional Sri Lankan flavors while making 
                 adaptations that work for modern home kitchens.
               </p>
             </div>
-            <div className="bg-card p-8 rounded-xl shadow-sm border border-border">
+            <div className="bg-card p-6 md:p-8 rounded-xl shadow-sm border border-border">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
-                <Users className="h-6 w-6" />
+                <Rocket className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-card-foreground">Community</h3>
-              <p className="text-card-foreground/70">
-                We support the livelihoods of Sri Lankan farmers and create a community 
-                of food lovers who share our passion for authentic cuisine.
+              <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-card-foreground">Innovation</h3>
+              <p className="text-card-foreground/70 text-sm md:text-base">
+                As students, we approach problems with fresh perspectives, constantly 
+                seeking innovative solutions to make Sri Lankan cuisine more accessible.
               </p>
             </div>
           </div>
@@ -89,26 +88,107 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center text-foreground">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((member) => (
-              <div key={member} className="text-center">
-                <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden">
-                  <img 
-                    src={`https://i.pravatar.cc/300?img=${20 + member}`} 
-                    alt={`Team member ${member}`} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-1 text-foreground">Team Member {member}</h3>
-                <p className="text-primary mb-3">Co-Founder</p>
-                <p className="text-foreground/70 max-w-md mx-auto">
-                  Passionate about sharing the authentic flavors of Sri Lanka with the world.
+      <section className="py-12 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-foreground">Meet Our Team</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Ashen */}
+            <div className="text-center">
+              <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
+                <img 
+                  src={`https://i.pravatar.cc/300?img=${21}`} 
+                  alt="Ashen" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-lg md:text-xl font-semibold mb-1 text-foreground">Ashen</h3>
+              <p className="text-primary mb-2 md:mb-3 text-sm md:text-base">Co-Founder</p>
+              <p className="text-foreground/70 max-w-md mx-auto text-sm md:text-base">
+                Computer Science student passionate about bringing tech solutions to traditional cuisine.
+              </p>
+            </div>
+            
+            {/* Akila */}
+            <div className="text-center">
+              <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
+                <img 
+                  src={`https://i.pravatar.cc/300?img=${22}`} 
+                  alt="Akila" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-lg md:text-xl font-semibold mb-1 text-foreground">Akila</h3>
+              <p className="text-primary mb-2 md:mb-3 text-sm md:text-base">Co-Founder</p>
+              <p className="text-foreground/70 max-w-md mx-auto text-sm md:text-base">
+                Food Science major with expertise in Sri Lankan culinary traditions and meal kit development.
+              </p>
+            </div>
+            
+            {/* Dinodh */}
+            <div className="text-center">
+              <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
+                <img 
+                  src={`https://i.pravatar.cc/300?img=${23}`} 
+                  alt="Dinodh" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-lg md:text-xl font-semibold mb-1 text-foreground">Dinodh</h3>
+              <p className="text-primary mb-2 md:mb-3 text-sm md:text-base">Co-Founder</p>
+              <p className="text-foreground/70 max-w-md mx-auto text-sm md:text-base">
+                Business student focused on sustainable supply chains and ethical sourcing practices.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Student Journey Section */}
+      <section className="py-12 md:py-16 bg-muted/50 dark:bg-background/30">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center text-foreground">Our Journey</h2>
+          <div className="max-w-3xl mx-auto">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                <Book className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-foreground">From Classroom to Kitchen</h3>
+                <p className="text-foreground/70 text-sm md:text-base">
+                  Cook Me began as a university project, where we identified the lack of accessible
+                  Sri Lankan cuisine as a market opportunity. What started as an academic exercise
+                  has evolved into our passion project.
                 </p>
               </div>
-            ))}
+            </div>
+            
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                <Graduation className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-foreground">Academic Roots</h3>
+                <p className="text-foreground/70 text-sm md:text-base">
+                  Our diverse academic backgrounds in computer science, food science, and business
+                  give us a unique perspective on solving the challenges of bringing authentic
+                  Sri Lankan cuisine to a wider audience.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                <Users className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-foreground">Growing Community</h3>
+                <p className="text-foreground/70 text-sm md:text-base">
+                  We're building more than just a business—we're creating a community that
+                  celebrates Sri Lankan culinary heritage and makes it accessible to everyone,
+                  regardless of their cooking experience.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
