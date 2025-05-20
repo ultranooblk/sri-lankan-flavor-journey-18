@@ -201,19 +201,6 @@ const BrandTone = () => (
   </div>
 );
 
-<div className="mt-8">
-  <div className="relative w-full max-w-3xl mx-auto aspect-video">
-    <video
-      controls
-      className="rounded-lg shadow-md w-full"
-      poster="/images/video-poster.jpg" // Optional placeholder
-    >
-      <source src="/How it Works.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
-
 
 
 import { Utensils, Calendar, Truck, ChefHat } from 'lucide-react';
@@ -248,6 +235,17 @@ const HowItWorksSteps = () => {
 
   return (
     <div className="space-y-10">
+      {/* Video Preview */}
+      <div className="w-full max-w-4xl mx-auto mb-10">
+        <div className="aspect-video rounded-lg overflow-hidden shadow-md">
+          <video controls className="w-full h-full object-cover">
+            <source src="/How it Works.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      {/* Step-by-step guidance */}
       {steps.map((step, i) => (
         <div key={i} className="flex items-start gap-4">
           <div className="h-12 w-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-bold">
@@ -265,6 +263,8 @@ const HowItWorksSteps = () => {
     </div>
   );
 };
+
+export default HowItWorksSteps;
 
 
 const HowItWorks = () => {
