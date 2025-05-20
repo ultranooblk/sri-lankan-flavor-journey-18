@@ -206,10 +206,20 @@ const BrandTone = () => (
 import { Utensils, Calendar, Truck, ChefHat } from 'lucide-react';
 
 const HowItWorksSteps = () => {
+  <div className="space-y-10">
+      {/* Video Preview */}
+      <div className="w-full max-w-4xl mx-auto mb-10">
+        <div className="aspect-video rounded-lg overflow-hidden shadow-md">
+          <video controls className="w-full h-full object-cover">
+            <source src="/How it Works.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
   const steps = [
     {
       number: 1,
-      title: "Choose Your Recipes VIDEO IS HERE",
+      title: "Choose Your Recipes VIDEO IS HERE 1",
       description: "Browse our authentic Sri Lankan recipe collection and select based on your taste.",
       icon: <Utensils className="h-6 w-6 text-primary" />
     },
@@ -234,16 +244,6 @@ const HowItWorksSteps = () => {
   ];
 
   return (
-    <div className="space-y-10">
-      {/* Video Preview */}
-      <div className="w-full max-w-4xl mx-auto mb-10">
-        <div className="aspect-video rounded-lg overflow-hidden shadow-md">
-          <video controls className="w-full h-full object-cover">
-            <source src="/How it Works.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
 
       {/* Step-by-step guidance */}
       {steps.map((step, i) => (
