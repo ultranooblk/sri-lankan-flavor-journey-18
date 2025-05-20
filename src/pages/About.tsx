@@ -102,14 +102,14 @@ const About = () => {
               <h3 className="text-lg md:text-xl font-semibold mb-1 text-foreground">Ashen</h3>
               <p className="text-primary mb-2 md:mb-3 text-sm md:text-base">Co-Founder</p>
               <p className="text-foreground/70 max-w-md mx-auto text-sm md:text-base">
-                Computer Science student passionate about bringing tech solutions to traditional cuisine.
+                Renowned content writer with a strong background in branding.
               </p>
             </div>
             
             <div className="text-center bg-card p-6 rounded-xl border border-border shadow-sm hover-lift transition">
               <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
                 <img 
-                  src="https://scontent.xx.fbcdn.net/v/t39.30808-6/496390062_24503796885875675_3053854725926493953_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFkQT2GlNMZgNKDLO5jjT86c0gmUrs2DKpzSCZSuzYMqtsLa-gaDNnmJlUQT8-juKIcT18EzXKSvALD3V1WrHDE&_nc_ohc=k2hLL-effwQQ7kNvwEgV1go&_nc_oc=AdlihrRj3QBRVZIu96UsYPxPIE0CMK3gC1jsC-dBYx82Ges3jGqQY4CvHeAMXBnkWD8&_nc_zt=23&_nc_ht=scontent.xx&_nc_gid=_AS5vdCu4ZmR7IQJtDmc-w&oh=00_AfIYPxCkTrhWbdWUTsgXirFlVKUPGn6sajVx8oAcLyXcmw&oe=6831DD61" 
+                  src="https://scontent.xx.fbcdn.net/v/t39.30808-6/465382261_9493437687338174_1650029545870472627_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeFfiL0UbYEUqckYkgDrBYnogLSTaOwAKcSAtJNo7AApxDPaeZdxtT7GN2tzKW_AOKUEZ6KRV7X_lmEavzI8655_&_nc_ohc=Qa4HxXjZRv4Q7kNvwGOP78c&_nc_oc=AdkwR5a-GbAis5kiB0Qk9kReYqpxljiYUqqoRosDvYVW_cu02gSKNpI3Zxw-vsGrSCg&_nc_zt=23&_nc_ht=scontent.xx&_nc_gid=qqFp9bKYMqcfWGX_Rdzeyw&oh=00_AfL0VjnNr_7iDiP8rqt1iT3y_cZURZ0E-EZRBMbCgY3laA&oe=6831D18B" 
                   alt="Akila" 
                   className="w-full h-full object-cover"
                 />
@@ -117,14 +117,14 @@ const About = () => {
               <h3 className="text-lg md:text-xl font-semibold mb-1 text-foreground">Akila</h3>
               <p className="text-primary mb-2 md:mb-3 text-sm md:text-base">Co-Founder</p>
               <p className="text-foreground/70 max-w-md mx-auto text-sm md:text-base">
-                Food Science major with expertise in Sri Lankan culinary traditions and meal kit development.
+                A creative producer with a flair for marketing.
               </p>
             </div>
             
             <div className="text-center bg-card p-6 rounded-xl border border-border shadow-sm hover-lift transition sm:col-span-2 md:col-span-1">
               <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&h=300" 
+                  src="https://scontent.xx.fbcdn.net/v/t39.30808-6/480950880_1834009194019928_1412971232575456457_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHjcEEWSwP_emljaGFY0XwTDVVMVek0ERANVUxV6TQREMZZPfSeSPbzzTtLtABrtn-6bvFnoDlIFsEHrXi8LVRz&_nc_ohc=Gts3t9hnxIUQ7kNvwHEby7x&_nc_oc=AdlTo0MG1Gu3RcpN7BKxslooS5I1RV0IkQqxWMzKUWpiEc22DsTbeFPbF9lAoJDLiCQ&_nc_zt=23&_nc_ht=scontent.xx&_nc_gid=Lohn9fB7k-Ri9OijlUCGbw&oh=00_AfJw-ThleH1JTeglsC57uAcepOeaLejpc0A0m2lS4KaCSg&oe=6831E24A" 
                   alt="Dinodh" 
                   className="w-full h-full object-cover"
                 />
@@ -132,7 +132,7 @@ const About = () => {
               <h3 className="text-lg md:text-xl font-semibold mb-1 text-foreground">Dinodh</h3>
               <p className="text-primary mb-2 md:mb-3 text-sm md:text-base">Co-Founder</p>
               <p className="text-foreground/70 max-w-md mx-auto text-sm md:text-base">
-                Business student focused on sustainable supply chains and ethical sourcing practices.
+                Visual designer at a major TV channel.
               </p>
             </div>
           </div>
@@ -149,11 +149,9 @@ const About = () => {
                 <Book className="h-6 w-6" />
               </div>
               <div>
-                <h3 className="text-lg md:text-xl font-semibold mb-2 text-foreground">From Classroom to Kitchen</h3>
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-foreground">Idea to Impact</h3>
                 <p className="text-foreground/70 text-sm md:text-base">
-                  Cook Me began as a university project, where we identified the lack of accessible
-                  Sri Lankan cuisine as a market opportunity. What started as an academic exercise
-                  has evolved into our passion project.
+                  Cook Me started with a simple goal: to reimagine how Sri Lankan cuisine is experienced and shared. Driven by a passion for storytelling, creativity, and cultural pride, we transformed an idea into a growing culinary brand.
                 </p>
               </div>
             </div>
@@ -165,9 +163,7 @@ const About = () => {
               <div>
                 <h3 className="text-lg md:text-xl font-semibold mb-2 text-foreground">Academic Roots</h3>
                 <p className="text-foreground/70 text-sm md:text-base">
-                  Our diverse academic backgrounds in computer science, food science, and business
-                  give us a unique perspective on solving the challenges of bringing authentic
-                  Sri Lankan cuisine to a wider audience.
+                  With backgrounds in content writing, marketing, and visual design, our team brings a unique creative blend. This mix allows us to communicate culture effectively, shape memorable experiences, and build a strong, engaging brand.
                 </p>
               </div>
             </div>
@@ -179,9 +175,7 @@ const About = () => {
               <div>
                 <h3 className="text-lg md:text-xl font-semibold mb-2 text-foreground">Growing Community</h3>
                 <p className="text-foreground/70 text-sm md:text-base">
-                  We're building more than just a business—we're creating a community that
-                  celebrates Sri Lankan culinary heritage and makes it accessible to everyone,
-                  regardless of their cooking experience.
+                  We're not just building a product—we're building a movement. Cook Me is about honoring Sri Lankan culinary traditions, modernizing them with creativity, and making them accessible and exciting for a global audience.
                 </p>
               </div>
             </div>
