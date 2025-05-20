@@ -201,65 +201,56 @@ const BrandTone = () => (
   </div>
 );
 
-// Steps component - improved for responsive design
-const HowItWorksSteps = () => (
-  <div className="relative">
-    {/* Connecting line - visible on tablet and up */}
-    <div className="absolute left-[26px] top-10 bottom-10 w-1 bg-primary/20 hidden sm:block"></div>
-    
-    <div className="space-y-12">
-      {[
-        { 
-          number: 1, 
-          title: "Choose Your Recipes", 
-          description: "Browse our authentic Sri Lankan recipe collection and select what appeals to you based on your dietary preferences and tastes.",
-          
-        },
-        { 
-          number: 2, 
-          title: "Select Your Plan", 
-          description: "Pick a flexible plan that suits your needs - from individual portions to family-sized meals, one-time orders or recurring subscriptions.",
-          
-        },
-        { 
-          number: 3, 
-          title: "Receive Your Ingredients", 
-          description: "We deliver fresh, pre-portioned ingredients right to your doorstep in eco-friendly packaging.",
-          
-        },
-        { 
-          number: 4, 
-          title: "Cook & Enjoy", 
-          description: "Follow our easy step-by-step instructions or video tutorials to prepare authentic Sri Lankan meals in your own kitchen.",
-          
-        }
-      ].map((step, i) => (
-        <div key={i} className="flex flex-col sm:flex-row gap-6 sm:gap-8">
-          <div className="flex items-start sm:items-center">
-            <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-primary flex items-center justify-center text-white text-lg sm:text-xl font-bold z-10">
-              {step.number}
-            </div>
+import { Utensils, Calendar, Truck, ChefHat } from 'lucide-react';
+
+const HowItWorksSteps = () => {
+  const steps = [
+    {
+      number: 1,
+      title: "Choose Your Recipes",
+      description: "Browse our authentic Sri Lankan recipe collection and select based on your taste.",
+      icon: <Utensils className="h-6 w-6 text-primary" />
+    },
+    {
+      number: 2,
+      title: "Select Your Plan",
+      description: "Pick a flexible plan with portion sizes and frequency that works for you.",
+      icon: <Calendar className="h-6 w-6 text-primary" />
+    },
+    {
+      number: 3,
+      title: "Receive Your Ingredients",
+      description: "Fresh, pre-portioned ingredients delivered right to your doorstep.",
+      icon: <Truck className="h-6 w-6 text-primary" />
+    },
+    {
+      number: 4,
+      title: "Cook & Enjoy",
+      description: "Follow our recipe card or video tutorial to cook with ease.",
+      icon: <ChefHat className="h-6 w-6 text-primary" />
+    }
+  ];
+
+  return (
+    <div className="space-y-10">
+      {steps.map((step, i) => (
+        <div key={i} className="flex items-start gap-4">
+          <div className="h-12 w-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-bold">
+            {step.number}
           </div>
-          <div className="flex-1 bg-card rounded-xl overflow-hidden border border-border shadow-sm">
-            <div className="grid grid-cols-1 md:grid-cols-5">
-              <div className="md:col-span-2">
-                <img 
-                  src={step.image} 
-                  alt={step.title} 
-                  className="w-full h-48 md:h-full object-cover"
-                />
-              </div>
-              <div className="p-4 sm:p-6 md:col-span-3">
-                <h3 className="text-lg sm:text-xl font-bold mb-2">{step.title}</h3>
-                <p className="text-foreground/70 text-sm sm:text-base">{step.description}</p>
-              </div>
+          <div className="flex-1 bg-card p-5 rounded-xl border border-border shadow-sm">
+            <div className="flex items-center gap-3 mb-2">
+              {step.icon}
+              <h3 className="text-lg font-bold">{step.title}</h3>
             </div>
+            <p className="text-sm text-foreground/70">{step.description}</p>
           </div>
         </div>
       ))}
     </div>
-  </div>
-);
+  );
+};
+
 
 const HowItWorks = () => {
   useEffect(() => {
