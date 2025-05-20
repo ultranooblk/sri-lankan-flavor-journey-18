@@ -11,11 +11,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4 text-center md:text-left">
             <div className="flex items-center gap-3 justify-center md:justify-start">
-  <img src="/images/logo.png" alt="Cook Me Logo" className="h-12 w-auto" />
-  <span className="font-display text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-    Cook Me
-  </span>
-</div>
+          <img src="/images/logo.png" alt="Cook Me Logo" className="h-12 w-auto" />
+           <span className="font-display text-xl font-semibold tracking-tight">
+          Cook Me
+          </span>
+          </div>
 
             <p className="text-gray-600 dark:text-gray-300 text-sm">
               Bringing authentic Sri Lankan flavors to your kitchen with fresh, pre-portioned ingredients and easy-to-follow recipes.
