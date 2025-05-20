@@ -94,7 +94,7 @@ const About = () => {
             <div className="text-center bg-card p-6 rounded-xl border border-border shadow-sm hover-lift transition">
               <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=300&h=300" 
+                  src="https://media.licdn.com/dms/image/v2/D5603AQGyv4Cwf-tktw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726231524029?e=1753315200&v=beta&t=-Vbr7uYzXPuQbsYoSznbVRQIsf21Inj0zIH0Zy8bv-4=crop&w=300&h=300" 
                   alt="Ashen" 
                   className="w-full h-full object-cover"
                 />
