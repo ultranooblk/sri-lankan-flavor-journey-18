@@ -286,6 +286,18 @@ const HowItWorks = () => {
         </div>
       </section>
 
+      <section className="bg-background py-10">
+  <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+    <div className="aspect-video rounded-lg overflow-hidden shadow-md">
+      <video controls className="w-full h-full object-cover">
+        <source src="/how-it-works.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+
       {/* Steps Section */}
       <section className="py-12 sm:py-16 bg-background">
         <div className="container mx-auto px-4 sm:px-6">
