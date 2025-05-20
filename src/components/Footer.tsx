@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,7 +12,7 @@ const Footer = () => {
           <div className="space-y-4 text-center md:text-left">
             <div className="flex items-center gap-2 justify-center md:justify-start">
               <div className="relative flex h-10 w-10 overflow-hidden rounded-full bg-cookme-500 items-center justify-center">
-                <span className="text-white font-display text-lg">CM</span>
+                <img src="/img/logo.png" alt="Cook Me Logo" className="h-8 w-auto" />
               </div>
               <span className="font-display text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Cook Me</span>
             </div>
