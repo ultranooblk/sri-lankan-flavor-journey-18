@@ -220,7 +220,7 @@ const HowItWorksSteps = () => {
     {
       number: 1,
       title: "Choose Your Recipes VIDEO IS HERE 1",
-      description: "Browse our authentic Sri Lankan recipe collection and select based on your taste.",
+      description: "Browse our authentic Sri Lankan recipe uyfyuj collection and select based on your taste.",
       icon: <Utensils className="h-6 w-6 text-primary" />
     },
     {
