@@ -77,7 +77,7 @@ const Hero = () => {
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-6 backdrop-blur-sm bg-black/70 py-4 sm:py-6 px-3 sm:px-4 rounded-lg">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
-                Taste the Authentic <br></br> <span className="block text-primary">Srii Lankan</span> <br></br> Flavors
+                Taste the Authentic <br></br> <span className="block text-primary">Sri Lankan</span>Flavors
             </h1>
             <p className="mt-3 sm:mt-4 text-lg sm:text-xl md:text-2xl text-white/90 font-light drop-shadow-md">
               Bringing traditional recipes to your doorstep
