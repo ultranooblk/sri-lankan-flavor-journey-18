@@ -13,9 +13,10 @@ import {
 
 // Updated to use high-resolution banner images
 const heroImages = [
-  'https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&q=80&w=2070', // Sri Lankan spices and curry
-  'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=2070', // Food spread
-  'https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&q=80&w=2070', // Cooking with spices
+  '/images/Slide (1).png', // Sri Lankan spices and curry
+  '/images/Slide (2).png',
+  '/images/Slide (3).png',
+  '/images/Slide (4).png',
 ];
 
 const Hero = () => {
