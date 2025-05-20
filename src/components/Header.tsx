@@ -44,12 +44,11 @@ const Header = () => {
       isScrolled ? 'glass-morphism' : 'bg-transparent'
     )}>
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="relative flex h-10 w-10 overflow-hidden rounded-full bg-primary items-center justify-center">
-            <img src="images/logo.png" alt="Cook Me Logo" className="h-8 w-auto" />
-          </span>
-          <span className="font-display text-xl font-bold tracking-tight">Cook Me</span>
+        <Link to="/" className="flex items-center gap-3">
+            <img src="/images/logo.png" alt="Cook Me Logo" className="h-12 w-auto" />
+           <span className="font-display text-xl font-bold tracking-tight text-white">Cook Me</span>
         </Link>
+
 
         <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
