@@ -208,31 +208,29 @@ const HowItWorksSteps = () => (
     <div className="absolute left-[26px] top-10 bottom-10 w-1 bg-primary/20 hidden sm:block"></div>
     
     <div className="space-y-12">
-      {[
-        { 
-          number: 1, 
-          title: "Choose Your Recipes", 
-          description: "Browse our authentic Sri Lankan recipe collection and select what appeals to you based on your dietary preferences and tastes.",
-          image: "https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&q=80&w=600"
-        },
-        { 
-          number: 2, 
-          title: "Select Your Plan", 
-          description: "Pick a flexible plan that suits your needs - from individual portions to family-sized meals, one-time orders or recurring subscriptions.",
-          image: "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?auto=format&fit=crop&q=80&w=600"
-        },
-        { 
-          number: 3, 
-          title: "Receive Your Ingredients", 
-          description: "We deliver fresh, pre-portioned ingredients right to your doorstep in eco-friendly packaging.",
-          image: "https://images.unsplash.com/photo-1584473457493-87c449408b81?auto=format&fit=crop&q=80&w=600"
-        },
-        { 
-          number: 4, 
-          title: "Cook & Enjoy", 
-          description: "Follow our easy step-by-step instructions or video tutorials to prepare authentic Sri Lankan meals in your own kitchen.",
-          image: "https://images.unsplash.com/photo-1513135467880-6c41603bfdd8?auto=format&fit=crop&q=80&w=600"
-        }
+      {[[
+  { 
+    number: 1, 
+    title: "Choose Your Recipes", 
+    description: "Browse our authentic Sri Lankan recipe collection and select what appeals to you based on your dietary preferences and tastes."
+  },
+  { 
+    number: 2, 
+    title: "Select Your Plan", 
+    description: "Pick a flexible plan that suits your needs - from individual portions to family-sized meals, one-time orders or recurring subscriptions."
+  },
+  { 
+    number: 3, 
+    title: "Receive Your Ingredients", 
+    description: "We deliver fresh, pre-portioned ingredients right to your doorstep in eco-friendly packaging."
+  },
+  { 
+    number: 4, 
+    title: "Cook & Enjoy", 
+    description: "Follow our easy step-by-step instructions or video tutorials to prepare authentic Sri Lankan meals in your own kitchen."
+  }
+]
+
       ].map((step, i) => (
         <div key={i} className="flex flex-col sm:flex-row gap-6 sm:gap-8">
           <div className="flex items-start sm:items-center">
