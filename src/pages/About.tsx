@@ -109,7 +109,7 @@ const About = () => {
             <div className="text-center bg-card p-6 rounded-xl border border-border shadow-sm hover-lift transition">
               <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&h=300" 
+                  src="https://scontent.xx.fbcdn.net/v/t39.30808-6/496390062_24503796885875675_3053854725926493953_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFkQT2GlNMZgNKDLO5jjT86c0gmUrs2DKpzSCZSuzYMqtsLa-gaDNnmJlUQT8-juKIcT18EzXKSvALD3V1WrHDE&_nc_ohc=k2hLL-effwQQ7kNvwEgV1go&_nc_oc=AdlihrRj3QBRVZIu96UsYPxPIE0CMK3gC1jsC-dBYx82Ges3jGqQY4CvHeAMXBnkWD8&_nc_zt=23&_nc_ht=scontent.xx&_nc_gid=_AS5vdCu4ZmR7IQJtDmc-w&oh=00_AfIYPxCkTrhWbdWUTsgXirFlVKUPGn6sajVx8oAcLyXcmw&oe=6831DD61" 
                   alt="Akila" 
                   className="w-full h-full object-cover"
                 />
