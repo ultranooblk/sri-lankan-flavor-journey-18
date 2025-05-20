@@ -13,10 +13,10 @@ import {
 
 // Updated to use high-resolution banner images
 const heroImages = [
-  '/images/Slide (1).png', // Sri Lankan spices and curry
-  '/images/Slide (2).png',
-  '/images/Slide (3).png',
-  '/images/Slide (4).png',
+  '/images/Slide-1.png', // Sri Lankan spices and curry
+  '/images/Slide-2.png',
+  '/images/Slide-3.png',
+  '/images/Slide-4.png',
 ];
 
 const Hero = () => {
