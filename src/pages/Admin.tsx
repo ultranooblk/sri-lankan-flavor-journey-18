@@ -8,6 +8,10 @@ import Dashboard from '@/components/admin/Dashboard';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Shield, AlertTriangle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { toast } from '@/hooks/use-toast';
+
+// Admin roles - in a real app, this would come from a backend
+const ADMIN_EMAILS = ['admin@example.com', 'test@example.com'];
 
 const Admin = () => {
   const { isAuthenticated, user } = useAuth();
@@ -23,18 +27,24 @@ const Admin = () => {
       return;
     }
     
-    // In a real app, this would check if the user has admin role
-    // For this demo, we'll simulate an admin check with a timeout
+    // Check if the user has admin privileges
     setIsLoading(true);
-    const checkAdminStatus = setTimeout(() => {
-      // For demo purposes, all authenticated users are considered admins
-      // In a real app, you would check the user's role from the backend
+    
+    // In a real app with proper roles, you would check user roles from backend
+    // For this demo, we'll check against a list of admin emails
+    if (user && ADMIN_EMAILS.includes(user.email)) {
       setIsAdmin(true);
       setIsLoading(false);
-    }, 500);
-    
-    return () => clearTimeout(checkAdminStatus);
-  }, [isAuthenticated, navigate]);
+    } else {
+      setIsAdmin(false);
+      setIsLoading(false);
+      toast({
+        title: "Access Denied",
+        description: "You don't have admin privileges to access this area",
+        variant: "destructive"
+      });
+    }
+  }, [isAuthenticated, navigate, user]);
 
   if (!isAuthenticated) {
     return null;

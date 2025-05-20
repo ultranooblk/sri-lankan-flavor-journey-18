@@ -1,6 +1,12 @@
 
 import { Recipe } from '@/data/recipes/types';
-import { allRecipes } from '@/data/recipes/recipes';
+import { allRecipes as recipes } from '@/data/recipes/recipes';
+
+// Re-export the Recipe type
+export type { Recipe };
+
+// Re-export the recipes array
+export const allRecipes = recipes;
 
 /**
  * Get a recipe by its ID
