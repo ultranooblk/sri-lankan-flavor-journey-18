@@ -73,9 +73,9 @@ const Admin = () => {
       <header className="mb-8">
         <div className="flex items-center gap-2 mb-2">
           <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-          <h1 className="text-2xl sm:text-3xl font-bold font-display">Admin Dashboard</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold font-display">Admin Portal</h1>
         </div>
-        <p className="text-muted-foreground text-sm sm:text-base">Manage recipes, track orders, and monitor user insights</p>
+        <p className="text-muted-foreground text-sm sm:text-base">Manage recipes, track orders, and monitor customer insights</p>
         
         {user && (
           <Alert className="mt-4 bg-secondary border-primary/20">

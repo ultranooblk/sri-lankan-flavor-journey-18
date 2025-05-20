@@ -1,8 +1,19 @@
 
 import { useState, useEffect } from "react";
-import { BarChart, LineChart, PieChart } from "lucide-react";
+import { BarChart, LineChart, PieChart, Package } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { allRecipes } from '@/services/recipeService';
+
+// Define types for our data structures
+interface OrderData {
+  id: string;
+  customer: string;
+  date: string;
+  items: number;
+  status: 'delivered' | 'processing' | 'shipped';
+  total: number;
+}
 
 const Dashboard = () => {
   const [metrics, setMetrics] = useState({
@@ -11,22 +22,63 @@ const Dashboard = () => {
     activeUsers: 0,
   });
   
+  const [orders, setOrders] = useState<OrderData[]>([]);
+  
   // Calculate real metrics from data
   useEffect(() => {
     // In a real app, this would fetch from an API
-    // For now, we'll generate realistic data based on recipes
+    // For now, we'll generate realistic order data
     const calculateMetrics = () => {
-      // Get total number of recipes
-      const recipeCount = allRecipes.length;
+      // Create realistic order data
+      const orderData: OrderData[] = [
+        {
+          id: "ORD-7924",
+          customer: "Sarah Johnson",
+          date: "2025-05-18",
+          items: 3,
+          status: "delivered",
+          total: 2899
+        },
+        {
+          id: "ORD-7823",
+          customer: "Michael Chen",
+          date: "2025-05-17",
+          items: 2,
+          status: "shipped",
+          total: 1799
+        },
+        {
+          id: "ORD-7731",
+          customer: "Emma Watson",
+          date: "2025-05-16",
+          items: 4,
+          status: "processing",
+          total: 3499
+        },
+        {
+          id: "ORD-7645",
+          customer: "David Kim",
+          date: "2025-05-15",
+          items: 1,
+          status: "delivered",
+          total: 999
+        },
+        {
+          id: "ORD-7542",
+          customer: "Lisa Rodriguez",
+          date: "2025-05-14",
+          items: 2,
+          status: "delivered",
+          total: 1899
+        }
+      ];
       
-      // Generate somewhat realistic metrics based on recipe count
-      const avgOrdersPerRecipe = Math.floor(Math.random() * 20) + 10; // 10-30 orders per recipe
-      const totalOrders = recipeCount * avgOrdersPerRecipe;
+      setOrders(orderData);
       
-      const avgPricePerOrder = 18.99; // Using default price from RecipeCard
-      const revenue = Math.round(totalOrders * avgPricePerOrder);
-      
-      const activeUsers = Math.floor(totalOrders * 0.7); // Assume 70% of orders are from unique users
+      // Calculate metrics based on the order data
+      const totalOrders = orderData.length;
+      const revenue = orderData.reduce((sum, order) => sum + order.total, 0);
+      const activeUsers = new Set(orderData.map(order => order.customer)).size;
       
       setMetrics({
         totalOrders,
@@ -48,6 +100,16 @@ const Dashboard = () => {
       name: recipe.title,
       orders: Math.floor(Math.random() * 50) + 50, // 50-100 orders
     }));
+
+  // Helper function to get status color
+  const getStatusColor = (status: string) => {
+    switch(status) {
+      case 'delivered': return 'text-green-500';
+      case 'processing': return 'text-amber-500';
+      case 'shipped': return 'text-blue-500';
+      default: return 'text-gray-500';
+    }
+  };
 
   return (
     <div className="space-y-8">
@@ -74,7 +136,7 @@ const Dashboard = () => {
             <CardDescription>Last 30 days</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold">${metrics.revenue.toLocaleString()}</div>
+            <div className="text-3xl font-bold">LKR {metrics.revenue.toLocaleString()}</div>
             <p className="text-xs text-muted-foreground mt-1">
               <span className="text-green-500">↑ 18%</span> from last month
             </p>
@@ -100,6 +162,43 @@ const Dashboard = () => {
           </CardContent>
         </Card>
       </div>
+      
+      <Card>
+        <CardHeader>
+          <CardTitle>Recent Orders</CardTitle>
+          <CardDescription>Latest customer orders from the past week</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Order ID</TableHead>
+                <TableHead>Customer</TableHead>
+                <TableHead>Date</TableHead>
+                <TableHead>Items</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead className="text-right">Amount</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {orders.map((order) => (
+                <TableRow key={order.id}>
+                  <TableCell className="font-medium">{order.id}</TableCell>
+                  <TableCell>{order.customer}</TableCell>
+                  <TableCell>{order.date}</TableCell>
+                  <TableCell>{order.items}</TableCell>
+                  <TableCell>
+                    <span className={`font-medium ${getStatusColor(order.status)}`}>
+                      {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+                    </span>
+                  </TableCell>
+                  <TableCell className="text-right">LKR {order.total.toLocaleString()}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
       
       <Card>
         <CardHeader>
