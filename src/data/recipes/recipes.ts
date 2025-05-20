@@ -1,3 +1,4 @@
+
 import { Recipe } from './types';
 
 // Sample data for all recipes with high-resolution images
@@ -5,7 +6,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '1',
     title: 'Home-Style Rice & Curry',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=2071',
+    image: '/images/recipes/Home-Style Rice & Curry.webp',
     time: 45,
     servings: '2-4',
     spiceLevel: 2,
@@ -53,7 +54,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '2',
     title: 'Vegetarian Feast',
-    image: 'https://images.unsplash.com/photo-1656048612927-33201fa60fff?auto=format&fit=crop&q=80&w=2070',
+    image: '/images/recipes/Vegetarian Feast.webp',
     time: 40,
     servings: '2-4',
     spiceLevel: 1,
@@ -98,7 +99,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '3',
     title: 'Fish Lover\'s Meal',
-    image: 'https://images.unsplash.com/photo-1609436132203-a76dc854141a?auto=format&fit=crop&q=80&w=1974',
+    image: '/images/recipes/Fish Lover\'s Meal.webp',
     time: 50,
     servings: '2-4',
     spiceLevel: 3,
@@ -143,7 +144,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '4',
     title: 'Chicken Kottu Roti',
-    image: 'https://images.unsplash.com/photo-1631292784640-2b24d91b7580?auto=format&fit=crop&q=80&w=2070',
+    image: '/images/recipes/Chicken Kottu Roti.webp',
     time: 30,
     servings: '2',
     spiceLevel: 2,
@@ -190,7 +191,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '5',
     title: 'Lamprais',
-    image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=80&w=2074',
+    image: '/images/recipes/Lamprais.webp',
     time: 90,
     servings: '2',
     spiceLevel: 2,
@@ -238,7 +239,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '6',
     title: 'Hoppers & Lunu Miris',
-    image: 'https://images.unsplash.com/photo-1651117128577-5c368764d5ed?auto=format&fit=crop&q=80&w=2070',
+    image: '/images/recipes/Hoppers & Lunu Miris.webp',
     time: 45,
     servings: '2',
     spiceLevel: 3,
@@ -283,7 +284,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '7',
     title: 'Pittu & Coconut Sambol',
-    image: 'https://images.unsplash.com/photo-1560963805-6c64417e3413?auto=format&fit=crop&q=80&w=2070',
+    image: '/images/recipes/Pittu & Coconut Sambol.webp',
     time: 35,
     servings: '2',
     spiceLevel: 1,
@@ -325,7 +326,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '8',
     title: 'String Hoppers & Kiri Hodi',
-    image: 'https://images.unsplash.com/photo-1560963805-6c64417e3413?auto=format&fit=crop&q=80&w=2070',
+    image: '/images/recipes/String Hoppers & Kiri Hodi.webp',
     time: 40,
     servings: '2',
     spiceLevel: 1,
@@ -366,7 +367,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '9',
     title: 'Beef Curry & Yellow Rice',
-    image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&q=80&w=2074',
+    image: '/images/recipes/Beef Curry & Yellow Rice.webp',
     time: 60,
     servings: '2',
     spiceLevel: 3,
@@ -414,7 +415,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '10',
     title: 'Egg Curry with Coconut Roti',
-    image: 'https://images.unsplash.com/photo-1611578658829-719723ac9fc9?auto=format&fit=crop&q=80&w=2070',
+    image: '/images/recipes/Egg Curry with Coconut Roti.webp',
     time: 35,
     servings: '2',
     spiceLevel: 2,
@@ -460,7 +461,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '11',
     title: 'Sri Lankan Brunch Delight',
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=2070',
+    image: '/images/recipes/Sri Lankan Brunch Delight.webp',
     time: 45,
     servings: '2-4',
     spiceLevel: 2,
@@ -503,7 +504,7 @@ export const allRecipes: Recipe[] = [
   {
     id: '12',
     title: 'Jackfruit Curry & Red Rice Set',
-    image: 'https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&q=80&w=2070',
+    image: '/images/recipes/Jackfruit Curry & Red Rice Set.webp',
     time: 50,
     servings: '2-4',
     spiceLevel: 3,

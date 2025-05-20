@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Check, Info, ShoppingCart, Plus, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -32,16 +31,14 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { allRecipes } from '@/data/recipes';
 
-// Mock recipe data for selection
-const availableRecipes = [
-  { id: 'recipe-1', name: 'Spicy Chicken Curry', image: '/placeholder.svg' },
-  { id: 'recipe-2', name: 'Coconut Rice', image: '/placeholder.svg' },
-  { id: 'recipe-3', name: 'String Hoppers', image: '/placeholder.svg' },
-  { id: 'recipe-4', name: 'Vegetable Kottu', image: '/placeholder.svg' },
-  { id: 'recipe-5', name: 'Lentil Dal', image: '/placeholder.svg' },
-  { id: 'recipe-6', name: 'Egg Hoppers', image: '/placeholder.svg' },
-];
+// Get recipes from our actual recipe database instead of using mock data
+const availableRecipes = allRecipes.map(recipe => ({
+  id: recipe.id,
+  name: recipe.title,
+  image: recipe.image
+}));
 
 const mealKits = [
   {
