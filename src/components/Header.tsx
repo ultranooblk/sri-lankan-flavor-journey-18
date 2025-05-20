@@ -45,7 +45,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <span className="relative flex h-10 w-10 overflow-hidden rounded-full bg-primary items-center justify-center">
-            <span className="text-white font-display text-lg">CM</span>
+            <img src="/img/logo.png" alt="Cook Me Logo" className="h-6 w-auto" />
           </span>
           <span className="font-display text-xl font-bold tracking-tight">Cook Me</span>
         </Link>
