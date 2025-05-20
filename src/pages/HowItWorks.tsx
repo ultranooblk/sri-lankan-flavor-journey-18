@@ -201,6 +201,21 @@ const BrandTone = () => (
   </div>
 );
 
+<div className="mt-8">
+  <div className="relative w-full max-w-3xl mx-auto aspect-video">
+    <video
+      controls
+      className="rounded-lg shadow-md w-full"
+      poster="/images/video-poster.jpg" // Optional placeholder
+    >
+      <source src="/How it Works.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+
+
 import { Utensils, Calendar, Truck, ChefHat } from 'lucide-react';
 
 const HowItWorksSteps = () => {
